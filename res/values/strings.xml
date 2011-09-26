@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, Openemrload!</string>
+    <string name="app_name">OpenEMR</string>
+    <string name="srv">http://192.168.1.118</string>
+    <string name="settings">Openemr settings</string>
+</resources>
