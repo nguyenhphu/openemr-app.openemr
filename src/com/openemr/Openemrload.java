@@ -1,10 +1,8 @@
 package com.openemr;
 
-//test change from eclipse3
+//git test4
+//push from eclipse
 import android.app.Activity;
-import android.app.ActivityGroup;
-import android.app.LocalActivityManager;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.Window;
