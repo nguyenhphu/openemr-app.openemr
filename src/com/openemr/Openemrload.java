@@ -1,10 +1,6 @@
 package com.openemr;
 
-<<<<<<< HEAD
 
-=======
-//push from eclipse
->>>>>>> refs/remotes/origin/master
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.KeyEvent;
