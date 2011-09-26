@@ -1,6 +1,6 @@
 package com.openemr;
 
-//test change from eclipse2
+//test change from eclipse3
 import android.app.Activity;
 import android.app.ActivityGroup;
 import android.app.LocalActivityManager;
