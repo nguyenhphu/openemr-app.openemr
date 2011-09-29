@@ -2,7 +2,9 @@ package com.openemr;
 
 //push from eclipse
 import android.app.Activity;
+//import android.app.FragmentActivity;
 import android.os.Bundle;
+import android.content.Intent;
 import android.view.KeyEvent;
 import android.view.Window;
 import android.view.Menu;
@@ -11,6 +13,9 @@ import android.view.MenuItem;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+
+
+
  
 //must convert to use fragments
 public class Openemrload extends Activity
@@ -92,7 +97,8 @@ public class Openemrload extends Activity
         //do not call super.onMenuItemSelected(featureId, item) here
     	switch (item.getItemId()) {
         case R.id.settings:
-        	
+        	Intent i = new Intent(Openemrload.this, Preferences.class);
+        	startActivity(i);
             return true;
         default:
             return super.onOptionsItemSelected(item);
@@ -101,6 +107,13 @@ public class Openemrload extends Activity
      
 }
 
+
+
+
+//public class settings extends FragmentActivity
+//{
+
+//}
   
 
    

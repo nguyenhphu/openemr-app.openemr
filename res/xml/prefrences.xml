@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="Server Adress">
+        <EditTextPreference android:defaultValue="@string/srv" android:title="IP" android:summary="Url of Openemr server" android:key="IP"></EditTextPreference>
+    </PreferenceCategory>
+    
+</PreferenceScreen>
