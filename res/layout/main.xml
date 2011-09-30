@@ -1,15 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical">
+    <FrameLayout android:id="@+id/frameLayout" android:layout_width="fill_parent" android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <WebView 
-        android:id="@+id/webview"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-    />
-    
-    
+   		<merge>
+    	<com.sileria.android.SlidingTray android:id="@+id/drawer" 
+			android:layout_width="fill_parent" 
+        	android:layout_height="fill_parent" 
+        	android:handle="@+id/handle" 
+        	android:content="@+id/content">
+                
+                <Button 
+                	android:text="Handle" 
+                	android:layout_width="wrap_content" 
+                	android:layout_height="wrap_content" 
+                	android:id="@+id/handle">
+                </Button>
+				<WebView 
+            		android:id="@+id/webview"
+        			android:layout_width="fill_parent"
+        			android:layout_height="fill_parent"
+    				/>
+                
+                
+    	</com.sileria.android.SlidingTray>
+   		</merge>
+   
+   
+   
+        
+    </FrameLayout>
 
-</LinearLayout>
+    
