@@ -2,7 +2,7 @@ package com.openemr;
 
 //push from eclipse
 import android.app.Activity;
-//import android.app.FragmentActivity;
+
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.content.Intent;
@@ -15,15 +15,10 @@ import android.view.MenuItem;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-
-//import android.widget.Button;
-//import android.widget.TextView;
-
 import com.openemr.Openemrload;
 import com.openemr.Preferences;
 import com.openemr.R;
-import com.sileria.android.Kit;
-//import com.sileria.android.SlidingTray;
+
 
 
 public class Openemrload extends Activity {
@@ -38,12 +33,12 @@ public class Openemrload extends Activity {
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
-    	Kit.init(getApplicationContext());
+    	//Kit.init(getApplicationContext());
         super.onCreate(savedInstanceState);
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
 		this.getWindow().requestFeature(Window.FEATURE_PROGRESS);
         setContentView(R.layout.main);
-		webview = (WebView) findViewById(R.id.webview);
+		webview = (WebView) findViewById(R.id.webview0);
 		webview.getSettings().setJavaScriptEnabled(true);
 		
 		//webviewclient and webchromeclient will need to have there own classes soon currently creating them anew at runtime
@@ -80,17 +75,7 @@ public class Openemrload extends Activity {
 	       	   	
 		}		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+			
 		
 	@Override //handle back button event
 	public boolean onKeyDown(int keyCode, KeyEvent event) 
