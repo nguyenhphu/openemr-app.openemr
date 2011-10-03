@@ -13,12 +13,7 @@ public class Preferences extends PreferenceActivity {
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
 	    addPreferencesFromResource(R.xml.prefrences);
+	
 	}
-	//dummy code
-	//private void SavePreferences(IP, String value){
-	   //SharedPreferences sharedPreferences = getPreferences(MODE_PRIVATE);
-	    //SharedPreferences.Editor editor = sharedPreferences.edit();
-	    //editor.putString(key, value);
-	    //editor.commit();
-	   //}
+	
 }

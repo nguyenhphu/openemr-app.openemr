@@ -4,12 +4,12 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
-           <WebView 
-        		android:id="@+id/webview0"
-        			android:layout_width="fill_parent"
-        			android:layout_height="fill_parent"
-    				/>  
-
+    <WebView 
+        	android:id="@+id/MainBrowser"
+        	android:layout_width="fill_parent"
+        	android:layout_height="fill_parent"
+    />  
+           
      
     <SlidingDrawer
         android:id="@+id/slidingDrawer"
@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         
         android:handle="@+id/handle"
-        android:content="@+id/linearLayout1">
+        android:content="@+id/webview1">
              
         <Button
             android:id="@id/handle"
@@ -25,11 +25,12 @@
             android:layout_height="wrap_content"
             android:text="Drawer Handle"/>
                
-           <TextView android:id="@id/linearLayout1"
+        <WebView 
+        	android:id="@+id/webview1"
         	android:layout_width="fill_parent"
-        	android:layout_height="wrap_content"
-        	android:text="@string/hello"/>
-        
+        	android:layout_height="fill_parent"
+    	/>  
+
         
         
     </SlidingDrawer>

@@ -17,6 +17,7 @@
         <activity android:name="Preferences" android:label="Preferences">
             <intent-filter></intent-filter>
         </activity>
+        <activity android:name="Browser"></activity>
 
     </application>
 </manifest>

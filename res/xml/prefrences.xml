@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <PreferenceCategory android:title="Server Adress">
+    <PreferenceCategory android:title="Server Address">
         <EditTextPreference android:defaultValue="@string/srv" android:title="IP" android:summary="Url of Openemr server" android:key="IP"></EditTextPreference>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Authentication">
+        <EditTextPreference android:key="user" android:title="User" android:defaultValue="username"></EditTextPreference>
+        <EditTextPreference android:key="pass" android:title="Pass" android:defaultValue="password"></EditTextPreference>
     </PreferenceCategory>
     
 </PreferenceScreen>
