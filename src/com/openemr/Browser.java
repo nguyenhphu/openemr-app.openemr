@@ -33,8 +33,8 @@ public class Browser extends Activity
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
         this.getWindow().requestFeature(Window.FEATURE_PROGRESS);
         setContentView(R.layout.main);
-        this.load(R.id.MainBrowser, "/openemr");
-        this.load(R.id.webview1, "/openemr/interface/main/main_screen.php");
+        this.load(R.id.webview0, "/openemr");
+        
 	  //  webview.loadUrl(preferences.getString("IP", getString(R.string.srv))+"/openemr");
 	   //	this.load(R.id.webview1, "/openemr");
        //webview.loadUrl(preferences.getString("IP", getString(R.string.srv))+"/openemr");

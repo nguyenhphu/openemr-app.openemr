@@ -17,12 +17,16 @@ public final class R {
         public static final int logo1=0x7f020003;
     }
     public static final class id {
-        public static final int MainBrowser=0x7f060000;
-        public static final int fragment1=0x7f060005;
+        public static final int button1=0x7f060005;
+        public static final int button2=0x7f060006;
+        public static final int button3=0x7f060007;
+        public static final int fragment1=0x7f060009;
         public static final int handle=0x7f060002;
-        public static final int settings=0x7f060004;
+        public static final int linearLayout1=0x7f060003;
+        public static final int linearLayout2=0x7f060004;
+        public static final int settings=0x7f060008;
         public static final int slidingDrawer=0x7f060001;
-        public static final int webview1=0x7f060003;
+        public static final int webview0=0x7f060000;
     }
     public static final class layout {
         public static final int main=0x7f030000;
@@ -30,6 +34,43 @@ public final class R {
         public static final int settings=0x7f030002;
     }
     public static final class string {
+        public static final int OpenemrAddOrEditDrug=0x7f050018;
+        public static final int OpenemrAddressBook=0x7f05000f;
+        public static final int OpenemrAuthorizations=0x7f05000b;
+        public static final int OpenemrAuthorizationsFull=0x7f05000c;
+        public static final int OpenemrCalendarOnly=0x7f05000d;
+        public static final int OpenemrCalendarSchedule=0x7f050006;
+        public static final int OpenemrCreatePatientVitalStatsInstance=0x7f050028;
+        public static final int OpenemrCreateWorkSchoolNotes=0x7f05001f;
+        public static final int OpenemrDestroyDrugLot=0x7f05001a;
+        public static final int OpenemrDispenseDrug=0x7f05001b;
+        public static final int OpenemrDrugInventory=0x7f05001c;
+        public static final int OpenemrEditDrugLot=0x7f050019;
+        public static final int OpenemrHtmNavigation=0x7f050007;
+        public static final int OpenemrLabExchangeSystem=0x7f050017;
+        public static final int OpenemrLabResultsMessages=0x7f05000a;
+        public static final int OpenemrLeftNav=0x7f050005;
+        public static final int OpenemrMainPage=0x7f050004;
+        public static final int OpenemrMessages=0x7f050009;
+        public static final int OpenemrNewDictation=0x7f050021;
+        public static final int OpenemrNewPatient=0x7f050008;
+        public static final int OpenemrOfficeNotes=0x7f05000e;
+        public static final int OpenemrOrderProcedure=0x7f050023;
+        public static final int OpenemrOrderTypesAndResults=0x7f050016;
+        public static final int OpenemrOrdersResults=0x7f050010;
+        public static final int OpenemrPatientEncounterForm=0x7f05001e;
+        public static final int OpenemrPendingFollowup=0x7f050013;
+        public static final int OpenemrPendingOrders=0x7f050014;
+        public static final int OpenemrPrintNotes=0x7f05001d;
+        public static final int OpenemrProcedureStatistics=0x7f050015;
+        public static final int OpenemrReportsIndex=0x7f050011;
+        public static final int OpenemrReviewBodySystemsROS=0x7f050025;
+        public static final int OpenemrReviewOfBodySystemsChecked=0x7f050026;
+        public static final int OpenemrReviewPatientVitalStats=0x7f050027;
+        public static final int OpenemrUserValidation=0x7f050012;
+        public static final int OpenemrViewChangeProcedure=0x7f050024;
+        public static final int OpenemrViewDictation=0x7f050022;
+        public static final int OpenemrViewPrintWorkSchoolNote=0x7f050020;
         public static final int app_name=0x7f050001;
         public static final int hello=0x7f050000;
         public static final int settings=0x7f050003;
