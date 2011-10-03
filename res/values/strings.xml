@@ -7,7 +7,7 @@
     <string name="OpenemrMainPage">/openemr</string>
     <string name="OpenemrLeftNav">/openemr/interface/main/left_nav.php</string>
     <string name="OpenemrCalendarSchedule">/openemr/interface/main/main.php</string>
-    <string name="OpenemrHtmNavigation">/openemr/interface/main/main.php</string>
+    <string name="OpenemrHtmNavigation">/openemr/main/main_navigation.php</string>
     <string name="OpenemrNewPatient">/openemr/interface/new/new_patient.php</string>
     <string name="OpenemrMessages">/openemr/interface/main/messages/messages.php</string>
     <string name="OpenemrLabResultsMessages">/openemr/interface/main/messages/lab_results_messages.php</string>
