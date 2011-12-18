@@ -1,20 +1,27 @@
 package com.openemr;
 
+
+
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.BaseAdapter;
 import android.widget.Button;
+//import android.widget.GridView;
 /**
  * Reusable class for creating fully funtional webviews.
  * @author arimal
@@ -28,7 +35,7 @@ public class Browser extends Activity
 	WebView webview;
 	SharedPreferences preferences;
 	final Activity activity = this; //shorthand assignments
-	
+	//GridView MyGrid;
 	    
 	
 	@Override//override annotations allow us to create our own functionality for the any methods of the super class
@@ -38,16 +45,19 @@ public class Browser extends Activity
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
         this.getWindow().requestFeature(Window.FEATURE_PROGRESS);
         setContentView(R.layout.main);
-        this.load(R.id.webview0, "/openemr");
-  
         
+        //MyGrid = (GridView)findViewById(R.id.MyGrid);
+        //MyGrid.setAdapter(new ButtonAdapter(this));
+        //MyGrid.setContentView(R.layout.grid_items); 
+        this.load(R.id.webview0, "openemr/");
+  
         
         final Button button1 = (Button) findViewById(R.id.button1);
         button1.setOnClickListener(new View.OnClickListener() 
         {
             public void onClick(View v) 
             {
-            	load(R.id.webview0, getString(R.string.OpenemrLeftNav));
+            	load(R.id.webview0, getString(R.string.OpenemrCalendarSchedule));
             }
         });
         
@@ -57,7 +67,7 @@ public class Browser extends Activity
         {
             public void onClick(View v) 
             {
-            	load(R.id.webview0, getString(R.string.OpenemrNewPatient));
+            	load(R.id.webview0, getString(R.string.OpenemrMessages));
             }
         });
  
@@ -66,7 +76,7 @@ public class Browser extends Activity
         {
             public void onClick(View v) 
             {
-            	load(R.id.webview0, getString(R.string.OpenemrHtmNavigation));
+            	load(R.id.webview0, getString(R.string.OpenemrPatientSummary));
             }
         });
         
@@ -76,7 +86,7 @@ public class Browser extends Activity
         {
             public void onClick(View v) 
             {
-            	load(R.id.webview0, getString(R.string.OpenemrMessages));
+            	load(R.id.webview0, getString(R.string.OpenemrEncounters));
             }
         });
         
@@ -85,7 +95,7 @@ public class Browser extends Activity
         {
             public void onClick(View v) 
             {
-            	load(R.id.webview0, getString(R.string.OpenemrCalendarOnly));
+            	load(R.id.webview0, getString(R.string.OpenemrNewEncounter));
             }
         });
         
@@ -112,128 +122,11 @@ public class Browser extends Activity
         {
             public void onClick(View v) 
             {
-            	load(R.id.webview0, getString(R.string.OpenemrPatientEncounterForm));
+            	load(R.id.webview0, getString(R.string.OpenemrSearch));
             }
         });
  
-        
-        final Button button9 = (Button) findViewById(R.id.button9);
-        button9.setOnClickListener(new View.OnClickListener() 
-        {
-            public void onClick(View v) 
-            {
-            	load(R.id.webview0, getString(R.string.OpenemrCreateWorkSchoolNotes));
-            }
-        });
- 
-        final Button button10 = (Button) findViewById(R.id.button10);
-        button10.setOnClickListener(new View.OnClickListener() 
-        {
-            public void onClick(View v) 
-            {
-            	load(R.id.webview0, getString(R.string.OpenemrNewDictation));
-            }
-        });
- 
-        final Button button11 = (Button) findViewById(R.id.button11);
-        button11.setOnClickListener(new View.OnClickListener() 
-        {
-            public void onClick(View v) 
-            {
-            	load(R.id.webview0, getString(R.string.OpenemrViewDictation));
-            }
-        });
- 
-        final Button button12 = (Button) findViewById(R.id.button12);
-        button12.setOnClickListener(new View.OnClickListener() 
-        {
-            public void onClick(View v) 
-            {
-            	load(R.id.webview0, getString(R.string.OpenemrOrderProcedure));
-            }
-        });
- 
-        final Button button13 = (Button) findViewById(R.id.button13);
-        button13.setOnClickListener(new View.OnClickListener() 
-        {
-            public void onClick(View v) 
-            {
-            	load(R.id.webview0, getString(R.string.OpenemrViewChangeProcedure));
-            }
-        });
- 
-        final Button button14 = (Button) findViewById(R.id.button14);
-        button14.setOnClickListener(new View.OnClickListener() 
-        {
-            public void onClick(View v) 
-            {
-            	load(R.id.webview0, getString(R.string.OpenemrReviewBodySystemsROS));
-            }
-        });
- 
-        final Button button15 = (Button) findViewById(R.id.button15);
-        button15.setOnClickListener(new View.OnClickListener() 
-        {
-            public void onClick(View v) 
-            {
-            	load(R.id.webview0, getString(R.string.OpenemrReviewOfBodySystemsChecked));
-            }
-        });
- 
-        final Button button16 = (Button) findViewById(R.id.button16);
-        button16.setOnClickListener(new View.OnClickListener() 
-        {
-            public void onClick(View v) 
-            {
-            	load(R.id.webview0, getString(R.string.OpenemrReviewPatientVitalStats));
-            }
-        });
- 
-        final Button button17 = (Button) findViewById(R.id.button17);
-        button17.setOnClickListener(new View.OnClickListener() 
-        {
-            public void onClick(View v) 
-            {
-            	load(R.id.webview0, getString(R.string.OpenemrCreatePatientVitalStatsInstance));
-            }
-        });
- 
-        final Button button18 = (Button) findViewById(R.id.button18);
-        button18.setOnClickListener(new View.OnClickListener() 
-        {
-            public void onClick(View v) 
-            {
-            	load(R.id.webview0, getString(R.string.OpenemrOrdersResults));
-            }
-        });
- 
-        final Button button19 = (Button) findViewById(R.id.button19);
-        button19.setOnClickListener(new View.OnClickListener() 
-        {
-            public void onClick(View v) 
-            {
-            	load(R.id.webview0, getString(R.string.OpenemrReportsIndex));
-            }
-        });
- 
-        final Button button20 = (Button) findViewById(R.id.button20);
-        button20.setOnClickListener(new View.OnClickListener() 
-        {
-            public void onClick(View v) 
-            {
-            	load(R.id.webview0, getString(R.string.OpenemrPendingFollowup));
-            }
-        });
- 
-        final Button button21 = (Button) findViewById(R.id.button21);
-        button21.setOnClickListener(new View.OnClickListener() 
-        {
-            public void onClick(View v) 
-            {
-            	load(R.id.webview0, getString(R.string.OpenemrPendingOrders));
-            }
-        });
- 
+   
         
         
         
@@ -242,11 +135,11 @@ public class Browser extends Activity
         
         
 	  //  webview.loadUrl(preferences.getString("IP", getString(R.string.srv))+"/openemr");
-	   //	this.load(R.id.webview1, "/openemr");
+	   //this.load(R.id.webview1, "/openemr");
        //webview.loadUrl(preferences.getString("IP", getString(R.string.srv))+"/openemr");
        
         
-	} 
+	}; 
 	
 	@Override //handle back button event
 	public boolean onKeyDown(int keyCode, KeyEvent event) 
@@ -281,6 +174,8 @@ public class Browser extends Activity
             return super.onOptionsItemSelected(item);
         }
     }
+    
+    
     public void load(int arg1, String arg2)
     {
     	String host = preferences.getString("IP", getString(R.string.srv));
@@ -319,12 +214,67 @@ public class Browser extends Activity
 	           }
 	           
 	    });
-	    webview.setHttpAuthUsernamePassword (preferences.getString("IP", getString(R.string.srv))+"/openemr", null, preferences.getString("user", "username"), preferences.getString("pass", "password"));
+	    //webview.setHttpAuthUsernamePassword (preferences.getString("IP", getString(R.string.srv))+"/openemr", null, preferences.getString("user", "username"), preferences.getString("pass", "password"));
     	webview.loadUrl(host+arg2);
 
     }
     
     
+    
+    
+    
+    public class ButtonAdapter extends BaseAdapter
+    {
+       Context MyContext;
+       
+       public ButtonAdapter(Context _MyContext)
+       {
+          MyContext = _MyContext;
+       }
+       
+       @Override
+       public int getCount() 
+       {
+                         /* Set the number of element we want on the grid */
+          return 9;
+       }
+
+       @Override
+       public View getView(int position, View convertView, ViewGroup parent) 
+       {
+          View MyView = convertView;
+          
+          if ( convertView == null )
+          {
+                                 /*we define the view that will display on the grid*/
+             
+             //Inflate the layout
+             LayoutInflater li = (LayoutInflater) MyContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+             
+             MyView = li.inflate(R.layout.grid_items, null);
+             
+
+             
+             
+            
+          }
+          
+          return MyView;
+       }
+
+       @Override
+       public Object getItem(int arg0) {
+          // TODO Auto-generated method stub
+          return null;
+       }
+
+       @Override
+       public long getItemId(int arg0) {
+          // TODO Auto-generated method stub
+          return 0;
+       }
+    }
 }
 
 

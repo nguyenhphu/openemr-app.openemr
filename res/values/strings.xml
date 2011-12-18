@@ -2,18 +2,22 @@
 <resources>
     <string name="hello">Hello World, Openemrload!</string>
     <string name="app_name">OpenEMR</string>
-    <string name="srv">http://fixitpc.dyndns.org</string>
+    <string name="srv">http://opensourceemr.com:2098/</string>
     <string name="settings">Openemr settings</string>
     <string name="OpenemrMainPage">/openemr</string>
+    <string name="OpenemrPatientSummary">/openemr/interface/patient_file/summary/demographics.php</string>
     <string name="OpenemrLeftNav">/openemr/interface/main/left_nav.php</string>
+    <string name="OpenemrEncounters">/openemr/interface/patient_file/history/encounters.php</string>
+    <string name="OpenemrSearch">/blank.php</string>
+    <string name="OpenemrNewEncounter">/openemr/interface/forms/newpatient/new.php</string>
+    <string name="OpenemrNewPatient">/openemr/interface/new/new.php</string>
     <string name="OpenemrCalendarSchedule">/openemr/interface/main/main.php</string>
     <string name="OpenemrHtmNavigation">/openemr/main/main_navigation.php</string>
-    <string name="OpenemrNewPatient">/openemr/interface/new/new_patient.php</string>
     <string name="OpenemrMessages">/openemr/interface/main/messages/messages.php</string>
     <string name="OpenemrLabResultsMessages">/openemr/interface/main/messages/lab_results_messages.php</string>
     <string name="OpenemrAuthorizations">/openemr/interface/main/authorizations/authorizations.php</string>
     <string name="OpenemrAuthorizationsFull">/openemr/interface/main/authorizations/authorizations_full.php</string>
-    <string name="OpenemrCalendarOnly">/openemr/interface/main/calendar/index.php</string>
+    <string name="OpenemrCalendarOnly">interface/main/calendar/index.php</string>
     <string name="OpenemrOfficeNotes">/openemr/interface/main/onotes/office_comments.php</string>
     <string name="OpenemrAddressBook">/openemr/interface/usergroup/addrbook_list.php</string>
     <string name="OpenemrOrdersResults">/openemr/interface/orders/orders_results.php</string>
@@ -42,4 +46,3 @@
     <string name="OpenemrReviewPatientVitalStats">/openemr/interface/forms/vitals/view.php</string>
     <string name="OpenemrCreatePatientVitalStatsInstance">/openemr/interface/forms/vitals/new.php</string>
 </resources>
-

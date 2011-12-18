@@ -1,88 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<FrameLayout android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
            <WebView 
         		android:id="@+id/webview0"
         			android:layout_width="fill_parent"
         			android:layout_height="fill_parent"
     				/>  
 
-     
+    
     <SlidingDrawer
         android:id="@+id/slidingDrawer"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        
+        android:isScrollContainer="true"
         android:handle="@+id/handle"
-        android:content="@+id/linearLayout2">
+        android:content="@+id/GridItem">
              
         <Button
-            android:id="@id/handle"
+            android:id="@+id/handle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Drawer Handle"/>
-               
-           <!--<TextView android:id="@id/linearLayout1"
-        	android:layout_width="fill_parent"
-        	android:text="@string/hello" android:layout_height="929dp"/>-->
-        
-        
-        
-    
-    	<LinearLayout android:id="@+id/linearLayout2" android:layout_width="wrap_content" android:orientation="vertical" android:layout_height="951dp">
+            <ScrollView
+            android:layout_width="wrap_content"
+   			android:layout_height="wrap_content"
+   			android:fillViewport="false">
+            <LinearLayout 
+   			android:id="@+id/GridItem"
+   			android:layout_width="wrap_content"
+   			android:layout_height="wrap_content"
+   			android:orientation="vertical"
+   			android:gravity="center_horizontal"
+   			android:background="#000000">
+   			
+   			
+   
+   			<Button android:text="Calendar" android:id="@+id/button1" android:layout_width="fill_parent" android:layout_height="wrap_content"></Button>
+
+<Button android:text="Messages" android:id="@+id/button2" android:layout_width="fill_parent" android:layout_height="wrap_content"></Button>
         	
-        	<Button android:text="Main" android:id="@+id/button1" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+        	<Button android:text="New Patient" android:id="@+id/button2" android:layout_width="fill_parent" android:layout_height="wrap_content"></Button>
         	
-        	<Button android:text="New Patient" android:id="@+id/button2" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+        	<Button android:text="Patient Summary" android:id="@+id/button3" android:layout_width="fill_parent" android:layout_height="wrap_content"></Button>
         	
-        	<Button android:text="Navigation" android:id="@+id/button3" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+        	<Button android:text="Encounters" android:id="@+id/button4" android:layout_width="fill_parent" android:layout_height="wrap_content"></Button>
         	
-        	<Button android:text="Messages" android:id="@+id/button4" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+        	<Button android:text="New Encounter" android:id="@+id/button5" android:layout_width="fill_parent" android:layout_height="wrap_content"></Button>
         	
-        	<Button android:text="Calendar" android:id="@+id/button5" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+        	<Button android:text="New Patient" android:id="@+id/button6" android:layout_width="fill_parent" android:layout_height="wrap_content"></Button>
         	
-        	<Button android:text="Office Notes" android:id="@+id/button6" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+        	<Button android:text="OpenemrAddressBook" android:id="@+id/button7" android:layout_width="fill_parent" android:layout_height="wrap_content"></Button>
         	
-        	<Button android:text="Address Book" android:id="@+id/button7" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
-        	
-        	<Button android:text="Patient Encounter Form" android:id="@+id/button8" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
-        	
-        	<Button android:text="Work/School Notes" android:id="@+id/button9" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
-        	
-        	<Button android:text="New Dictation" android:id="@+id/button10" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
-        	
-        	<Button android:text="View Dictation" android:id="@+id/button11" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
-        	
-        	<Button android:text="Order Procedure" android:id="@+id/button12" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
-        	
-        	<Button android:text="View/Change Procedures" android:id="@+id/button13" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
-        	
-        	<Button android:text="Body Systems (ROS)" android:id="@+id/button14" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
-        	
-        	<Button android:text="Body Systems Checked" android:id="@+id/button15" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
-        	
-        	<Button android:text="Review Vitals" android:id="@+id/button16" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
-        	
-        	<Button android:text="Create Vitals" android:id="@+id/button17" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
-        	
-        	<Button android:text="Orders Results" android:id="@+id/button18" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
-        
-        	<Button android:text="Reports Index" android:id="@+id/button19" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
-        
-        	<Button android:text="Pending Followup" android:id="@+id/button20" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
-        	
-        	<Button android:text="Pending Orders" android:id="@+id/button21" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
-        	
-        	
-        	
-        	
-        	
-    	</LinearLayout>
-    	
-    </SlidingDrawer>
+        	<Button android:text="Patient Search" android:id="@+id/button8" android:layout_width="fill_parent" android:layout_height="wrap_content"></Button>
+   
+</LinearLayout>
+</ScrollView>
+
+</SlidingDrawer>
+
+
+   
     
 </FrameLayout><!--Hey jeff figured out comments-->
 
