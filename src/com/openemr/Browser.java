@@ -3,7 +3,9 @@ package com.openemr;
 
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -14,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.webkit.WebChromeClient;
@@ -21,6 +24,9 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.SlidingDrawer;
+import android.widget.SlidingDrawer.OnDrawerCloseListener;
+import android.widget.SlidingDrawer.OnDrawerOpenListener;
 //import android.widget.GridView;
 /**
  * Reusable class for creating fully funtional webviews.
@@ -35,8 +41,9 @@ public class Browser extends Activity
 	WebView webview;
 	SharedPreferences preferences;
 	final Activity activity = this; //shorthand assignments
+	SlidingDrawer slidingDrawer;
 	//GridView MyGrid;
-	    
+	     
 	
 	@Override//override annotations allow us to create our own functionality for the any methods of the super class
     public void onCreate(Bundle savedInstanceState) //all innitations happen here in onCreate
@@ -45,19 +52,20 @@ public class Browser extends Activity
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
         this.getWindow().requestFeature(Window.FEATURE_PROGRESS);
         setContentView(R.layout.main);
-        
-        //MyGrid = (GridView)findViewById(R.id.MyGrid);
-        //MyGrid.setAdapter(new ButtonAdapter(this));
-        //MyGrid.setContentView(R.layout.grid_items); 
+        slidingDrawer = (SlidingDrawer) findViewById(R.id.Drawer);
+       
         this.load(R.id.webview0, "openemr/");
+        
+
   
         
         final Button button1 = (Button) findViewById(R.id.button1);
-        button1.setOnClickListener(new View.OnClickListener() 
+        button1.setOnClickListener(new OnClickListener() 
         {
             public void onClick(View v) 
             {
-            	load(R.id.webview0, getString(R.string.OpenemrCalendarSchedule));
+            	load(R.id.webview0, getString(R.string.Main));
+            	slidingDrawer.animateToggle();
             }
         });
         
@@ -68,6 +76,7 @@ public class Browser extends Activity
             public void onClick(View v) 
             {
             	load(R.id.webview0, getString(R.string.OpenemrMessages));
+            	slidingDrawer.animateToggle();
             }
         });
  
@@ -76,35 +85,39 @@ public class Browser extends Activity
         {
             public void onClick(View v) 
             {
-            	load(R.id.webview0, getString(R.string.OpenemrPatientSummary));
+            	load(R.id.webview0, getString(R.string.OpenemrCalendarSchedule));
+            	slidingDrawer.animateToggle();
             }
         });
-        
         
         final Button button4 = (Button) findViewById(R.id.button4);
         button4.setOnClickListener(new View.OnClickListener() 
         {
             public void onClick(View v) 
             {
-            	load(R.id.webview0, getString(R.string.OpenemrEncounters));
+            	load(R.id.webview0, getString(R.string.OpenemrPatientSummary));
+            	slidingDrawer.animateToggle();
             }
         });
-        
+       
         final Button button5 = (Button) findViewById(R.id.button5);
         button5.setOnClickListener(new View.OnClickListener() 
         {
             public void onClick(View v) 
             {
-            	load(R.id.webview0, getString(R.string.OpenemrNewEncounter));
+            	load(R.id.webview0, getString(R.string.OpenemrEncounters));
+            	slidingDrawer.animateToggle();
             }
         });
         
         final Button button6 = (Button) findViewById(R.id.button6);
-        button6.setOnClickListener(new View.OnClickListener() 
+        button6.setOnClickListener(new View.OnClickListener()
+        
         {
             public void onClick(View v) 
             {
-            	load(R.id.webview0, getString(R.string.OpenemrOfficeNotes));
+            	load(R.id.webview0, getString(R.string.OpenemrNewEncounter));
+            	slidingDrawer.animateToggle();
             }
         });
         
@@ -114,6 +127,7 @@ public class Browser extends Activity
             public void onClick(View v) 
             {
             	load(R.id.webview0, getString(R.string.OpenemrAddressBook));
+            	slidingDrawer.animateToggle();
             }
         });
         
@@ -123,33 +137,131 @@ public class Browser extends Activity
             public void onClick(View v) 
             {
             	load(R.id.webview0, getString(R.string.OpenemrSearch));
+            	slidingDrawer.animateToggle();
+            }
+        });
+        
+        final Button button9 = (Button) findViewById(R.id.button9);
+        button9.setOnClickListener(new View.OnClickListener() 
+        {
+            public void onClick(View v) 
+            {
+            	load(R.id.webview0, getString(R.string.OpenemrAuthorizations));
+            	slidingDrawer.animateToggle();
             }
         });
  
-   
+        final Button button10 = (Button) findViewById(R.id.button10);
+        button10.setOnClickListener(new View.OnClickListener() 
+        {
+            public void onClick(View v) 
+            {
+            	load(R.id.webview0, getString(R.string.OpenemrLabResultsMessages));
+            	slidingDrawer.animateToggle();
+            }
+        });   
+        
+        final Button button11 = (Button) findViewById(R.id.button11);
+        button11.setOnClickListener(new View.OnClickListener() 
+        {
+            public void onClick(View v) 
+            {
+            	load(R.id.webview0, getString(R.string.OpenemrOfficeNotes));
+            	slidingDrawer.animateToggle();
+            }
+        });        
+        
+        final Button button12 = (Button) findViewById(R.id.button12);
+        button12.setOnClickListener(new View.OnClickListener()
+        
+        {
+            public void onClick(View v) 
+            {
+            	load(R.id.webview0, getString(R.string.OpenemrReportsIndex));
+            	slidingDrawer.animateToggle();
+            }
+        });        
+        
+        final Button button13 = (Button) findViewById(R.id.button13);
+        button13.setOnClickListener(new View.OnClickListener() 
+        {
+            public void onClick(View v) 
+            {
+            	load(R.id.webview0, getString(R.string.OpenemrPendingFollowup));
+            	slidingDrawer.animateToggle();
+            }
+        });
+        
+        final Button button14 = (Button) findViewById(R.id.button14);
+        button14.setOnClickListener(new View.OnClickListener() 
+        {
+            public void onClick(View v) 
+            {
+            	load(R.id.webview0, getString(R.string.OpenemrDrugInventory));
+            	slidingDrawer.animateToggle();
+            }
+        });        
+        
+        final Button button15 = (Button) findViewById(R.id.button15);
+        button15.setOnClickListener(new View.OnClickListener() 
+        {
+            public void onClick(View v) 
+            {
+            	load(R.id.webview0, getString(R.string.OpenemrReviewBodySystemsROS));
+            	slidingDrawer.animateToggle();
+            }
+        });        
         
         
         
-        
-        
-        
-        
-	  //  webview.loadUrl(preferences.getString("IP", getString(R.string.srv))+"/openemr");
-	   //this.load(R.id.webview1, "/openemr");
-       //webview.loadUrl(preferences.getString("IP", getString(R.string.srv))+"/openemr");
        
         
-	}; 
-	
+	};
+
 	@Override //handle back button event
 	public boolean onKeyDown(int keyCode, KeyEvent event) 
 	{ 
+		if (slidingDrawer.isOpened());{
+			slidingDrawer.close();
+		}
+		
 		if ((keyCode == KeyEvent.KEYCODE_BACK) && webview.canGoBack()) 
 		{
+			
 			webview.goBack();
+			
 			return true;
 		}
-		return super.onKeyDown(keyCode, event);
+		if ((keyCode == KeyEvent.KEYCODE_BACK))
+		{
+			
+				
+			webview.stopLoading();
+			//Ask the user if they want to quit
+	        new AlertDialog.Builder(this)
+	        .setIcon(android.R.drawable.ic_dialog_alert)
+	        .setTitle(R.string.quit)
+	        .setMessage(R.string.really_quit)
+	        .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+
+	            @Override
+	            public void onClick(DialogInterface dialog, int which) {
+
+	                //Stop the activity
+	            	
+	                Browser.this.finish();    
+	            }
+
+	        })
+	        .setNegativeButton(R.string.no, null)
+	        .show();
+
+	        return false;
+	    }
+	    else {
+	        return super.onKeyDown(keyCode, event);
+	    }
+
 	};
 	@Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -222,59 +334,6 @@ public class Browser extends Activity
     
     
     
-    
-    public class ButtonAdapter extends BaseAdapter
-    {
-       Context MyContext;
-       
-       public ButtonAdapter(Context _MyContext)
-       {
-          MyContext = _MyContext;
-       }
-       
-       @Override
-       public int getCount() 
-       {
-                         /* Set the number of element we want on the grid */
-          return 9;
-       }
-
-       @Override
-       public View getView(int position, View convertView, ViewGroup parent) 
-       {
-          View MyView = convertView;
-          
-          if ( convertView == null )
-          {
-                                 /*we define the view that will display on the grid*/
-             
-             //Inflate the layout
-             LayoutInflater li = (LayoutInflater) MyContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-             
-             MyView = li.inflate(R.layout.grid_items, null);
-             
-
-             
-             
-            
-          }
-          
-          return MyView;
-       }
-
-       @Override
-       public Object getItem(int arg0) {
-          // TODO Auto-generated method stub
-          return null;
-       }
-
-       @Override
-       public long getItemId(int arg0) {
-          // TODO Auto-generated method stub
-          return 0;
-       }
-    }
 }
 
 
