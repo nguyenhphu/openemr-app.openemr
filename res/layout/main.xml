@@ -7,7 +7,7 @@
         		android:id="@+id/webview0"
         			android:layout_width="fill_parent"
         			android:layout_height="fill_parent"
-        			
+        			android:clickable="true"
     				/>  
 
     
@@ -16,7 +16,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:isScrollContainer="true"
-        android:clickable="true"
+        
         android:handle="@+id/handle"
         android:content="@+id/GridItem">
              
@@ -39,44 +39,45 @@
     			android:layout_height="fill_parent"
     			android:stretchColumns="*"
     			>
+    			<!-- used fill parent on all your widths for square buttons still messy -->
     				<TableRow 
         			android:layout_weight="1"
 			        android:gravity="center">
-   						<Button android:text="Home" android:id="@+id/button1" android:layout_width="fill_parent" android:layout_height="fill_parent"></Button>
-						<Button android:text="Messages" android:id="@+id/button2" android:layout_width="fill_parent" android:layout_height="fill_parent"></Button>
-						<Button android:text="Calendar" android:id="@+id/button3" android:layout_width="fill_parent" android:layout_height="fill_parent"></Button>
+   						<Button android:textSize="10dp"	android:id="@+id/button1" android:layout_width="fill_parent" android:layout_height="fill_parent"></Button>
+						<Button android:textSize="10dp"	android:id="@+id/button2" android:layout_width="fill_parent" android:layout_height="fill_parent"></Button>
+						<Button android:textSize="10dp"	android:id="@+id/button3" android:layout_width="fill_parent" android:layout_height="fill_parent"></Button>
            			</TableRow>
            			
     				<TableRow 
         			android:layout_weight="1"
         			android:gravity="center">
-        				<Button android:text="Patient Summary" android:id="@+id/button4" android:layout_width="fill_parent" android:layout_height="fill_parent"></Button>
-        				<Button android:text="Encounters" android:id="@+id/button5" android:layout_width="fill_parent" android:layout_height="fill_parent"></Button>
-        				<Button android:text="New Encounter" android:id="@+id/button6" android:layout_width="fill_parent" android:layout_height="fill_parent"></Button>
+        				<Button android:textSize="10dp"	android:id="@+id/button4" android:layout_width="fill_parent" android:layout_height="fill_parent"></Button>
+        				<Button android:textSize="10dp"	android:id="@+id/button5" android:layout_width="fill_parent" android:layout_height="fill_parent"></Button>
+        				<Button android:textSize="10dp" android:id="@+id/button6" android:layout_width="fill_parent" android:layout_height="fill_parent"></Button>
 					</TableRow>
 					
     				<TableRow 
         			android:layout_weight="1"
         			android:gravity="center">    	      
-        	      		<Button android:text="AddressBook" android:id="@+id/button7" android:layout_width="fill_parent" android:layout_height="fill_parent"></Button>
-        		       	<Button android:text="Patient Search" android:id="@+id/button8" android:layout_width="fill_parent" android:layout_height="fill_parent"></Button>
-        	        	<Button android:text="Authorizations" android:id="@+id/button9" android:layout_width="fill_parent" android:layout_height="fill_parent"></Button>
+        	      		<Button android:textSize="10dp"	android:id="@+id/button7" android:layout_width="fill_parent" android:layout_height="fill_parent"></Button>
+        		       	<Button android:textSize="10dp"	android:id="@+id/button8" android:layout_width="fill_parent" android:layout_height="fill_parent"></Button>
+        	        	<Button android:textSize="10dp"	android:id="@+id/button9" android:layout_width="fill_parent" android:layout_height="fill_parent"></Button>
    				    </TableRow>
    				    
    				   	<TableRow 
         			android:layout_weight="1"
         			android:gravity="center">
-        				<Button android:text="Lab Results" android:id="@+id/button10" android:layout_width="fill_parent" android:layout_height="fill_parent"></Button>
-        				<Button android:text="Office Notes" android:id="@+id/button11" android:layout_width="fill_parent" android:layout_height="fill_parent"></Button>
-        				<Button android:text="Reports Index" android:id="@+id/button12" android:layout_width="fill_parent" android:layout_height="fill_parent"></Button>
+        				<Button android:textSize="10dp"	android:id="@+id/button10" android:layout_width="fill_parent" android:layout_height="fill_parent"></Button>
+        				<Button android:textSize="10dp"	android:id="@+id/button11" android:layout_width="fill_parent" android:layout_height="fill_parent"></Button>
+        				<Button android:textSize="10dp"	android:id="@+id/button12" android:layout_width="fill_parent" android:layout_height="fill_parent"></Button>
 					</TableRow>
    				    
    				    <TableRow 
         			android:layout_weight="1"
         			android:gravity="center">
-        				<Button android:text="Pending Followup" android:id="@+id/button13" android:layout_width="fill_parent" android:layout_height="fill_parent"></Button>
-        				<Button android:text="Drug Inventory" android:id="@+id/button14" android:layout_width="fill_parent" android:layout_height="fill_parent"></Button>
-        				<Button android:text="Body Review" android:id="@+id/button15" android:layout_width="fill_parent" android:layout_height="fill_parent"></Button>
+        				<Button android:textSize="10dp"	android:id="@+id/button13" android:layout_width="fill_parent" android:layout_height="fill_parent"></Button>
+        				<Button android:textSize="10dp"	android:id="@+id/button14" android:layout_width="fill_parent" android:layout_height="fill_parent"></Button>
+        				<Button android:textSize="10dp"	android:id="@+id/button15" android:layout_width="fill_parent" android:layout_height="fill_parent"></Button>
 					</TableRow>
    				    
 

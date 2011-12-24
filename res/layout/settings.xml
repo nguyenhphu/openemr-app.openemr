@@ -1,2 +1,5 @@
-
-    <fragment android:id="@+id/fragment1" android:layout_width="wrap_content" android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android"></fragment>
+<fragment 	android:id="@+id/fragment1" 
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content" 
+			xmlns:android="http://schemas.android.com/apk/res/android">
+</fragment>

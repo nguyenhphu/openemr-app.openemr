@@ -9,4 +9,172 @@
         <EditTextPreference android:key="pass" android:title="Pass" android:defaultValue="password"></EditTextPreference>
     </PreferenceCategory>
     
+    <PreferenceCategory android:title="Button Assignment">
+
+
+        <ListPreference
+            android:key="button1pref"
+            android:title="Select Button 1"
+            android:summary="Choose function for button 1"
+            android:entries="@array/buttonchoices"
+            android:entryValues="@array/buttonchoicevalues"
+            
+        /> 
+
+
+
+        <ListPreference
+            android:key="button2pref"
+            android:title="Select Button 2"
+            android:summary="Choose function for button 2"
+            android:entries="@array/buttonchoices"
+            android:entryValues="@array/buttonchoicevalues"
+            
+        /> 
+
+
+
+        <ListPreference
+            android:key="button3pref"
+            android:title="Select Button 3"
+            android:summary="Choose function for button 3"
+            android:entries="@array/buttonchoices"
+            android:entryValues="@array/buttonchoicevalues"
+            
+        /> 
+
+
+
+        <ListPreference
+            android:key="button4pref"
+            android:title="Select Button 4"
+            android:summary="Choose function for button 4"
+            android:entries="@array/buttonchoices"
+            android:entryValues="@array/buttonchoicevalues"
+            
+        /> 
+
+
+
+        <ListPreference
+            android:key="button5pref"
+            android:title="Select Button 5"
+            android:summary="Choose function for button 5"
+            android:entries="@array/buttonchoices"
+            android:entryValues="@array/buttonchoicevalues"
+            
+        /> 
+
+
+
+        <ListPreference
+            android:key="button6pref"
+            android:title="Select Button 6"
+            android:summary="Choose function for button 6"
+            android:entries="@array/buttonchoices"
+            android:entryValues="@array/buttonchoicevalues"
+            
+        /> 
+
+
+
+        <ListPreference
+            android:key="button7pref"
+            android:title="Select Button 7"
+            android:summary="Choose function for button 7"
+            android:entries="@array/buttonchoices"
+            android:entryValues="@array/buttonchoicevalues"
+            
+        /> 
+
+
+
+        <ListPreference
+            android:key="button8pref"
+            android:title="Select Button 8"
+            android:summary="Choose function for button 8"
+            android:entries="@array/buttonchoices"
+            android:entryValues="@array/buttonchoicevalues"
+            
+        /> 
+
+
+
+        <ListPreference
+            android:key="button9pref"
+            android:title="Select Button 9"
+            android:summary="Choose function for button 9"
+            android:entries="@array/buttonchoices"
+            android:entryValues="@array/buttonchoicevalues"
+            
+        /> 
+
+
+
+        <ListPreference
+            android:key="button10pref"
+            android:title="Select Button 10"
+            android:summary="Choose function for button 10"
+            android:entries="@array/buttonchoices"
+            android:entryValues="@array/buttonchoicevalues"
+            
+        /> 
+
+
+
+        <ListPreference
+            android:key="button11pref"
+            android:title="Select Button 11"
+            android:summary="Choose function for button 11"
+            android:entries="@array/buttonchoices"
+            android:entryValues="@array/buttonchoicevalues"
+            
+        /> 
+
+
+
+        <ListPreference
+            android:key="button12pref"
+            android:title="Select Button 12"
+            android:summary="Choose function for button 12"
+            android:entries="@array/buttonchoices"
+            android:entryValues="@array/buttonchoicevalues"
+            
+        /> 
+
+
+        <ListPreference
+            android:key="button13pref"
+            android:title="Select Button 13"
+            android:summary="Choose function for button 13"
+            android:entries="@array/buttonchoices"
+            android:entryValues="@array/buttonchoicevalues"
+            
+        /> 
+
+
+
+        <ListPreference
+            android:key="button14pref"
+            android:title="Select Button 14"
+            android:summary="Choose function for button 14"
+            android:entries="@array/buttonchoices"
+            android:entryValues="@array/buttonchoicevalues"
+            
+        /> 
+
+    
+    
+
+        <ListPreference
+            android:key="button15pref"
+            android:title="Select Button 15"
+            android:summary="Choose function for button 15"
+            android:entries="@array/buttonchoices"
+            android:entryValues="@array/buttonchoicevalues"
+            
+        /> 
+    
+    
+    </PreferenceCategory>
 </PreferenceScreen>

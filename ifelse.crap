@@ -1,0 +1,684 @@
+          	
+
+
+
+
+
+
+
+
+
+final Button button1 = (Button) findViewById(R.id.button1); button1.setOnClickListener(new SlidingDrawer.OnClickListener() {public void onClick(View webview){ 
+      if(button1pref.getString().equals("1") {String button1txt = "Main Page"; String button1url = "openemr/interface/main/main_screen.php"}
+ else if(button1pref.getString().equals("2") {String button1txt = "Patient Summary"; String button1url = "openemr/interface/patient_file/summary/demographics.php"}
+ else if(button1pref.getString().equals("3") {String button1txt = "Left Navigation"; String button1url = "openemr/interface/main/left_nav.php"}
+ else if(button1pref.getString().equals("4") {String button1txt = "Encounters"; String button1url = "openemr/interface/patient_file/history/encounters.php"}
+ else if(button1pref.getString().equals("5") {String button1txt = "Search"; String button1url = "openemr/interface/main/finder/patient_finder.php"}
+ else if(button1pref.getString().equals("6") {String button1txt = "New Encounter"; String button1url = "openemr/interface/forms/newpatient/new.php"}
+ else if(button1pref.getString().equals("7") {String button1txt = "New Patient"; String button1url = "openemr/interface/new/new.php"}
+ else if(button1pref.getString().equals("8") {String button1txt = "Schedule"; String button1url = "openemr/interface/main/calendar/index.php"}
+ else if(button1pref.getString().equals("9") {String button1txt = "Main Navigation"; String button1url = "openemr/main/main_navigation.php"}
+ else if(button1pref.getString().equals("10") {String button1txt = "Messages"; String button1url = "openemr/interface/main/messages/messages.php"}
+ else if(button1pref.getString().equals("11") {String button1txt = "Lab Messages"; String button1url = "openemr/interface/main/messages/lab_results_messages.php"}
+ else if(button1pref.getString().equals("12") {String button1txt = "Authorizations"; String button1url = "openemr/interface/main/authorizations/authorizations.php"}
+ else if(button1pref.getString().equals("13") {String button1txt = "Authorizations2"; String button1url = "openemr/interface/main/authorizations/authorizations_full.php"}
+ else if(button1pref.getString().equals("14") {String button1txt = "Calendar"; String button1url = "interface/main/calendar/index.php"}
+ else if(button1pref.getString().equals("15") {String button1txt = "Office Notes"; String button1url = "openemr/interface/main/onotes/office_comments_full.php"}
+ else if(button1pref.getString().equals("16") {String button1txt = "Address Book"; String button1url = "openemr/interface/usergroup/addrbook_list.php"}
+ else if(button1pref.getString().equals("17") {String button1txt = "Orders Results"; String button1url = "openemr/interface/orders/orders_results.php"}
+ else if(button1pref.getString().equals("18") {String button1txt = "Reports Index"; String button1url = "openemr/interface/reports/index.php"}
+ else if(button1pref.getString().equals("19") {String button1txt = "User Validation"; String button1url = "openemr/interface/login/validateUser.php"}
+ else if(button1pref.getString().equals("20") {String button1txt = "Pending Followup"; String button1url = "openemr/interface/orders/pending_followup.php"}
+ else if(button1pref.getString().equals("21") {String button1txt = "Pending Orders"; String button1url = "openemr/interface/orders/pending_orders.php"}
+ else if(button1pref.getString().equals("22") {String button1txt = "Procedure Statistics"; String button1url = "openemr/interface/orders/procedure_stats.php"}
+ else if(button1pref.getString().equals("23") {String button1txt = "Order Types nd Results"; String button1url = "openemr/interface/orders/types.php"}
+ else if(button1pref.getString().equals("24") {String button1txt = "Lab Exchange System"; String button1url = "openemr/interface/orders/lab_exchange.php"}
+ else if(button1pref.getString().equals("25") {String button1txt = "Add Or Edit Drug"; String button1url = "openemr/interface/drugs/add_edit_drug.php"}
+ else if(button1pref.getString().equals("26") {String button1txt = "Edit Drug Lot"; String button1url = "openemr/interface/drugs/add_edit_lot.php"}
+ else if(button1pref.getString().equals("27") {String button1txt = "Destroy Drug Lot"; String button1url = "openemr/interface/drugs/destroy_lot.php"}
+ else if(button1pref.getString().equals("28") {String button1txt = "Dispense Drug"; String button1url = "openemr/interface/drugs/dispense_drug.php"}
+ else if(button1pref.getString().equals("29") {String button1txt = "Drug Inventory"; String button1url = "openemr/interface/drugs/drug_inventory.php"}
+ else if(button1pref.getString().equals("30") {String button1txt = "Print Notes"; String button1url = "openemr/interface/forms/CAMOS/notegen.php"}
+ else if(button1pref.getString().equals("31") {String button1txt = "Patient Encounter Form"; String button1url = "openemr/interface/forms/newpatient/view.php"}
+ else if(button1pref.getString().equals("32") {String button1txt = "Create Work School Notes"; String button1url = "openemr/interface/forms/note/new.php"}
+ else if(button1pref.getString().equals("33") {String button1txt = "View Print Work School Note"; String button1url = "openemr/interface/forms/note/view.php"}
+ else if(button1pref.getString().equals("34") {String button1txt = "New Dictation"; String button1url = "openemr/interface/forms/dictation/new.php"}
+ else if(button1pref.getString().equals("35") {String button1txt = "View Dictation"; String button1url = "openemr/interface/forms/dictation/view.php"}
+ else if(button1pref.getString().equals("36") {String button1txt = "Order Procedure"; String button1url = "openemr/interface/forms/procedure_order/new.php"}
+ else if(button1pref.getString().equals("37") {String button1txt = "View Change Procedure"; String button1url = "openemr/interface/forms/procedure_order/view.php"}
+ else if(button1pref.getString().equals("38") {String button1txt = "Review Body Systems ROS"; String button1url = "openemr/interface/forms/ros/view.php"}
+ else if(button1pref.getString().equals("39") {String button1txt = "Review Of Body Systems Checked"; String button1url = "openemrinterface/forms/reviewofs/new.php"}
+ else if(button1pref.getString().equals("40") {String button1txt = "Review PVS"; String button1url = "openemr/interface/forms/vitals/view.php"}
+ else if(button1pref.getString().equals("41") {String button1txt = "Create PVS Instance"; String button1url = "openemr/interface/forms/vitals/new.php"}
+ else if(button1pref.getString().equals("42") {String button1txt = "Main"; String button1url = "openemr/interface/main/main_screen.php"}
+load(getString(R.string.button1url)); slidingDrawer.animateToggle();}});
+
+
+          	
+
+
+
+
+
+
+
+
+
+final Button button2 = (Button) findViewById(R.id.button2); button2.setOnClickListener(new SlidingDrawer.OnClickListener() {public void onClick(View webview){ 
+      if(button2pref.getString().equals("1") {String button2txt = "Main Page"; String button2url = "openemr/interface/main/main_screen.php"}
+ else if(button2pref.getString().equals("2") {String button2txt = "Patient Summary"; String button2url = "openemr/interface/patient_file/summary/demographics.php"}
+ else if(button2pref.getString().equals("3") {String button2txt = "Left Navigation"; String button2url = "openemr/interface/main/left_nav.php"}
+ else if(button2pref.getString().equals("4") {String button2txt = "Encounters"; String button2url = "openemr/interface/patient_file/history/encounters.php"}
+ else if(button2pref.getString().equals("5") {String button2txt = "Search"; String button2url = "openemr/interface/main/finder/patient_finder.php"}
+ else if(button2pref.getString().equals("6") {String button2txt = "New Encounter"; String button2url = "openemr/interface/forms/newpatient/new.php"}
+ else if(button2pref.getString().equals("7") {String button2txt = "New Patient"; String button2url = "openemr/interface/new/new.php"}
+ else if(button2pref.getString().equals("8") {String button2txt = "Schedule"; String button2url = "openemr/interface/main/calendar/index.php"}
+ else if(button2pref.getString().equals("9") {String button2txt = "Main Navigation"; String button2url = "openemr/main/main_navigation.php"}
+ else if(button2pref.getString().equals("10") {String button2txt = "Messages"; String button2url = "openemr/interface/main/messages/messages.php"}
+ else if(button2pref.getString().equals("11") {String button2txt = "Lab Messages"; String button2url = "openemr/interface/main/messages/lab_results_messages.php"}
+ else if(button2pref.getString().equals("12") {String button2txt = "Authorizations"; String button2url = "openemr/interface/main/authorizations/authorizations.php"}
+ else if(button2pref.getString().equals("13") {String button2txt = "Authorizations2"; String button2url = "openemr/interface/main/authorizations/authorizations_full.php"}
+ else if(button2pref.getString().equals("14") {String button2txt = "Calendar"; String button2url = "interface/main/calendar/index.php"}
+ else if(button2pref.getString().equals("15") {String button2txt = "Office Notes"; String button2url = "openemr/interface/main/onotes/office_comments_full.php"}
+ else if(button2pref.getString().equals("16") {String button2txt = "Address Book"; String button2url = "openemr/interface/usergroup/addrbook_list.php"}
+ else if(button2pref.getString().equals("17") {String button2txt = "Orders Results"; String button2url = "openemr/interface/orders/orders_results.php"}
+ else if(button2pref.getString().equals("18") {String button2txt = "Reports Index"; String button2url = "openemr/interface/reports/index.php"}
+ else if(button2pref.getString().equals("19") {String button2txt = "User Validation"; String button2url = "openemr/interface/login/validateUser.php"}
+ else if(button2pref.getString().equals("20") {String button2txt = "Pending Followup"; String button2url = "openemr/interface/orders/pending_followup.php"}
+ else if(button2pref.getString().equals("21") {String button2txt = "Pending Orders"; String button2url = "openemr/interface/orders/pending_orders.php"}
+ else if(button2pref.getString().equals("22") {String button2txt = "Procedure Statistics"; String button2url = "openemr/interface/orders/procedure_stats.php"}
+ else if(button2pref.getString().equals("23") {String button2txt = "Order Types nd Results"; String button2url = "openemr/interface/orders/types.php"}
+ else if(button2pref.getString().equals("24") {String button2txt = "Lab Exchange System"; String button2url = "openemr/interface/orders/lab_exchange.php"}
+ else if(button2pref.getString().equals("25") {String button2txt = "Add Or Edit Drug"; String button2url = "openemr/interface/drugs/add_edit_drug.php"}
+ else if(button2pref.getString().equals("26") {String button2txt = "Edit Drug Lot"; String button2url = "openemr/interface/drugs/add_edit_lot.php"}
+ else if(button2pref.getString().equals("27") {String button2txt = "Destroy Drug Lot"; String button2url = "openemr/interface/drugs/destroy_lot.php"}
+ else if(button2pref.getString().equals("28") {String button2txt = "Dispense Drug"; String button2url = "openemr/interface/drugs/dispense_drug.php"}
+ else if(button2pref.getString().equals("29") {String button2txt = "Drug Inventory"; String button2url = "openemr/interface/drugs/drug_inventory.php"}
+ else if(button2pref.getString().equals("30") {String button2txt = "Print Notes"; String button2url = "openemr/interface/forms/CAMOS/notegen.php"}
+ else if(button2pref.getString().equals("31") {String button2txt = "Patient Encounter Form"; String button2url = "openemr/interface/forms/newpatient/view.php"}
+ else if(button2pref.getString().equals("32") {String button2txt = "Create Work School Notes"; String button2url = "openemr/interface/forms/note/new.php"}
+ else if(button2pref.getString().equals("33") {String button2txt = "View Print Work School Note"; String button2url = "openemr/interface/forms/note/view.php"}
+ else if(button2pref.getString().equals("34") {String button2txt = "New Dictation"; String button2url = "openemr/interface/forms/dictation/new.php"}
+ else if(button2pref.getString().equals("35") {String button2txt = "View Dictation"; String button2url = "openemr/interface/forms/dictation/view.php"}
+ else if(button2pref.getString().equals("36") {String button2txt = "Order Procedure"; String button2url = "openemr/interface/forms/procedure_order/new.php"}
+ else if(button2pref.getString().equals("37") {String button2txt = "View Change Procedure"; String button2url = "openemr/interface/forms/procedure_order/view.php"}
+ else if(button2pref.getString().equals("38") {String button2txt = "Review Body Systems ROS"; String button2url = "openemr/interface/forms/ros/view.php"}
+ else if(button2pref.getString().equals("39") {String button2txt = "Review Of Body Systems Checked"; String button2url = "openemrinterface/forms/reviewofs/new.php"}
+ else if(button2pref.getString().equals("40") {String button2txt = "Review PVS"; String button2url = "openemr/interface/forms/vitals/view.php"}
+ else if(button2pref.getString().equals("41") {String button2txt = "Create PVS Instance"; String button2url = "openemr/interface/forms/vitals/new.php"}
+ else if(button2pref.getString().equals("42") {String button2txt = "Main"; String button2url = "openemr/interface/main/main_screen.php"}
+load(getString(R.string.button2url)); slidingDrawer.animateToggle();}});
+
+
+
+          	
+
+
+
+
+
+
+
+
+
+final Button button3 = (Button) findViewById(R.id.button3); button3.setOnClickListener(new SlidingDrawer.OnClickListener() {public void onClick(View webview){ 
+      if(button3pref.getString().equals("1") {String button3txt = "Main Page"; String button3url = "openemr/interface/main/main_screen.php"}
+ else if(button3pref.getString().equals("2") {String button3txt = "Patient Summary"; String button3url = "openemr/interface/patient_file/summary/demographics.php"}
+ else if(button3pref.getString().equals("3") {String button3txt = "Left Navigation"; String button3url = "openemr/interface/main/left_nav.php"}
+ else if(button3pref.getString().equals("4") {String button3txt = "Encounters"; String button3url = "openemr/interface/patient_file/history/encounters.php"}
+ else if(button3pref.getString().equals("5") {String button3txt = "Search"; String button3url = "openemr/interface/main/finder/patient_finder.php"}
+ else if(button3pref.getString().equals("6") {String button3txt = "New Encounter"; String button3url = "openemr/interface/forms/newpatient/new.php"}
+ else if(button3pref.getString().equals("7") {String button3txt = "New Patient"; String button3url = "openemr/interface/new/new.php"}
+ else if(button3pref.getString().equals("8") {String button3txt = "Schedule"; String button3url = "openemr/interface/main/calendar/index.php"}
+ else if(button3pref.getString().equals("9") {String button3txt = "Main Navigation"; String button3url = "openemr/main/main_navigation.php"}
+ else if(button3pref.getString().equals("10") {String button3txt = "Messages"; String button3url = "openemr/interface/main/messages/messages.php"}
+ else if(button3pref.getString().equals("11") {String button3txt = "Lab Messages"; String button3url = "openemr/interface/main/messages/lab_results_messages.php"}
+ else if(button3pref.getString().equals("12") {String button3txt = "Authorizations"; String button3url = "openemr/interface/main/authorizations/authorizations.php"}
+ else if(button3pref.getString().equals("13") {String button3txt = "Authorizations2"; String button3url = "openemr/interface/main/authorizations/authorizations_full.php"}
+ else if(button3pref.getString().equals("14") {String button3txt = "Calendar"; String button3url = "interface/main/calendar/index.php"}
+ else if(button3pref.getString().equals("15") {String button3txt = "Office Notes"; String button3url = "openemr/interface/main/onotes/office_comments_full.php"}
+ else if(button3pref.getString().equals("16") {String button3txt = "Address Book"; String button3url = "openemr/interface/usergroup/addrbook_list.php"}
+ else if(button3pref.getString().equals("17") {String button3txt = "Orders Results"; String button3url = "openemr/interface/orders/orders_results.php"}
+ else if(button3pref.getString().equals("18") {String button3txt = "Reports Index"; String button3url = "openemr/interface/reports/index.php"}
+ else if(button3pref.getString().equals("19") {String button3txt = "User Validation"; String button3url = "openemr/interface/login/validateUser.php"}
+ else if(button3pref.getString().equals("20") {String button3txt = "Pending Followup"; String button3url = "openemr/interface/orders/pending_followup.php"}
+ else if(button3pref.getString().equals("21") {String button3txt = "Pending Orders"; String button3url = "openemr/interface/orders/pending_orders.php"}
+ else if(button3pref.getString().equals("22") {String button3txt = "Procedure Statistics"; String button3url = "openemr/interface/orders/procedure_stats.php"}
+ else if(button3pref.getString().equals("23") {String button3txt = "Order Types nd Results"; String button3url = "openemr/interface/orders/types.php"}
+ else if(button3pref.getString().equals("24") {String button3txt = "Lab Exchange System"; String button3url = "openemr/interface/orders/lab_exchange.php"}
+ else if(button3pref.getString().equals("25") {String button3txt = "Add Or Edit Drug"; String button3url = "openemr/interface/drugs/add_edit_drug.php"}
+ else if(button3pref.getString().equals("26") {String button3txt = "Edit Drug Lot"; String button3url = "openemr/interface/drugs/add_edit_lot.php"}
+ else if(button3pref.getString().equals("27") {String button3txt = "Destroy Drug Lot"; String button3url = "openemr/interface/drugs/destroy_lot.php"}
+ else if(button3pref.getString().equals("28") {String button3txt = "Dispense Drug"; String button3url = "openemr/interface/drugs/dispense_drug.php"}
+ else if(button3pref.getString().equals("29") {String button3txt = "Drug Inventory"; String button3url = "openemr/interface/drugs/drug_inventory.php"}
+ else if(button3pref.getString().equals("30") {String button3txt = "Print Notes"; String button3url = "openemr/interface/forms/CAMOS/notegen.php"}
+ else if(button3pref.getString().equals("31") {String button3txt = "Patient Encounter Form"; String button3url = "openemr/interface/forms/newpatient/view.php"}
+ else if(button3pref.getString().equals("32") {String button3txt = "Create Work School Notes"; String button3url = "openemr/interface/forms/note/new.php"}
+ else if(button3pref.getString().equals("33") {String button3txt = "View Print Work School Note"; String button3url = "openemr/interface/forms/note/view.php"}
+ else if(button3pref.getString().equals("34") {String button3txt = "New Dictation"; String button3url = "openemr/interface/forms/dictation/new.php"}
+ else if(button3pref.getString().equals("35") {String button3txt = "View Dictation"; String button3url = "openemr/interface/forms/dictation/view.php"}
+ else if(button3pref.getString().equals("36") {String button3txt = "Order Procedure"; String button3url = "openemr/interface/forms/procedure_order/new.php"}
+ else if(button3pref.getString().equals("37") {String button3txt = "View Change Procedure"; String button3url = "openemr/interface/forms/procedure_order/view.php"}
+ else if(button3pref.getString().equals("38") {String button3txt = "Review Body Systems ROS"; String button3url = "openemr/interface/forms/ros/view.php"}
+ else if(button3pref.getString().equals("39") {String button3txt = "Review Of Body Systems Checked"; String button3url = "openemrinterface/forms/reviewofs/new.php"}
+ else if(button3pref.getString().equals("40") {String button3txt = "Review PVS"; String button3url = "openemr/interface/forms/vitals/view.php"}
+ else if(button3pref.getString().equals("41") {String button3txt = "Create PVS Instance"; String button3url = "openemr/interface/forms/vitals/new.php"}
+ else if(button3pref.getString().equals("42") {String button3txt = "Main"; String button3url = "openemr/interface/main/main_screen.php"}
+load(getString(R.string.button3url)); slidingDrawer.animateToggle();}});
+
+
+
+          	
+
+
+
+
+
+
+
+
+
+final Button button4 = (Button) findViewById(R.id.button4); button4.setOnClickListener(new SlidingDrawer.OnClickListener() {public void onClick(View webview){ 
+      if(button4pref.getString().equals("1") {String button4txt = "Main Page"; String button4url = "openemr/interface/main/main_screen.php"}
+ else if(button4pref.getString().equals("2") {String button4txt = "Patient Summary"; String button4url = "openemr/interface/patient_file/summary/demographics.php"}
+ else if(button4pref.getString().equals("3") {String button4txt = "Left Navigation"; String button4url = "openemr/interface/main/left_nav.php"}
+ else if(button4pref.getString().equals("4") {String button4txt = "Encounters"; String button4url = "openemr/interface/patient_file/history/encounters.php"}
+ else if(button4pref.getString().equals("5") {String button4txt = "Search"; String button4url = "openemr/interface/main/finder/patient_finder.php"}
+ else if(button4pref.getString().equals("6") {String button4txt = "New Encounter"; String button4url = "openemr/interface/forms/newpatient/new.php"}
+ else if(button4pref.getString().equals("7") {String button4txt = "New Patient"; String button4url = "openemr/interface/new/new.php"}
+ else if(button4pref.getString().equals("8") {String button4txt = "Schedule"; String button4url = "openemr/interface/main/calendar/index.php"}
+ else if(button4pref.getString().equals("9") {String button4txt = "Main Navigation"; String button4url = "openemr/main/main_navigation.php"}
+ else if(button4pref.getString().equals("10") {String button4txt = "Messages"; String button4url = "openemr/interface/main/messages/messages.php"}
+ else if(button4pref.getString().equals("11") {String button4txt = "Lab Messages"; String button4url = "openemr/interface/main/messages/lab_results_messages.php"}
+ else if(button4pref.getString().equals("12") {String button4txt = "Authorizations"; String button4url = "openemr/interface/main/authorizations/authorizations.php"}
+ else if(button4pref.getString().equals("13") {String button4txt = "Authorizations2"; String button4url = "openemr/interface/main/authorizations/authorizations_full.php"}
+ else if(button4pref.getString().equals("14") {String button4txt = "Calendar"; String button4url = "interface/main/calendar/index.php"}
+ else if(button4pref.getString().equals("15") {String button4txt = "Office Notes"; String button4url = "openemr/interface/main/onotes/office_comments_full.php"}
+ else if(button4pref.getString().equals("16") {String button4txt = "Address Book"; String button4url = "openemr/interface/usergroup/addrbook_list.php"}
+ else if(button4pref.getString().equals("17") {String button4txt = "Orders Results"; String button4url = "openemr/interface/orders/orders_results.php"}
+ else if(button4pref.getString().equals("18") {String button4txt = "Reports Index"; String button4url = "openemr/interface/reports/index.php"}
+ else if(button4pref.getString().equals("19") {String button4txt = "User Validation"; String button4url = "openemr/interface/login/validateUser.php"}
+ else if(button4pref.getString().equals("20") {String button4txt = "Pending Followup"; String button4url = "openemr/interface/orders/pending_followup.php"}
+ else if(button4pref.getString().equals("21") {String button4txt = "Pending Orders"; String button4url = "openemr/interface/orders/pending_orders.php"}
+ else if(button4pref.getString().equals("22") {String button4txt = "Procedure Statistics"; String button4url = "openemr/interface/orders/procedure_stats.php"}
+ else if(button4pref.getString().equals("23") {String button4txt = "Order Types nd Results"; String button4url = "openemr/interface/orders/types.php"}
+ else if(button4pref.getString().equals("24") {String button4txt = "Lab Exchange System"; String button4url = "openemr/interface/orders/lab_exchange.php"}
+ else if(button4pref.getString().equals("25") {String button4txt = "Add Or Edit Drug"; String button4url = "openemr/interface/drugs/add_edit_drug.php"}
+ else if(button4pref.getString().equals("26") {String button4txt = "Edit Drug Lot"; String button4url = "openemr/interface/drugs/add_edit_lot.php"}
+ else if(button4pref.getString().equals("27") {String button4txt = "Destroy Drug Lot"; String button4url = "openemr/interface/drugs/destroy_lot.php"}
+ else if(button4pref.getString().equals("28") {String button4txt = "Dispense Drug"; String button4url = "openemr/interface/drugs/dispense_drug.php"}
+ else if(button4pref.getString().equals("29") {String button4txt = "Drug Inventory"; String button4url = "openemr/interface/drugs/drug_inventory.php"}
+ else if(button4pref.getString().equals("30") {String button4txt = "Print Notes"; String button4url = "openemr/interface/forms/CAMOS/notegen.php"}
+ else if(button4pref.getString().equals("31") {String button4txt = "Patient Encounter Form"; String button4url = "openemr/interface/forms/newpatient/view.php"}
+ else if(button4pref.getString().equals("32") {String button4txt = "Create Work School Notes"; String button4url = "openemr/interface/forms/note/new.php"}
+ else if(button4pref.getString().equals("33") {String button4txt = "View Print Work School Note"; String button4url = "openemr/interface/forms/note/view.php"}
+ else if(button4pref.getString().equals("34") {String button4txt = "New Dictation"; String button4url = "openemr/interface/forms/dictation/new.php"}
+ else if(button4pref.getString().equals("35") {String button4txt = "View Dictation"; String button4url = "openemr/interface/forms/dictation/view.php"}
+ else if(button4pref.getString().equals("36") {String button4txt = "Order Procedure"; String button4url = "openemr/interface/forms/procedure_order/new.php"}
+ else if(button4pref.getString().equals("37") {String button4txt = "View Change Procedure"; String button4url = "openemr/interface/forms/procedure_order/view.php"}
+ else if(button4pref.getString().equals("38") {String button4txt = "Review Body Systems ROS"; String button4url = "openemr/interface/forms/ros/view.php"}
+ else if(button4pref.getString().equals("39") {String button4txt = "Review Of Body Systems Checked"; String button4url = "openemrinterface/forms/reviewofs/new.php"}
+ else if(button4pref.getString().equals("40") {String button4txt = "Review PVS"; String button4url = "openemr/interface/forms/vitals/view.php"}
+ else if(button4pref.getString().equals("41") {String button4txt = "Create PVS Instance"; String button4url = "openemr/interface/forms/vitals/new.php"}
+ else if(button4pref.getString().equals("42") {String button4txt = "Main"; String button4url = "openemr/interface/main/main_screen.php"}
+load(getString(R.string.button4url)); slidingDrawer.animateToggle();}});
+
+
+
+          	
+
+
+
+
+
+
+
+
+
+final Button button5 = (Button) findViewById(R.id.button5); button5.setOnClickListener(new SlidingDrawer.OnClickListener() {public void onClick(View webview){ 
+      if(button5pref.getString().equals("1") {String button5txt = "Main Page"; String button5url = "openemr/interface/main/main_screen.php"}
+ else if(button5pref.getString().equals("2") {String button5txt = "Patient Summary"; String button5url = "openemr/interface/patient_file/summary/demographics.php"}
+ else if(button5pref.getString().equals("3") {String button5txt = "Left Navigation"; String button5url = "openemr/interface/main/left_nav.php"}
+ else if(button5pref.getString().equals("4") {String button5txt = "Encounters"; String button5url = "openemr/interface/patient_file/history/encounters.php"}
+ else if(button5pref.getString().equals("5") {String button5txt = "Search"; String button5url = "openemr/interface/main/finder/patient_finder.php"}
+ else if(button5pref.getString().equals("6") {String button5txt = "New Encounter"; String button5url = "openemr/interface/forms/newpatient/new.php"}
+ else if(button5pref.getString().equals("7") {String button5txt = "New Patient"; String button5url = "openemr/interface/new/new.php"}
+ else if(button5pref.getString().equals("8") {String button5txt = "Schedule"; String button5url = "openemr/interface/main/calendar/index.php"}
+ else if(button5pref.getString().equals("9") {String button5txt = "Main Navigation"; String button5url = "openemr/main/main_navigation.php"}
+ else if(button5pref.getString().equals("10") {String button5txt = "Messages"; String button5url = "openemr/interface/main/messages/messages.php"}
+ else if(button5pref.getString().equals("11") {String button5txt = "Lab Messages"; String button5url = "openemr/interface/main/messages/lab_results_messages.php"}
+ else if(button5pref.getString().equals("12") {String button5txt = "Authorizations"; String button5url = "openemr/interface/main/authorizations/authorizations.php"}
+ else if(button5pref.getString().equals("13") {String button5txt = "Authorizations2"; String button5url = "openemr/interface/main/authorizations/authorizations_full.php"}
+ else if(button5pref.getString().equals("14") {String button5txt = "Calendar"; String button5url = "interface/main/calendar/index.php"}
+ else if(button5pref.getString().equals("15") {String button5txt = "Office Notes"; String button5url = "openemr/interface/main/onotes/office_comments_full.php"}
+ else if(button5pref.getString().equals("16") {String button5txt = "Address Book"; String button5url = "openemr/interface/usergroup/addrbook_list.php"}
+ else if(button5pref.getString().equals("17") {String button5txt = "Orders Results"; String button5url = "openemr/interface/orders/orders_results.php"}
+ else if(button5pref.getString().equals("18") {String button5txt = "Reports Index"; String button5url = "openemr/interface/reports/index.php"}
+ else if(button5pref.getString().equals("19") {String button5txt = "User Validation"; String button5url = "openemr/interface/login/validateUser.php"}
+ else if(button5pref.getString().equals("20") {String button5txt = "Pending Followup"; String button5url = "openemr/interface/orders/pending_followup.php"}
+ else if(button5pref.getString().equals("21") {String button5txt = "Pending Orders"; String button5url = "openemr/interface/orders/pending_orders.php"}
+ else if(button5pref.getString().equals("22") {String button5txt = "Procedure Statistics"; String button5url = "openemr/interface/orders/procedure_stats.php"}
+ else if(button5pref.getString().equals("23") {String button5txt = "Order Types nd Results"; String button5url = "openemr/interface/orders/types.php"}
+ else if(button5pref.getString().equals("24") {String button5txt = "Lab Exchange System"; String button5url = "openemr/interface/orders/lab_exchange.php"}
+ else if(button5pref.getString().equals("25") {String button5txt = "Add Or Edit Drug"; String button5url = "openemr/interface/drugs/add_edit_drug.php"}
+ else if(button5pref.getString().equals("26") {String button5txt = "Edit Drug Lot"; String button5url = "openemr/interface/drugs/add_edit_lot.php"}
+ else if(button5pref.getString().equals("27") {String button5txt = "Destroy Drug Lot"; String button5url = "openemr/interface/drugs/destroy_lot.php"}
+ else if(button5pref.getString().equals("28") {String button5txt = "Dispense Drug"; String button5url = "openemr/interface/drugs/dispense_drug.php"}
+ else if(button5pref.getString().equals("29") {String button5txt = "Drug Inventory"; String button5url = "openemr/interface/drugs/drug_inventory.php"}
+ else if(button5pref.getString().equals("30") {String button5txt = "Print Notes"; String button5url = "openemr/interface/forms/CAMOS/notegen.php"}
+ else if(button5pref.getString().equals("31") {String button5txt = "Patient Encounter Form"; String button5url = "openemr/interface/forms/newpatient/view.php"}
+ else if(button5pref.getString().equals("32") {String button5txt = "Create Work School Notes"; String button5url = "openemr/interface/forms/note/new.php"}
+ else if(button5pref.getString().equals("33") {String button5txt = "View Print Work School Note"; String button5url = "openemr/interface/forms/note/view.php"}
+ else if(button5pref.getString().equals("34") {String button5txt = "New Dictation"; String button5url = "openemr/interface/forms/dictation/new.php"}
+ else if(button5pref.getString().equals("35") {String button5txt = "View Dictation"; String button5url = "openemr/interface/forms/dictation/view.php"}
+ else if(button5pref.getString().equals("36") {String button5txt = "Order Procedure"; String button5url = "openemr/interface/forms/procedure_order/new.php"}
+ else if(button5pref.getString().equals("37") {String button5txt = "View Change Procedure"; String button5url = "openemr/interface/forms/procedure_order/view.php"}
+ else if(button5pref.getString().equals("38") {String button5txt = "Review Body Systems ROS"; String button5url = "openemr/interface/forms/ros/view.php"}
+ else if(button5pref.getString().equals("39") {String button5txt = "Review Of Body Systems Checked"; String button5url = "openemrinterface/forms/reviewofs/new.php"}
+ else if(button5pref.getString().equals("40") {String button5txt = "Review PVS"; String button5url = "openemr/interface/forms/vitals/view.php"}
+ else if(button5pref.getString().equals("41") {String button5txt = "Create PVS Instance"; String button5url = "openemr/interface/forms/vitals/new.php"}
+ else if(button5pref.getString().equals("42") {String button5txt = "Main"; String button5url = "openemr/interface/main/main_screen.php"}
+load(getString(R.string.button5url)); slidingDrawer.animateToggle();}});
+
+
+
+          	
+
+
+
+
+
+
+
+
+
+final Button button6 = (Button) findViewById(R.id.button6); button6.setOnClickListener(new SlidingDrawer.OnClickListener() {public void onClick(View webview){ 
+      if(button6pref.getString().equals("1") {String button6txt = "Main Page"; String button6url = "openemr/interface/main/main_screen.php"}
+ else if(button6pref.getString().equals("2") {String button6txt = "Patient Summary"; String button6url = "openemr/interface/patient_file/summary/demographics.php"}
+ else if(button6pref.getString().equals("3") {String button6txt = "Left Navigation"; String button6url = "openemr/interface/main/left_nav.php"}
+ else if(button6pref.getString().equals("4") {String button6txt = "Encounters"; String button6url = "openemr/interface/patient_file/history/encounters.php"}
+ else if(button6pref.getString().equals("5") {String button6txt = "Search"; String button6url = "openemr/interface/main/finder/patient_finder.php"}
+ else if(button6pref.getString().equals("6") {String button6txt = "New Encounter"; String button6url = "openemr/interface/forms/newpatient/new.php"}
+ else if(button6pref.getString().equals("7") {String button6txt = "New Patient"; String button6url = "openemr/interface/new/new.php"}
+ else if(button6pref.getString().equals("8") {String button6txt = "Schedule"; String button6url = "openemr/interface/main/calendar/index.php"}
+ else if(button6pref.getString().equals("9") {String button6txt = "Main Navigation"; String button6url = "openemr/main/main_navigation.php"}
+ else if(button6pref.getString().equals("10") {String button6txt = "Messages"; String button6url = "openemr/interface/main/messages/messages.php"}
+ else if(button6pref.getString().equals("11") {String button6txt = "Lab Messages"; String button6url = "openemr/interface/main/messages/lab_results_messages.php"}
+ else if(button6pref.getString().equals("12") {String button6txt = "Authorizations"; String button6url = "openemr/interface/main/authorizations/authorizations.php"}
+ else if(button6pref.getString().equals("13") {String button6txt = "Authorizations2"; String button6url = "openemr/interface/main/authorizations/authorizations_full.php"}
+ else if(button6pref.getString().equals("14") {String button6txt = "Calendar"; String button6url = "interface/main/calendar/index.php"}
+ else if(button6pref.getString().equals("15") {String button6txt = "Office Notes"; String button6url = "openemr/interface/main/onotes/office_comments_full.php"}
+ else if(button6pref.getString().equals("16") {String button6txt = "Address Book"; String button6url = "openemr/interface/usergroup/addrbook_list.php"}
+ else if(button6pref.getString().equals("17") {String button6txt = "Orders Results"; String button6url = "openemr/interface/orders/orders_results.php"}
+ else if(button6pref.getString().equals("18") {String button6txt = "Reports Index"; String button6url = "openemr/interface/reports/index.php"}
+ else if(button6pref.getString().equals("19") {String button6txt = "User Validation"; String button6url = "openemr/interface/login/validateUser.php"}
+ else if(button6pref.getString().equals("20") {String button6txt = "Pending Followup"; String button6url = "openemr/interface/orders/pending_followup.php"}
+ else if(button6pref.getString().equals("21") {String button6txt = "Pending Orders"; String button6url = "openemr/interface/orders/pending_orders.php"}
+ else if(button6pref.getString().equals("22") {String button6txt = "Procedure Statistics"; String button6url = "openemr/interface/orders/procedure_stats.php"}
+ else if(button6pref.getString().equals("23") {String button6txt = "Order Types nd Results"; String button6url = "openemr/interface/orders/types.php"}
+ else if(button6pref.getString().equals("24") {String button6txt = "Lab Exchange System"; String button6url = "openemr/interface/orders/lab_exchange.php"}
+ else if(button6pref.getString().equals("25") {String button6txt = "Add Or Edit Drug"; String button6url = "openemr/interface/drugs/add_edit_drug.php"}
+ else if(button6pref.getString().equals("26") {String button6txt = "Edit Drug Lot"; String button6url = "openemr/interface/drugs/add_edit_lot.php"}
+ else if(button6pref.getString().equals("27") {String button6txt = "Destroy Drug Lot"; String button6url = "openemr/interface/drugs/destroy_lot.php"}
+ else if(button6pref.getString().equals("28") {String button6txt = "Dispense Drug"; String button6url = "openemr/interface/drugs/dispense_drug.php"}
+ else if(button6pref.getString().equals("29") {String button6txt = "Drug Inventory"; String button6url = "openemr/interface/drugs/drug_inventory.php"}
+ else if(button6pref.getString().equals("30") {String button6txt = "Print Notes"; String button6url = "openemr/interface/forms/CAMOS/notegen.php"}
+ else if(button6pref.getString().equals("31") {String button6txt = "Patient Encounter Form"; String button6url = "openemr/interface/forms/newpatient/view.php"}
+ else if(button6pref.getString().equals("32") {String button6txt = "Create Work School Notes"; String button6url = "openemr/interface/forms/note/new.php"}
+ else if(button6pref.getString().equals("33") {String button6txt = "View Print Work School Note"; String button6url = "openemr/interface/forms/note/view.php"}
+ else if(button6pref.getString().equals("34") {String button6txt = "New Dictation"; String button6url = "openemr/interface/forms/dictation/new.php"}
+ else if(button6pref.getString().equals("35") {String button6txt = "View Dictation"; String button6url = "openemr/interface/forms/dictation/view.php"}
+ else if(button6pref.getString().equals("36") {String button6txt = "Order Procedure"; String button6url = "openemr/interface/forms/procedure_order/new.php"}
+ else if(button6pref.getString().equals("37") {String button6txt = "View Change Procedure"; String button6url = "openemr/interface/forms/procedure_order/view.php"}
+ else if(button6pref.getString().equals("38") {String button6txt = "Review Body Systems ROS"; String button6url = "openemr/interface/forms/ros/view.php"}
+ else if(button6pref.getString().equals("39") {String button6txt = "Review Of Body Systems Checked"; String button6url = "openemrinterface/forms/reviewofs/new.php"}
+ else if(button6pref.getString().equals("40") {String button6txt = "Review PVS"; String button6url = "openemr/interface/forms/vitals/view.php"}
+ else if(button6pref.getString().equals("41") {String button6txt = "Create PVS Instance"; String button6url = "openemr/interface/forms/vitals/new.php"}
+ else if(button6pref.getString().equals("42") {String button6txt = "Main"; String button6url = "openemr/interface/main/main_screen.php"}
+load(getString(R.string.button6url)); slidingDrawer.animateToggle();}});
+
+
+
+          	
+
+
+
+
+
+
+
+
+
+final Button button7 = (Button) findViewById(R.id.button7); button7.setOnClickListener(new SlidingDrawer.OnClickListener() {public void onClick(View webview){ 
+      if(button7pref.getString().equals("1") {String button7txt = "Main Page"; String button7url = "openemr/interface/main/main_screen.php"}
+ else if(button7pref.getString().equals("2") {String button7txt = "Patient Summary"; String button7url = "openemr/interface/patient_file/summary/demographics.php"}
+ else if(button7pref.getString().equals("3") {String button7txt = "Left Navigation"; String button7url = "openemr/interface/main/left_nav.php"}
+ else if(button7pref.getString().equals("4") {String button7txt = "Encounters"; String button7url = "openemr/interface/patient_file/history/encounters.php"}
+ else if(button7pref.getString().equals("5") {String button7txt = "Search"; String button7url = "openemr/interface/main/finder/patient_finder.php"}
+ else if(button7pref.getString().equals("6") {String button7txt = "New Encounter"; String button7url = "openemr/interface/forms/newpatient/new.php"}
+ else if(button7pref.getString().equals("7") {String button7txt = "New Patient"; String button7url = "openemr/interface/new/new.php"}
+ else if(button7pref.getString().equals("8") {String button7txt = "Schedule"; String button7url = "openemr/interface/main/calendar/index.php"}
+ else if(button7pref.getString().equals("9") {String button7txt = "Main Navigation"; String button7url = "openemr/main/main_navigation.php"}
+ else if(button7pref.getString().equals("10") {String button7txt = "Messages"; String button7url = "openemr/interface/main/messages/messages.php"}
+ else if(button7pref.getString().equals("11") {String button7txt = "Lab Messages"; String button7url = "openemr/interface/main/messages/lab_results_messages.php"}
+ else if(button7pref.getString().equals("12") {String button7txt = "Authorizations"; String button7url = "openemr/interface/main/authorizations/authorizations.php"}
+ else if(button7pref.getString().equals("13") {String button7txt = "Authorizations2"; String button7url = "openemr/interface/main/authorizations/authorizations_full.php"}
+ else if(button7pref.getString().equals("14") {String button7txt = "Calendar"; String button7url = "interface/main/calendar/index.php"}
+ else if(button7pref.getString().equals("15") {String button7txt = "Office Notes"; String button7url = "openemr/interface/main/onotes/office_comments_full.php"}
+ else if(button7pref.getString().equals("16") {String button7txt = "Address Book"; String button7url = "openemr/interface/usergroup/addrbook_list.php"}
+ else if(button7pref.getString().equals("17") {String button7txt = "Orders Results"; String button7url = "openemr/interface/orders/orders_results.php"}
+ else if(button7pref.getString().equals("18") {String button7txt = "Reports Index"; String button7url = "openemr/interface/reports/index.php"}
+ else if(button7pref.getString().equals("19") {String button7txt = "User Validation"; String button7url = "openemr/interface/login/validateUser.php"}
+ else if(button7pref.getString().equals("20") {String button7txt = "Pending Followup"; String button7url = "openemr/interface/orders/pending_followup.php"}
+ else if(button7pref.getString().equals("21") {String button7txt = "Pending Orders"; String button7url = "openemr/interface/orders/pending_orders.php"}
+ else if(button7pref.getString().equals("22") {String button7txt = "Procedure Statistics"; String button7url = "openemr/interface/orders/procedure_stats.php"}
+ else if(button7pref.getString().equals("23") {String button7txt = "Order Types nd Results"; String button7url = "openemr/interface/orders/types.php"}
+ else if(button7pref.getString().equals("24") {String button7txt = "Lab Exchange System"; String button7url = "openemr/interface/orders/lab_exchange.php"}
+ else if(button7pref.getString().equals("25") {String button7txt = "Add Or Edit Drug"; String button7url = "openemr/interface/drugs/add_edit_drug.php"}
+ else if(button7pref.getString().equals("26") {String button7txt = "Edit Drug Lot"; String button7url = "openemr/interface/drugs/add_edit_lot.php"}
+ else if(button7pref.getString().equals("27") {String button7txt = "Destroy Drug Lot"; String button7url = "openemr/interface/drugs/destroy_lot.php"}
+ else if(button7pref.getString().equals("28") {String button7txt = "Dispense Drug"; String button7url = "openemr/interface/drugs/dispense_drug.php"}
+ else if(button7pref.getString().equals("29") {String button7txt = "Drug Inventory"; String button7url = "openemr/interface/drugs/drug_inventory.php"}
+ else if(button7pref.getString().equals("30") {String button7txt = "Print Notes"; String button7url = "openemr/interface/forms/CAMOS/notegen.php"}
+ else if(button7pref.getString().equals("31") {String button7txt = "Patient Encounter Form"; String button7url = "openemr/interface/forms/newpatient/view.php"}
+ else if(button7pref.getString().equals("32") {String button7txt = "Create Work School Notes"; String button7url = "openemr/interface/forms/note/new.php"}
+ else if(button7pref.getString().equals("33") {String button7txt = "View Print Work School Note"; String button7url = "openemr/interface/forms/note/view.php"}
+ else if(button7pref.getString().equals("34") {String button7txt = "New Dictation"; String button7url = "openemr/interface/forms/dictation/new.php"}
+ else if(button7pref.getString().equals("35") {String button7txt = "View Dictation"; String button7url = "openemr/interface/forms/dictation/view.php"}
+ else if(button7pref.getString().equals("36") {String button7txt = "Order Procedure"; String button7url = "openemr/interface/forms/procedure_order/new.php"}
+ else if(button7pref.getString().equals("37") {String button7txt = "View Change Procedure"; String button7url = "openemr/interface/forms/procedure_order/view.php"}
+ else if(button7pref.getString().equals("38") {String button7txt = "Review Body Systems ROS"; String button7url = "openemr/interface/forms/ros/view.php"}
+ else if(button7pref.getString().equals("39") {String button7txt = "Review Of Body Systems Checked"; String button7url = "openemrinterface/forms/reviewofs/new.php"}
+ else if(button7pref.getString().equals("40") {String button7txt = "Review PVS"; String button7url = "openemr/interface/forms/vitals/view.php"}
+ else if(button7pref.getString().equals("41") {String button7txt = "Create PVS Instance"; String button7url = "openemr/interface/forms/vitals/new.php"}
+ else if(button7pref.getString().equals("42") {String button7txt = "Main"; String button7url = "openemr/interface/main/main_screen.php"}
+load(getString(R.string.button7url)); slidingDrawer.animateToggle();}});
+
+
+
+          	
+
+
+
+
+
+
+
+
+
+final Button button8 = (Button) findViewById(R.id.button8); button8.setOnClickListener(new SlidingDrawer.OnClickListener() {public void onClick(View webview){ 
+      if(button8pref.getString().equals("1") {String button8txt = "Main Page"; String button8url = "openemr/interface/main/main_screen.php"}
+ else if(button8pref.getString().equals("2") {String button8txt = "Patient Summary"; String button8url = "openemr/interface/patient_file/summary/demographics.php"}
+ else if(button8pref.getString().equals("3") {String button8txt = "Left Navigation"; String button8url = "openemr/interface/main/left_nav.php"}
+ else if(button8pref.getString().equals("4") {String button8txt = "Encounters"; String button8url = "openemr/interface/patient_file/history/encounters.php"}
+ else if(button8pref.getString().equals("5") {String button8txt = "Search"; String button8url = "openemr/interface/main/finder/patient_finder.php"}
+ else if(button8pref.getString().equals("6") {String button8txt = "New Encounter"; String button8url = "openemr/interface/forms/newpatient/new.php"}
+ else if(button8pref.getString().equals("7") {String button8txt = "New Patient"; String button8url = "openemr/interface/new/new.php"}
+ else if(button8pref.getString().equals("8") {String button8txt = "Schedule"; String button8url = "openemr/interface/main/calendar/index.php"}
+ else if(button8pref.getString().equals("9") {String button8txt = "Main Navigation"; String button8url = "openemr/main/main_navigation.php"}
+ else if(button8pref.getString().equals("10") {String button8txt = "Messages"; String button8url = "openemr/interface/main/messages/messages.php"}
+ else if(button8pref.getString().equals("11") {String button8txt = "Lab Messages"; String button8url = "openemr/interface/main/messages/lab_results_messages.php"}
+ else if(button8pref.getString().equals("12") {String button8txt = "Authorizations"; String button8url = "openemr/interface/main/authorizations/authorizations.php"}
+ else if(button8pref.getString().equals("13") {String button8txt = "Authorizations2"; String button8url = "openemr/interface/main/authorizations/authorizations_full.php"}
+ else if(button8pref.getString().equals("14") {String button8txt = "Calendar"; String button8url = "interface/main/calendar/index.php"}
+ else if(button8pref.getString().equals("15") {String button8txt = "Office Notes"; String button8url = "openemr/interface/main/onotes/office_comments_full.php"}
+ else if(button8pref.getString().equals("16") {String button8txt = "Address Book"; String button8url = "openemr/interface/usergroup/addrbook_list.php"}
+ else if(button8pref.getString().equals("17") {String button8txt = "Orders Results"; String button8url = "openemr/interface/orders/orders_results.php"}
+ else if(button8pref.getString().equals("18") {String button8txt = "Reports Index"; String button8url = "openemr/interface/reports/index.php"}
+ else if(button8pref.getString().equals("19") {String button8txt = "User Validation"; String button8url = "openemr/interface/login/validateUser.php"}
+ else if(button8pref.getString().equals("20") {String button8txt = "Pending Followup"; String button8url = "openemr/interface/orders/pending_followup.php"}
+ else if(button8pref.getString().equals("21") {String button8txt = "Pending Orders"; String button8url = "openemr/interface/orders/pending_orders.php"}
+ else if(button8pref.getString().equals("22") {String button8txt = "Procedure Statistics"; String button8url = "openemr/interface/orders/procedure_stats.php"}
+ else if(button8pref.getString().equals("23") {String button8txt = "Order Types nd Results"; String button8url = "openemr/interface/orders/types.php"}
+ else if(button8pref.getString().equals("24") {String button8txt = "Lab Exchange System"; String button8url = "openemr/interface/orders/lab_exchange.php"}
+ else if(button8pref.getString().equals("25") {String button8txt = "Add Or Edit Drug"; String button8url = "openemr/interface/drugs/add_edit_drug.php"}
+ else if(button8pref.getString().equals("26") {String button8txt = "Edit Drug Lot"; String button8url = "openemr/interface/drugs/add_edit_lot.php"}
+ else if(button8pref.getString().equals("27") {String button8txt = "Destroy Drug Lot"; String button8url = "openemr/interface/drugs/destroy_lot.php"}
+ else if(button8pref.getString().equals("28") {String button8txt = "Dispense Drug"; String button8url = "openemr/interface/drugs/dispense_drug.php"}
+ else if(button8pref.getString().equals("29") {String button8txt = "Drug Inventory"; String button8url = "openemr/interface/drugs/drug_inventory.php"}
+ else if(button8pref.getString().equals("30") {String button8txt = "Print Notes"; String button8url = "openemr/interface/forms/CAMOS/notegen.php"}
+ else if(button8pref.getString().equals("31") {String button8txt = "Patient Encounter Form"; String button8url = "openemr/interface/forms/newpatient/view.php"}
+ else if(button8pref.getString().equals("32") {String button8txt = "Create Work School Notes"; String button8url = "openemr/interface/forms/note/new.php"}
+ else if(button8pref.getString().equals("33") {String button8txt = "View Print Work School Note"; String button8url = "openemr/interface/forms/note/view.php"}
+ else if(button8pref.getString().equals("34") {String button8txt = "New Dictation"; String button8url = "openemr/interface/forms/dictation/new.php"}
+ else if(button8pref.getString().equals("35") {String button8txt = "View Dictation"; String button8url = "openemr/interface/forms/dictation/view.php"}
+ else if(button8pref.getString().equals("36") {String button8txt = "Order Procedure"; String button8url = "openemr/interface/forms/procedure_order/new.php"}
+ else if(button8pref.getString().equals("37") {String button8txt = "View Change Procedure"; String button8url = "openemr/interface/forms/procedure_order/view.php"}
+ else if(button8pref.getString().equals("38") {String button8txt = "Review Body Systems ROS"; String button8url = "openemr/interface/forms/ros/view.php"}
+ else if(button8pref.getString().equals("39") {String button8txt = "Review Of Body Systems Checked"; String button8url = "openemrinterface/forms/reviewofs/new.php"}
+ else if(button8pref.getString().equals("40") {String button8txt = "Review PVS"; String button8url = "openemr/interface/forms/vitals/view.php"}
+ else if(button8pref.getString().equals("41") {String button8txt = "Create PVS Instance"; String button8url = "openemr/interface/forms/vitals/new.php"}
+ else if(button8pref.getString().equals("42") {String button8txt = "Main"; String button8url = "openemr/interface/main/main_screen.php"}
+load(getString(R.string.button8url)); slidingDrawer.animateToggle();}});
+
+
+
+          	
+
+
+
+
+
+
+
+
+
+final Button button9 = (Button) findViewById(R.id.button9); button9.setOnClickListener(new SlidingDrawer.OnClickListener() {public void onClick(View webview){ 
+      if(button9pref.getString().equals("1") {String button9txt = "Main Page"; String button9url = "openemr/interface/main/main_screen.php"}
+ else if(button9pref.getString().equals("2") {String button9txt = "Patient Summary"; String button9url = "openemr/interface/patient_file/summary/demographics.php"}
+ else if(button9pref.getString().equals("3") {String button9txt = "Left Navigation"; String button9url = "openemr/interface/main/left_nav.php"}
+ else if(button9pref.getString().equals("4") {String button9txt = "Encounters"; String button9url = "openemr/interface/patient_file/history/encounters.php"}
+ else if(button9pref.getString().equals("5") {String button9txt = "Search"; String button9url = "openemr/interface/main/finder/patient_finder.php"}
+ else if(button9pref.getString().equals("6") {String button9txt = "New Encounter"; String button9url = "openemr/interface/forms/newpatient/new.php"}
+ else if(button9pref.getString().equals("7") {String button9txt = "New Patient"; String button9url = "openemr/interface/new/new.php"}
+ else if(button9pref.getString().equals("8") {String button9txt = "Schedule"; String button9url = "openemr/interface/main/calendar/index.php"}
+ else if(button9pref.getString().equals("9") {String button9txt = "Main Navigation"; String button9url = "openemr/main/main_navigation.php"}
+ else if(button9pref.getString().equals("10") {String button9txt = "Messages"; String button9url = "openemr/interface/main/messages/messages.php"}
+ else if(button9pref.getString().equals("11") {String button9txt = "Lab Messages"; String button9url = "openemr/interface/main/messages/lab_results_messages.php"}
+ else if(button9pref.getString().equals("12") {String button9txt = "Authorizations"; String button9url = "openemr/interface/main/authorizations/authorizations.php"}
+ else if(button9pref.getString().equals("13") {String button9txt = "Authorizations2"; String button9url = "openemr/interface/main/authorizations/authorizations_full.php"}
+ else if(button9pref.getString().equals("14") {String button9txt = "Calendar"; String button9url = "interface/main/calendar/index.php"}
+ else if(button9pref.getString().equals("15") {String button9txt = "Office Notes"; String button9url = "openemr/interface/main/onotes/office_comments_full.php"}
+ else if(button9pref.getString().equals("16") {String button9txt = "Address Book"; String button9url = "openemr/interface/usergroup/addrbook_list.php"}
+ else if(button9pref.getString().equals("17") {String button9txt = "Orders Results"; String button9url = "openemr/interface/orders/orders_results.php"}
+ else if(button9pref.getString().equals("18") {String button9txt = "Reports Index"; String button9url = "openemr/interface/reports/index.php"}
+ else if(button9pref.getString().equals("19") {String button9txt = "User Validation"; String button9url = "openemr/interface/login/validateUser.php"}
+ else if(button9pref.getString().equals("20") {String button9txt = "Pending Followup"; String button9url = "openemr/interface/orders/pending_followup.php"}
+ else if(button9pref.getString().equals("21") {String button9txt = "Pending Orders"; String button9url = "openemr/interface/orders/pending_orders.php"}
+ else if(button9pref.getString().equals("22") {String button9txt = "Procedure Statistics"; String button9url = "openemr/interface/orders/procedure_stats.php"}
+ else if(button9pref.getString().equals("23") {String button9txt = "Order Types nd Results"; String button9url = "openemr/interface/orders/types.php"}
+ else if(button9pref.getString().equals("24") {String button9txt = "Lab Exchange System"; String button9url = "openemr/interface/orders/lab_exchange.php"}
+ else if(button9pref.getString().equals("25") {String button9txt = "Add Or Edit Drug"; String button9url = "openemr/interface/drugs/add_edit_drug.php"}
+ else if(button9pref.getString().equals("26") {String button9txt = "Edit Drug Lot"; String button9url = "openemr/interface/drugs/add_edit_lot.php"}
+ else if(button9pref.getString().equals("27") {String button9txt = "Destroy Drug Lot"; String button9url = "openemr/interface/drugs/destroy_lot.php"}
+ else if(button9pref.getString().equals("28") {String button9txt = "Dispense Drug"; String button9url = "openemr/interface/drugs/dispense_drug.php"}
+ else if(button9pref.getString().equals("29") {String button9txt = "Drug Inventory"; String button9url = "openemr/interface/drugs/drug_inventory.php"}
+ else if(button9pref.getString().equals("30") {String button9txt = "Print Notes"; String button9url = "openemr/interface/forms/CAMOS/notegen.php"}
+ else if(button9pref.getString().equals("31") {String button9txt = "Patient Encounter Form"; String button9url = "openemr/interface/forms/newpatient/view.php"}
+ else if(button9pref.getString().equals("32") {String button9txt = "Create Work School Notes"; String button9url = "openemr/interface/forms/note/new.php"}
+ else if(button9pref.getString().equals("33") {String button9txt = "View Print Work School Note"; String button9url = "openemr/interface/forms/note/view.php"}
+ else if(button9pref.getString().equals("34") {String button9txt = "New Dictation"; String button9url = "openemr/interface/forms/dictation/new.php"}
+ else if(button9pref.getString().equals("35") {String button9txt = "View Dictation"; String button9url = "openemr/interface/forms/dictation/view.php"}
+ else if(button9pref.getString().equals("36") {String button9txt = "Order Procedure"; String button9url = "openemr/interface/forms/procedure_order/new.php"}
+ else if(button9pref.getString().equals("37") {String button9txt = "View Change Procedure"; String button9url = "openemr/interface/forms/procedure_order/view.php"}
+ else if(button9pref.getString().equals("38") {String button9txt = "Review Body Systems ROS"; String button9url = "openemr/interface/forms/ros/view.php"}
+ else if(button9pref.getString().equals("39") {String button9txt = "Review Of Body Systems Checked"; String button9url = "openemrinterface/forms/reviewofs/new.php"}
+ else if(button9pref.getString().equals("40") {String button9txt = "Review PVS"; String button9url = "openemr/interface/forms/vitals/view.php"}
+ else if(button9pref.getString().equals("41") {String button9txt = "Create PVS Instance"; String button9url = "openemr/interface/forms/vitals/new.php"}
+ else if(button9pref.getString().equals("42") {String button9txt = "Main"; String button9url = "openemr/interface/main/main_screen.php"}
+load(getString(R.string.button9url)); slidingDrawer.animateToggle();}});
+
+
+
+          	
+
+
+
+
+
+
+
+
+
+final Button button10 = (Button) findViewById(R.id.button10); button10.setOnClickListener(new SlidingDrawer.OnClickListener() {public void onClick(View webview){ 
+      if(button10pref.getString().equals("1") {String button10txt = "Main Page"; String button10url = "openemr/interface/main/main_screen.php"}
+ else if(button10pref.getString().equals("2") {String button10txt = "Patient Summary"; String button10url = "openemr/interface/patient_file/summary/demographics.php"}
+ else if(button10pref.getString().equals("3") {String button10txt = "Left Navigation"; String button10url = "openemr/interface/main/left_nav.php"}
+ else if(button10pref.getString().equals("4") {String button10txt = "Encounters"; String button10url = "openemr/interface/patient_file/history/encounters.php"}
+ else if(button10pref.getString().equals("5") {String button10txt = "Search"; String button10url = "openemr/interface/main/finder/patient_finder.php"}
+ else if(button10pref.getString().equals("6") {String button10txt = "New Encounter"; String button10url = "openemr/interface/forms/newpatient/new.php"}
+ else if(button10pref.getString().equals("7") {String button10txt = "New Patient"; String button10url = "openemr/interface/new/new.php"}
+ else if(button10pref.getString().equals("8") {String button10txt = "Schedule"; String button10url = "openemr/interface/main/calendar/index.php"}
+ else if(button10pref.getString().equals("9") {String button10txt = "Main Navigation"; String button10url = "openemr/main/main_navigation.php"}
+ else if(button10pref.getString().equals("10") {String button10txt = "Messages"; String button10url = "openemr/interface/main/messages/messages.php"}
+ else if(button10pref.getString().equals("11") {String button10txt = "Lab Messages"; String button10url = "openemr/interface/main/messages/lab_results_messages.php"}
+ else if(button10pref.getString().equals("12") {String button10txt = "Authorizations"; String button10url = "openemr/interface/main/authorizations/authorizations.php"}
+ else if(button10pref.getString().equals("13") {String button10txt = "Authorizations2"; String button10url = "openemr/interface/main/authorizations/authorizations_full.php"}
+ else if(button10pref.getString().equals("14") {String button10txt = "Calendar"; String button10url = "interface/main/calendar/index.php"}
+ else if(button10pref.getString().equals("15") {String button10txt = "Office Notes"; String button10url = "openemr/interface/main/onotes/office_comments_full.php"}
+ else if(button10pref.getString().equals("16") {String button10txt = "Address Book"; String button10url = "openemr/interface/usergroup/addrbook_list.php"}
+ else if(button10pref.getString().equals("17") {String button10txt = "Orders Results"; String button10url = "openemr/interface/orders/orders_results.php"}
+ else if(button10pref.getString().equals("18") {String button10txt = "Reports Index"; String button10url = "openemr/interface/reports/index.php"}
+ else if(button10pref.getString().equals("19") {String button10txt = "User Validation"; String button10url = "openemr/interface/login/validateUser.php"}
+ else if(button10pref.getString().equals("20") {String button10txt = "Pending Followup"; String button10url = "openemr/interface/orders/pending_followup.php"}
+ else if(button10pref.getString().equals("21") {String button10txt = "Pending Orders"; String button10url = "openemr/interface/orders/pending_orders.php"}
+ else if(button10pref.getString().equals("22") {String button10txt = "Procedure Statistics"; String button10url = "openemr/interface/orders/procedure_stats.php"}
+ else if(button10pref.getString().equals("23") {String button10txt = "Order Types nd Results"; String button10url = "openemr/interface/orders/types.php"}
+ else if(button10pref.getString().equals("24") {String button10txt = "Lab Exchange System"; String button10url = "openemr/interface/orders/lab_exchange.php"}
+ else if(button10pref.getString().equals("25") {String button10txt = "Add Or Edit Drug"; String button10url = "openemr/interface/drugs/add_edit_drug.php"}
+ else if(button10pref.getString().equals("26") {String button10txt = "Edit Drug Lot"; String button10url = "openemr/interface/drugs/add_edit_lot.php"}
+ else if(button10pref.getString().equals("27") {String button10txt = "Destroy Drug Lot"; String button10url = "openemr/interface/drugs/destroy_lot.php"}
+ else if(button10pref.getString().equals("28") {String button10txt = "Dispense Drug"; String button10url = "openemr/interface/drugs/dispense_drug.php"}
+ else if(button10pref.getString().equals("29") {String button10txt = "Drug Inventory"; String button10url = "openemr/interface/drugs/drug_inventory.php"}
+ else if(button10pref.getString().equals("30") {String button10txt = "Print Notes"; String button10url = "openemr/interface/forms/CAMOS/notegen.php"}
+ else if(button10pref.getString().equals("31") {String button10txt = "Patient Encounter Form"; String button10url = "openemr/interface/forms/newpatient/view.php"}
+ else if(button10pref.getString().equals("32") {String button10txt = "Create Work School Notes"; String button10url = "openemr/interface/forms/note/new.php"}
+ else if(button10pref.getString().equals("33") {String button10txt = "View Print Work School Note"; String button10url = "openemr/interface/forms/note/view.php"}
+ else if(button10pref.getString().equals("34") {String button10txt = "New Dictation"; String button10url = "openemr/interface/forms/dictation/new.php"}
+ else if(button10pref.getString().equals("35") {String button10txt = "View Dictation"; String button10url = "openemr/interface/forms/dictation/view.php"}
+ else if(button10pref.getString().equals("36") {String button10txt = "Order Procedure"; String button10url = "openemr/interface/forms/procedure_order/new.php"}
+ else if(button10pref.getString().equals("37") {String button10txt = "View Change Procedure"; String button10url = "openemr/interface/forms/procedure_order/view.php"}
+ else if(button10pref.getString().equals("38") {String button10txt = "Review Body Systems ROS"; String button10url = "openemr/interface/forms/ros/view.php"}
+ else if(button10pref.getString().equals("39") {String button10txt = "Review Of Body Systems Checked"; String button10url = "openemrinterface/forms/reviewofs/new.php"}
+ else if(button10pref.getString().equals("40") {String button10txt = "Review PVS"; String button10url = "openemr/interface/forms/vitals/view.php"}
+ else if(button10pref.getString().equals("41") {String button10txt = "Create PVS Instance"; String button10url = "openemr/interface/forms/vitals/new.php"}
+ else if(button10pref.getString().equals("42") {String button10txt = "Main"; String button10url = "openemr/interface/main/main_screen.php"}
+load(getString(R.string.button10url)); slidingDrawer.animateToggle();}});
+
+
+
+          	
+
+
+
+
+
+
+
+
+
+final Button button11 = (Button) findViewById(R.id.button11); button11.setOnClickListener(new SlidingDrawer.OnClickListener() {public void onClick(View webview){ 
+      if(button11pref.getString().equals("1") {String button11txt = "Main Page"; String button11url = "openemr/interface/main/main_screen.php"}
+ else if(button11pref.getString().equals("2") {String button11txt = "Patient Summary"; String button11url = "openemr/interface/patient_file/summary/demographics.php"}
+ else if(button11pref.getString().equals("3") {String button11txt = "Left Navigation"; String button11url = "openemr/interface/main/left_nav.php"}
+ else if(button11pref.getString().equals("4") {String button11txt = "Encounters"; String button11url = "openemr/interface/patient_file/history/encounters.php"}
+ else if(button11pref.getString().equals("5") {String button11txt = "Search"; String button11url = "openemr/interface/main/finder/patient_finder.php"}
+ else if(button11pref.getString().equals("6") {String button11txt = "New Encounter"; String button11url = "openemr/interface/forms/newpatient/new.php"}
+ else if(button11pref.getString().equals("7") {String button11txt = "New Patient"; String button11url = "openemr/interface/new/new.php"}
+ else if(button11pref.getString().equals("8") {String button11txt = "Schedule"; String button11url = "openemr/interface/main/calendar/index.php"}
+ else if(button11pref.getString().equals("9") {String button11txt = "Main Navigation"; String button11url = "openemr/main/main_navigation.php"}
+ else if(button11pref.getString().equals("10") {String button11txt = "Messages"; String button11url = "openemr/interface/main/messages/messages.php"}
+ else if(button11pref.getString().equals("11") {String button11txt = "Lab Messages"; String button11url = "openemr/interface/main/messages/lab_results_messages.php"}
+ else if(button11pref.getString().equals("12") {String button11txt = "Authorizations"; String button11url = "openemr/interface/main/authorizations/authorizations.php"}
+ else if(button11pref.getString().equals("13") {String button11txt = "Authorizations2"; String button11url = "openemr/interface/main/authorizations/authorizations_full.php"}
+ else if(button11pref.getString().equals("14") {String button11txt = "Calendar"; String button11url = "interface/main/calendar/index.php"}
+ else if(button11pref.getString().equals("15") {String button11txt = "Office Notes"; String button11url = "openemr/interface/main/onotes/office_comments_full.php"}
+ else if(button11pref.getString().equals("16") {String button11txt = "Address Book"; String button11url = "openemr/interface/usergroup/addrbook_list.php"}
+ else if(button11pref.getString().equals("17") {String button11txt = "Orders Results"; String button11url = "openemr/interface/orders/orders_results.php"}
+ else if(button11pref.getString().equals("18") {String button11txt = "Reports Index"; String button11url = "openemr/interface/reports/index.php"}
+ else if(button11pref.getString().equals("19") {String button11txt = "User Validation"; String button11url = "openemr/interface/login/validateUser.php"}
+ else if(button11pref.getString().equals("20") {String button11txt = "Pending Followup"; String button11url = "openemr/interface/orders/pending_followup.php"}
+ else if(button11pref.getString().equals("21") {String button11txt = "Pending Orders"; String button11url = "openemr/interface/orders/pending_orders.php"}
+ else if(button11pref.getString().equals("22") {String button11txt = "Procedure Statistics"; String button11url = "openemr/interface/orders/procedure_stats.php"}
+ else if(button11pref.getString().equals("23") {String button11txt = "Order Types nd Results"; String button11url = "openemr/interface/orders/types.php"}
+ else if(button11pref.getString().equals("24") {String button11txt = "Lab Exchange System"; String button11url = "openemr/interface/orders/lab_exchange.php"}
+ else if(button11pref.getString().equals("25") {String button11txt = "Add Or Edit Drug"; String button11url = "openemr/interface/drugs/add_edit_drug.php"}
+ else if(button11pref.getString().equals("26") {String button11txt = "Edit Drug Lot"; String button11url = "openemr/interface/drugs/add_edit_lot.php"}
+ else if(button11pref.getString().equals("27") {String button11txt = "Destroy Drug Lot"; String button11url = "openemr/interface/drugs/destroy_lot.php"}
+ else if(button11pref.getString().equals("28") {String button11txt = "Dispense Drug"; String button11url = "openemr/interface/drugs/dispense_drug.php"}
+ else if(button11pref.getString().equals("29") {String button11txt = "Drug Inventory"; String button11url = "openemr/interface/drugs/drug_inventory.php"}
+ else if(button11pref.getString().equals("30") {String button11txt = "Print Notes"; String button11url = "openemr/interface/forms/CAMOS/notegen.php"}
+ else if(button11pref.getString().equals("31") {String button11txt = "Patient Encounter Form"; String button11url = "openemr/interface/forms/newpatient/view.php"}
+ else if(button11pref.getString().equals("32") {String button11txt = "Create Work School Notes"; String button11url = "openemr/interface/forms/note/new.php"}
+ else if(button11pref.getString().equals("33") {String button11txt = "View Print Work School Note"; String button11url = "openemr/interface/forms/note/view.php"}
+ else if(button11pref.getString().equals("34") {String button11txt = "New Dictation"; String button11url = "openemr/interface/forms/dictation/new.php"}
+ else if(button11pref.getString().equals("35") {String button11txt = "View Dictation"; String button11url = "openemr/interface/forms/dictation/view.php"}
+ else if(button11pref.getString().equals("36") {String button11txt = "Order Procedure"; String button11url = "openemr/interface/forms/procedure_order/new.php"}
+ else if(button11pref.getString().equals("37") {String button11txt = "View Change Procedure"; String button11url = "openemr/interface/forms/procedure_order/view.php"}
+ else if(button11pref.getString().equals("38") {String button11txt = "Review Body Systems ROS"; String button11url = "openemr/interface/forms/ros/view.php"}
+ else if(button11pref.getString().equals("39") {String button11txt = "Review Of Body Systems Checked"; String button11url = "openemrinterface/forms/reviewofs/new.php"}
+ else if(button11pref.getString().equals("40") {String button11txt = "Review PVS"; String button11url = "openemr/interface/forms/vitals/view.php"}
+ else if(button11pref.getString().equals("41") {String button11txt = "Create PVS Instance"; String button11url = "openemr/interface/forms/vitals/new.php"}
+ else if(button11pref.getString().equals("42") {String button11txt = "Main"; String button11url = "openemr/interface/main/main_screen.php"}
+load(getString(R.string.button11url)); slidingDrawer.animateToggle();}});
+
+
+
+          	
+
+
+
+
+
+
+
+
+
+final Button button12 = (Button) findViewById(R.id.button12); button12.setOnClickListener(new SlidingDrawer.OnClickListener() {public void onClick(View webview){ 
+      if(button12pref.getString().equals("1") {String button12txt = "Main Page"; String button12url = "openemr/interface/main/main_screen.php"}
+ else if(button12pref.getString().equals("2") {String button12txt = "Patient Summary"; String button12url = "openemr/interface/patient_file/summary/demographics.php"}
+ else if(button12pref.getString().equals("3") {String button12txt = "Left Navigation"; String button12url = "openemr/interface/main/left_nav.php"}
+ else if(button12pref.getString().equals("4") {String button12txt = "Encounters"; String button12url = "openemr/interface/patient_file/history/encounters.php"}
+ else if(button12pref.getString().equals("5") {String button12txt = "Search"; String button12url = "openemr/interface/main/finder/patient_finder.php"}
+ else if(button12pref.getString().equals("6") {String button12txt = "New Encounter"; String button12url = "openemr/interface/forms/newpatient/new.php"}
+ else if(button12pref.getString().equals("7") {String button12txt = "New Patient"; String button12url = "openemr/interface/new/new.php"}
+ else if(button12pref.getString().equals("8") {String button12txt = "Schedule"; String button12url = "openemr/interface/main/calendar/index.php"}
+ else if(button12pref.getString().equals("9") {String button12txt = "Main Navigation"; String button12url = "openemr/main/main_navigation.php"}
+ else if(button12pref.getString().equals("10") {String button12txt = "Messages"; String button12url = "openemr/interface/main/messages/messages.php"}
+ else if(button12pref.getString().equals("11") {String button12txt = "Lab Messages"; String button12url = "openemr/interface/main/messages/lab_results_messages.php"}
+ else if(button12pref.getString().equals("12") {String button12txt = "Authorizations"; String button12url = "openemr/interface/main/authorizations/authorizations.php"}
+ else if(button12pref.getString().equals("13") {String button12txt = "Authorizations2"; String button12url = "openemr/interface/main/authorizations/authorizations_full.php"}
+ else if(button12pref.getString().equals("14") {String button12txt = "Calendar"; String button12url = "interface/main/calendar/index.php"}
+ else if(button12pref.getString().equals("15") {String button12txt = "Office Notes"; String button12url = "openemr/interface/main/onotes/office_comments_full.php"}
+ else if(button12pref.getString().equals("16") {String button12txt = "Address Book"; String button12url = "openemr/interface/usergroup/addrbook_list.php"}
+ else if(button12pref.getString().equals("17") {String button12txt = "Orders Results"; String button12url = "openemr/interface/orders/orders_results.php"}
+ else if(button12pref.getString().equals("18") {String button12txt = "Reports Index"; String button12url = "openemr/interface/reports/index.php"}
+ else if(button12pref.getString().equals("19") {String button12txt = "User Validation"; String button12url = "openemr/interface/login/validateUser.php"}
+ else if(button12pref.getString().equals("20") {String button12txt = "Pending Followup"; String button12url = "openemr/interface/orders/pending_followup.php"}
+ else if(button12pref.getString().equals("21") {String button12txt = "Pending Orders"; String button12url = "openemr/interface/orders/pending_orders.php"}
+ else if(button12pref.getString().equals("22") {String button12txt = "Procedure Statistics"; String button12url = "openemr/interface/orders/procedure_stats.php"}
+ else if(button12pref.getString().equals("23") {String button12txt = "Order Types nd Results"; String button12url = "openemr/interface/orders/types.php"}
+ else if(button12pref.getString().equals("24") {String button12txt = "Lab Exchange System"; String button12url = "openemr/interface/orders/lab_exchange.php"}
+ else if(button12pref.getString().equals("25") {String button12txt = "Add Or Edit Drug"; String button12url = "openemr/interface/drugs/add_edit_drug.php"}
+ else if(button12pref.getString().equals("26") {String button12txt = "Edit Drug Lot"; String button12url = "openemr/interface/drugs/add_edit_lot.php"}
+ else if(button12pref.getString().equals("27") {String button12txt = "Destroy Drug Lot"; String button12url = "openemr/interface/drugs/destroy_lot.php"}
+ else if(button12pref.getString().equals("28") {String button12txt = "Dispense Drug"; String button12url = "openemr/interface/drugs/dispense_drug.php"}
+ else if(button12pref.getString().equals("29") {String button12txt = "Drug Inventory"; String button12url = "openemr/interface/drugs/drug_inventory.php"}
+ else if(button12pref.getString().equals("30") {String button12txt = "Print Notes"; String button12url = "openemr/interface/forms/CAMOS/notegen.php"}
+ else if(button12pref.getString().equals("31") {String button12txt = "Patient Encounter Form"; String button12url = "openemr/interface/forms/newpatient/view.php"}
+ else if(button12pref.getString().equals("32") {String button12txt = "Create Work School Notes"; String button12url = "openemr/interface/forms/note/new.php"}
+ else if(button12pref.getString().equals("33") {String button12txt = "View Print Work School Note"; String button12url = "openemr/interface/forms/note/view.php"}
+ else if(button12pref.getString().equals("34") {String button12txt = "New Dictation"; String button12url = "openemr/interface/forms/dictation/new.php"}
+ else if(button12pref.getString().equals("35") {String button12txt = "View Dictation"; String button12url = "openemr/interface/forms/dictation/view.php"}
+ else if(button12pref.getString().equals("36") {String button12txt = "Order Procedure"; String button12url = "openemr/interface/forms/procedure_order/new.php"}
+ else if(button12pref.getString().equals("37") {String button12txt = "View Change Procedure"; String button12url = "openemr/interface/forms/procedure_order/view.php"}
+ else if(button12pref.getString().equals("38") {String button12txt = "Review Body Systems ROS"; String button12url = "openemr/interface/forms/ros/view.php"}
+ else if(button12pref.getString().equals("39") {String button12txt = "Review Of Body Systems Checked"; String button12url = "openemrinterface/forms/reviewofs/new.php"}
+ else if(button12pref.getString().equals("40") {String button12txt = "Review PVS"; String button12url = "openemr/interface/forms/vitals/view.php"}
+ else if(button12pref.getString().equals("41") {String button12txt = "Create PVS Instance"; String button12url = "openemr/interface/forms/vitals/new.php"}
+ else if(button12pref.getString().equals("42") {String button12txt = "Main"; String button12url = "openemr/interface/main/main_screen.php"}
+load(getString(R.string.button12url)); slidingDrawer.animateToggle();}});
+
+
+
+
