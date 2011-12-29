@@ -19,7 +19,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.SlidingDrawer;
-//import android.webkit.CookieManager;;
+//import android.webkit.CookieManager;
 
 
 
@@ -31,12 +31,12 @@ public class Openemrload extends Activity {
 	WebView webview;
 	SharedPreferences preferences;
 	SlidingDrawer slidingDrawer;
-	final Activity activity = this; //assignment declarations to avoid bothering with using full class names
-	//final Resources res = Resources.getSystem();
+	final Activity activity = this; 
 	
+	//CookieManager Cm = CookieManager.getInstance(); 
 	
     @Override//override annotations allow us to create our own functionality for the any methods of the super class
-    public void onCreate(Bundle savedInstanceState) //all innitations happen here in onCreate
+    public void onCreate(Bundle savedInstanceState) 
 	{
         super.onCreate(savedInstanceState);
         
@@ -44,281 +44,189 @@ public class Openemrload extends Activity {
         this.getWindow().requestFeature(Window.FEATURE_PROGRESS);
         setContentView(R.layout.main);
         slidingDrawer = (SlidingDrawer) findViewById(R.id.Drawer);
+      
         
-        //arrays.xml data
-        final String[] buttontitle = getResources().getStringArray(R.array.buttonchoices);
+        //set up array for urls and get all buttontexts
         final String[] buttonurl = getResources().getStringArray(R.array.buttonurls);
-        
-        //get prefrences for button functions
-        final String selection1 = preferences.getString("button1pref", getString(R.string.button1txt));//get value from prefs
-        final String selection2 = preferences.getString("button2pref", getString(R.string.button2txt));
-        final String selection3 = preferences.getString("button3pref", getString(R.string.button3txt));
-        final String selection4 = preferences.getString("button4pref", getString(R.string.button4txt));
-        final String selection5 = preferences.getString("button5pref", getString(R.string.button5txt));
-        final String selection6 = preferences.getString("button6pref", getString(R.string.button6txt));
-        final String selection7 = preferences.getString("button7pref", getString(R.string.button7txt));
-        final String selection8 = preferences.getString("button8pref", getString(R.string.button8txt));
-        final String selection9 = preferences.getString("button9pref", getString(R.string.button9txt));
-        final String selection10 = preferences.getString("button10pref", getString(R.string.button10txt));
-        final String selection11 = preferences.getString("button11pref", getString(R.string.button11txt));
-        final String selection12 = preferences.getString("button12pref", getString(R.string.button12txt));
-        final String selection13 = preferences.getString("button13pref", getString(R.string.button13txt));
-        final String selection14 = preferences.getString("button14pref", getString(R.string.button14txt));
-        final String selection15 = preferences.getString("button15pref", getString(R.string.button15txt));
-
+        SetButtonTexts();
         
         
         //on click litseners for navigation grid
         final Button button1 = (Button) findViewById(R.id.button1);
-        button1.setText(buttontitle[Integer.parseInt(selection1)]);	
         button1.setOnClickListener(new SlidingDrawer.OnClickListener()
         {
             public void onClick(View v) 
             {
-            	load(buttonurl[Integer.parseInt(selection1)]);
+                	
+            	load(buttonurl[Populate(1)]);
             	slidingDrawer.animateToggle();
             }
         });
 
 
-
-
-        //on click litseners for navigation grid
         final Button button2 = (Button) findViewById(R.id.button2);
-        button2.setText(buttontitle[Integer.parseInt(selection2)]);	
         button2.setOnClickListener(new SlidingDrawer.OnClickListener()
         {
             public void onClick(View v) 
             {
-            	load(buttonurl[Integer.parseInt(selection2)]);
+                	
+            	load(buttonurl[Populate(2)]);
             	slidingDrawer.animateToggle();
             }
         });
 
 
-
-
-        //on click litseners for navigation grid
         final Button button3 = (Button) findViewById(R.id.button3);
-        button3.setText(buttontitle[Integer.parseInt(selection3)]);	
         button3.setOnClickListener(new SlidingDrawer.OnClickListener()
         {
             public void onClick(View v) 
             {
-            	load(buttonurl[Integer.parseInt(selection3)]);
+                	
+            	load(buttonurl[Populate(3)]);
             	slidingDrawer.animateToggle();
             }
         });
 
 
-
-
-
-
-
-        //on click litseners for navigation grid
         final Button button4 = (Button) findViewById(R.id.button4);
-        button4.setText(buttontitle[Integer.parseInt(selection4)]);	
         button4.setOnClickListener(new SlidingDrawer.OnClickListener()
         {
             public void onClick(View v) 
             {
-            	load(buttonurl[Integer.parseInt(selection4)]);
+                	
+            	load(buttonurl[Populate(4)]);
             	slidingDrawer.animateToggle();
             }
         });
 
 
-
-
-
-        //on click litseners for navigation grid
         final Button button5 = (Button) findViewById(R.id.button5);
-        button5.setText(buttontitle[Integer.parseInt(selection5)]);	
         button5.setOnClickListener(new SlidingDrawer.OnClickListener()
         {
             public void onClick(View v) 
             {
-            	load(buttonurl[Integer.parseInt(selection5)]);
+                	
+            	load(buttonurl[Populate(5)]);
             	slidingDrawer.animateToggle();
             }
         });
 
 
-
-
-
-
-
-        //on click litseners for navigation grid
         final Button button6 = (Button) findViewById(R.id.button6);
-        button6.setText(buttontitle[Integer.parseInt(selection6)]);	
         button6.setOnClickListener(new SlidingDrawer.OnClickListener()
         {
             public void onClick(View v) 
             {
-            	load(buttonurl[Integer.parseInt(selection6)]);
+                	
+            	load(buttonurl[Populate(6)]);
             	slidingDrawer.animateToggle();
             }
         });
 
 
-
-
-
-
-
-        //on click litseners for navigation grid
         final Button button7 = (Button) findViewById(R.id.button7);
-        button7.setText(buttontitle[Integer.parseInt(selection7)]);	
         button7.setOnClickListener(new SlidingDrawer.OnClickListener()
         {
             public void onClick(View v) 
             {
-            	load(buttonurl[Integer.parseInt(selection7)]);
+                	
+            	load(buttonurl[Populate(7)]);
             	slidingDrawer.animateToggle();
             }
         });
 
 
-
-
-
-
-
-        //on click litseners for navigation grid
         final Button button8 = (Button) findViewById(R.id.button8);
-        button8.setText(buttontitle[Integer.parseInt(selection8)]);	
         button8.setOnClickListener(new SlidingDrawer.OnClickListener()
         {
             public void onClick(View v) 
             {
-            	load(buttonurl[Integer.parseInt(selection8)]);
+                	
+            	load(buttonurl[Populate(8)]);
             	slidingDrawer.animateToggle();
             }
         });
 
 
-
-
-
-
-
-        //on click litseners for navigation grid
         final Button button9 = (Button) findViewById(R.id.button9);
-        button9.setText(buttontitle[Integer.parseInt(selection9)]);	
         button9.setOnClickListener(new SlidingDrawer.OnClickListener()
         {
             public void onClick(View v) 
             {
-            	load(buttonurl[Integer.parseInt(selection9)]);
+                	
+            	load(buttonurl[Populate(9)]);
             	slidingDrawer.animateToggle();
             }
         });
 
 
-
-
-
-
-
-        //on click litseners for navigation grid
         final Button button10 = (Button) findViewById(R.id.button10);
-        button10.setText(buttontitle[Integer.parseInt(selection10)]);	
         button10.setOnClickListener(new SlidingDrawer.OnClickListener()
         {
             public void onClick(View v) 
             {
-            	load(buttonurl[Integer.parseInt(selection10)]);
+                	
+            	load(buttonurl[Populate(10)]);
             	slidingDrawer.animateToggle();
             }
         });
 
 
-
-
-
-
-
-        //on click litseners for navigation grid
         final Button button11 = (Button) findViewById(R.id.button11);
-        button11.setText(buttontitle[Integer.parseInt(selection11)]);	
         button11.setOnClickListener(new SlidingDrawer.OnClickListener()
         {
             public void onClick(View v) 
             {
-            	load(buttonurl[Integer.parseInt(selection11)]);
+                	
+            	load(buttonurl[Populate(11)]);
             	slidingDrawer.animateToggle();
             }
         });
 
 
-
-
-
-
-        //on click litseners for navigation grid
         final Button button12 = (Button) findViewById(R.id.button12);
-        button12.setText(buttontitle[Integer.parseInt(selection12)]);	
         button12.setOnClickListener(new SlidingDrawer.OnClickListener()
         {
             public void onClick(View v) 
             {
-            	load(buttonurl[Integer.parseInt(selection12)]);
+                	
+            	load(buttonurl[Populate(12)]);
             	slidingDrawer.animateToggle();
             }
         });
 
 
-
-
-
-
-
-        //on click litseners for navigation grid
         final Button button13 = (Button) findViewById(R.id.button13);
-        button13.setText(buttontitle[Integer.parseInt(selection13)]);	
         button13.setOnClickListener(new SlidingDrawer.OnClickListener()
         {
             public void onClick(View v) 
             {
-            	load(buttonurl[Integer.parseInt(selection13)]);
+                	
+            	load(buttonurl[Populate(13)]);
             	slidingDrawer.animateToggle();
             }
         });
 
 
-
-
-
-
-
-        //on click litseners for navigation grid
         final Button button14 = (Button) findViewById(R.id.button14);
-        button14.setText(buttontitle[Integer.parseInt(selection14)]);	
         button14.setOnClickListener(new SlidingDrawer.OnClickListener()
         {
             public void onClick(View v) 
             {
-            	load(buttonurl[Integer.parseInt(selection14)]);
+                	
+            	load(buttonurl[Populate(14)]);
             	slidingDrawer.animateToggle();
             }
         });
 
 
-
-
-
-
-
-        //on click litseners for navigation grid
         final Button button15 = (Button) findViewById(R.id.button15);
-        button15.setText(buttontitle[Integer.parseInt(selection15)]);	
         button15.setOnClickListener(new SlidingDrawer.OnClickListener()
         {
             public void onClick(View v) 
             {
-            	load(buttonurl[Integer.parseInt(selection15)]);
+                	
+            	load(buttonurl[Populate(15)]);
             	slidingDrawer.animateToggle();
             }
         });
@@ -329,27 +237,29 @@ public class Openemrload extends Activity {
 
 
 
-
-
-
-
-        
+  
         
 	}
 	//hooks for Activity life cycle
     @Override
     protected void onStart() {
         super.onStart();
-        load(getString(R.string.OpenemrLogin));
+        load(getString(R.string.OpenemrMainPage));
         // The activity is about to become visible.
     }
     @Override
     protected void onResume() {
         super.onResume();
-        //onprefrencechanged 
+        
+        SetButtonTexts();
         // The activity has become visible (it is now "resumed").
+        
+            
+        
+        
     }
-    @Override
+
+	@Override
     protected void onPause() {
         super.onPause();
         // Another activity is taking focus (this activity is about to be "paused").
@@ -362,6 +272,7 @@ public class Openemrload extends Activity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        //Cm.removeAllCookie();
 
         
         // The activity is about to be destroyed.
@@ -436,7 +347,61 @@ public class Openemrload extends Activity {
             return super.onOptionsItemSelected(item);
         }
     }
-    
+    public int Populate(int selection){
+    	final int currentselection = Integer.parseInt(preferences.getString("button" + selection + "pref", Integer.toString(selection)));	
+    	return currentselection;
+    }
+  
+
+    public void SetButtonTexts() {
+        String[] buttontitle = getResources().getStringArray(R.array.buttonchoices);
+        
+        Button temporarybtn1 = (Button) findViewById(R.id.button1);
+    	temporarybtn1.setText(buttontitle[Populate(1)]);
+        
+    	Button temporarybtn2 = (Button) findViewById(R.id.button2);
+    	temporarybtn2.setText(buttontitle[Populate(2)]);
+        
+    	Button temporarybtn3 = (Button) findViewById(R.id.button3);
+    	temporarybtn3.setText(buttontitle[Populate(3)]);
+        
+    	Button temporarybtn4 = (Button) findViewById(R.id.button4);
+    	temporarybtn4.setText(buttontitle[Populate(4)]);
+        
+    	Button temporarybtn5 = (Button) findViewById(R.id.button5);
+    	temporarybtn5.setText(buttontitle[Populate(5)]);
+        
+    	Button temporarybtn6 = (Button) findViewById(R.id.button6);
+    	temporarybtn6.setText(buttontitle[Populate(6)]);
+
+    	Button temporarybtn7 = (Button) findViewById(R.id.button7);
+    	temporarybtn7.setText(buttontitle[Populate(7)]);
+    	
+
+        Button temporarybtn8 = (Button) findViewById(R.id.button8);
+    	temporarybtn8.setText(buttontitle[Populate(8)]);
+
+        Button temporarybtn9 = (Button) findViewById(R.id.button9);
+    	temporarybtn9.setText(buttontitle[Populate(9)]);
+
+        Button temporarybtn10 = (Button) findViewById(R.id.button10);
+    	temporarybtn10.setText(buttontitle[Populate(10)]);
+
+        Button temporarybtn11 = (Button) findViewById(R.id.button11);
+    	temporarybtn11.setText(buttontitle[Populate(11)]);
+
+        Button temporarybtn12 = (Button) findViewById(R.id.button12);
+    	temporarybtn12.setText(buttontitle[Populate(12)]);
+
+        Button temporarybtn13 = (Button) findViewById(R.id.button13);
+    	temporarybtn13.setText(buttontitle[Populate(13)]);
+
+        Button temporarybtn14 = (Button) findViewById(R.id.button14);
+    	temporarybtn14.setText(buttontitle[Populate(14)]);
+
+        Button temporarybtn15 = (Button) findViewById(R.id.button15);
+    	temporarybtn15.setText(buttontitle[Populate(15)]);
+    }
     
     public void load(String path)
     {
@@ -456,7 +421,7 @@ public class Openemrload extends Activity {
     	}
 		webview.getSettings().setJavaScriptEnabled(true);
 		
-		
+		webview.loadUrl("javacript:top.restoreSession()");
 	    //also place holder   
 	    //webview.setHttpAuthUsernamePassword (preferences.getString("IP", getString(R.string.srv))+"/openemr", null, preferences.getString("user", "username"), preferences.getString("pass", "password"));
     	webview.loadUrl(host+path);
@@ -491,6 +456,10 @@ public class Openemrload extends Activity {
             // Handle http errors
         }
     }
+ 
+    
+    
+    
     
     
 }

@@ -10,12 +10,11 @@
     </PreferenceCategory>
     
     <PreferenceCategory android:title="Button Assignment">
-
-
+	
         <ListPreference
             android:key="button1pref"
-            android:title="Select Button 1"
-            android:summary="Choose function for button 1"
+            android:title="Top Row - Left"
+            android:summary="Choose function"
             android:entries="@array/buttonchoices"
             android:entryValues="@array/buttonchoicevalues"
             
@@ -25,8 +24,8 @@
 
         <ListPreference
             android:key="button2pref"
-            android:title="Select Button 2"
-            android:summary="Choose function for button 2"
+            android:title="Top Row - Middle"
+            android:summary="Choose function"
             android:entries="@array/buttonchoices"
             android:entryValues="@array/buttonchoicevalues"
             
@@ -36,8 +35,8 @@
 
         <ListPreference
             android:key="button3pref"
-            android:title="Select Button 3"
-            android:summary="Choose function for button 3"
+            android:title="Top Row - Right"
+            android:summary="Choose function"
             android:entries="@array/buttonchoices"
             android:entryValues="@array/buttonchoicevalues"
             
@@ -47,8 +46,8 @@
 
         <ListPreference
             android:key="button4pref"
-            android:title="Select Button 4"
-            android:summary="Choose function for button 4"
+            android:title="2nd Row - Left"
+            android:summary="Choose function"
             android:entries="@array/buttonchoices"
             android:entryValues="@array/buttonchoicevalues"
             
@@ -58,8 +57,8 @@
 
         <ListPreference
             android:key="button5pref"
-            android:title="Select Button 5"
-            android:summary="Choose function for button 5"
+            android:title="2nd Row - Middle"
+            android:summary="Choose function"
             android:entries="@array/buttonchoices"
             android:entryValues="@array/buttonchoicevalues"
             
@@ -69,8 +68,8 @@
 
         <ListPreference
             android:key="button6pref"
-            android:title="Select Button 6"
-            android:summary="Choose function for button 6"
+            android:title="2nd Row - Right"
+            android:summary="Choose function"
             android:entries="@array/buttonchoices"
             android:entryValues="@array/buttonchoicevalues"
             
@@ -80,8 +79,8 @@
 
         <ListPreference
             android:key="button7pref"
-            android:title="Select Button 7"
-            android:summary="Choose function for button 7"
+            android:title="3rd Row - Left"
+            android:summary="Choose function"
             android:entries="@array/buttonchoices"
             android:entryValues="@array/buttonchoicevalues"
             
@@ -91,8 +90,8 @@
 
         <ListPreference
             android:key="button8pref"
-            android:title="Select Button 8"
-            android:summary="Choose function for button 8"
+            android:title="3rd Row - Middle"
+            android:summary="Choose function"
             android:entries="@array/buttonchoices"
             android:entryValues="@array/buttonchoicevalues"
             
@@ -102,8 +101,8 @@
 
         <ListPreference
             android:key="button9pref"
-            android:title="Select Button 9"
-            android:summary="Choose function for button 9"
+            android:title="3rd Row - Right"
+            android:summary="Choose function"
             android:entries="@array/buttonchoices"
             android:entryValues="@array/buttonchoicevalues"
             
@@ -113,8 +112,8 @@
 
         <ListPreference
             android:key="button10pref"
-            android:title="Select Button 10"
-            android:summary="Choose function for button 10"
+            android:title="4th Row - Left"
+            android:summary="Choose function"
             android:entries="@array/buttonchoices"
             android:entryValues="@array/buttonchoicevalues"
             
@@ -124,8 +123,8 @@
 
         <ListPreference
             android:key="button11pref"
-            android:title="Select Button 11"
-            android:summary="Choose function for button 11"
+            android:title="4th Row - Middle"
+            android:summary="Choose function"
             android:entries="@array/buttonchoices"
             android:entryValues="@array/buttonchoicevalues"
             
@@ -135,8 +134,8 @@
 
         <ListPreference
             android:key="button12pref"
-            android:title="Select Button 12"
-            android:summary="Choose function for button 12"
+            android:title="4th Row - Right"
+            android:summary="Choose function"
             android:entries="@array/buttonchoices"
             android:entryValues="@array/buttonchoicevalues"
             
@@ -145,8 +144,8 @@
 
         <ListPreference
             android:key="button13pref"
-            android:title="Select Button 13"
-            android:summary="Choose function for button 13"
+            android:title="Bottom Row - Left"
+            android:summary="Choose function"
             android:entries="@array/buttonchoices"
             android:entryValues="@array/buttonchoicevalues"
             
@@ -156,8 +155,8 @@
 
         <ListPreference
             android:key="button14pref"
-            android:title="Select Button 14"
-            android:summary="Choose function for button 14"
+            android:title="Bottom Row - Middle"
+            android:summary="Choose function"
             android:entries="@array/buttonchoices"
             android:entryValues="@array/buttonchoicevalues"
             
@@ -168,13 +167,12 @@
 
         <ListPreference
             android:key="button15pref"
-            android:title="Select Button 15"
-            android:summary="Choose function for button 15"
+            android:title="Bottom Row - Right"
+            android:summary="Choose function"
             android:entries="@array/buttonchoices"
             android:entryValues="@array/buttonchoicevalues"
             
         /> 
-    
     
     </PreferenceCategory>
 </PreferenceScreen>
