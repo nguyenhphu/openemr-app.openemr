@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">OpenEMR</string>
-    <string name="srv">http://opensourceemr.com:2099</string>
+    <string name="srv">http://opensourceemr.com</string>
+    <string name="port">2099</string>
     <string name="settings">Openemr settings</string>
     <!-- Quit dialog -->
     <string name="no">No</string>

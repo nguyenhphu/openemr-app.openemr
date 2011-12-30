@@ -1,6 +1,7 @@
 package com.openemr;
 
 
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -19,23 +20,32 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.SlidingDrawer;
-//import android.webkit.CookieManager;
+import android.widget.Toast;
+import android.webkit.CookieManager;
+import android.webkit.CookieSyncManager;
+
 
 
 
 
 public class Openemrload extends Activity {
-    /** Called when the activity is first created. */
+	
+	
+	int debugpopup = 0;
+    
+	/** Called when the activity is first created. */
 
 	
 	WebView webview;
 	SharedPreferences preferences;
 	SlidingDrawer slidingDrawer;
-	final Activity activity = this; 
+	final Activity activity = this;
 	
-	//CookieManager Cm = CookieManager.getInstance(); 
+	CookieManager Cm = CookieManager.getInstance();
 	
-    @Override//override annotations allow us to create our own functionality for the any methods of the super class
+	
+	//public String sessionCookie;
+    @Override
     public void onCreate(Bundle savedInstanceState) 
 	{
         super.onCreate(savedInstanceState);
@@ -44,10 +54,13 @@ public class Openemrload extends Activity {
         this.getWindow().requestFeature(Window.FEATURE_PROGRESS);
         setContentView(R.layout.main);
         slidingDrawer = (SlidingDrawer) findViewById(R.id.Drawer);
-      
-        
+        //////////////////////////////////////////////////////////// 
+    	CookieSyncManager.createInstance(this);
+    	
+    	
+    	//////////////////////////////////////
         //set up array for urls and get all buttontexts
-        final String[] buttonurl = getResources().getStringArray(R.array.buttonurls);
+        //final String[] buttonurl = getResources().getStringArray(R.array.buttonurls);
         SetButtonTexts();
         
         
@@ -57,9 +70,7 @@ public class Openemrload extends Activity {
         {
             public void onClick(View v) 
             {
-                	
-            	load(buttonurl[Populate(1)]);
-            	slidingDrawer.animateToggle();
+            	ButtonClicked(1);
             }
         });
 
@@ -69,9 +80,7 @@ public class Openemrload extends Activity {
         {
             public void onClick(View v) 
             {
-                	
-            	load(buttonurl[Populate(2)]);
-            	slidingDrawer.animateToggle();
+            	ButtonClicked(2);
             }
         });
 
@@ -81,9 +90,7 @@ public class Openemrload extends Activity {
         {
             public void onClick(View v) 
             {
-                	
-            	load(buttonurl[Populate(3)]);
-            	slidingDrawer.animateToggle();
+            	ButtonClicked(3);
             }
         });
 
@@ -93,9 +100,7 @@ public class Openemrload extends Activity {
         {
             public void onClick(View v) 
             {
-                	
-            	load(buttonurl[Populate(4)]);
-            	slidingDrawer.animateToggle();
+            	ButtonClicked(4);
             }
         });
 
@@ -105,9 +110,7 @@ public class Openemrload extends Activity {
         {
             public void onClick(View v) 
             {
-                	
-            	load(buttonurl[Populate(5)]);
-            	slidingDrawer.animateToggle();
+            	ButtonClicked(5);
             }
         });
 
@@ -117,9 +120,7 @@ public class Openemrload extends Activity {
         {
             public void onClick(View v) 
             {
-                	
-            	load(buttonurl[Populate(6)]);
-            	slidingDrawer.animateToggle();
+            	ButtonClicked(6);
             }
         });
 
@@ -129,9 +130,7 @@ public class Openemrload extends Activity {
         {
             public void onClick(View v) 
             {
-                	
-            	load(buttonurl[Populate(7)]);
-            	slidingDrawer.animateToggle();
+            	ButtonClicked(7);
             }
         });
 
@@ -142,8 +141,7 @@ public class Openemrload extends Activity {
             public void onClick(View v) 
             {
                 	
-            	load(buttonurl[Populate(8)]);
-            	slidingDrawer.animateToggle();
+            	ButtonClicked(8);
             }
         });
 
@@ -154,8 +152,7 @@ public class Openemrload extends Activity {
             public void onClick(View v) 
             {
                 	
-            	load(buttonurl[Populate(9)]);
-            	slidingDrawer.animateToggle();
+            	ButtonClicked(9);
             }
         });
 
@@ -166,8 +163,7 @@ public class Openemrload extends Activity {
             public void onClick(View v) 
             {
                 	
-            	load(buttonurl[Populate(10)]);
-            	slidingDrawer.animateToggle();
+            	ButtonClicked(10);
             }
         });
 
@@ -178,8 +174,7 @@ public class Openemrload extends Activity {
             public void onClick(View v) 
             {
                 	
-            	load(buttonurl[Populate(11)]);
-            	slidingDrawer.animateToggle();
+            	ButtonClicked(11);
             }
         });
 
@@ -190,8 +185,7 @@ public class Openemrload extends Activity {
             public void onClick(View v) 
             {
                 	
-            	load(buttonurl[Populate(12)]);
-            	slidingDrawer.animateToggle();
+            	ButtonClicked(12);
             }
         });
 
@@ -202,8 +196,7 @@ public class Openemrload extends Activity {
             public void onClick(View v) 
             {
                 	
-            	load(buttonurl[Populate(13)]);
-            	slidingDrawer.animateToggle();
+            	ButtonClicked(13);
             }
         });
 
@@ -214,8 +207,7 @@ public class Openemrload extends Activity {
             public void onClick(View v) 
             {
                 	
-            	load(buttonurl[Populate(14)]);
-            	slidingDrawer.animateToggle();
+            	ButtonClicked(14);
             }
         });
 
@@ -226,8 +218,7 @@ public class Openemrload extends Activity {
             public void onClick(View v) 
             {
                 	
-            	load(buttonurl[Populate(15)]);
-            	slidingDrawer.animateToggle();
+            	ButtonClicked(15);
             }
         });
 
@@ -246,13 +237,17 @@ public class Openemrload extends Activity {
         super.onStart();
         load(getString(R.string.OpenemrMainPage));
         // The activity is about to become visible.
+        Popup("debugging enabled");
     }
     @Override
     protected void onResume() {
         super.onResume();
-        
+        //webview.loadUrl("javascript:alert(document.cookie)");
+       
+        //Popup("cookie stored in prefs is" +  PrefsCookieString());
         SetButtonTexts();
         // The activity has become visible (it is now "resumed").
+        //CookieSyncManager.getInstance().startSync();
         
             
         
@@ -263,6 +258,7 @@ public class Openemrload extends Activity {
     protected void onPause() {
         super.onPause();
         // Another activity is taking focus (this activity is about to be "paused").
+        //CookieSyncManager.getInstance().stopSync();
     }
     @Override
     protected void onStop() {
@@ -272,7 +268,7 @@ public class Openemrload extends Activity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        //Cm.removeAllCookie();
+        Cm.removeAllCookie();
 
         
         // The activity is about to be destroyed.
@@ -405,11 +401,13 @@ public class Openemrload extends Activity {
     
     public void load(String path)
     {
+    	
     	webview = (WebView) findViewById(R.id.webview0);
         webview.setWebChromeClient(new wcclient());
 	    webview.setWebViewClient(new wvclient());
 	    webview.getSettings().setJavaScriptEnabled(true);
-    	String host = preferences.getString("IP", getString(R.string.srv));//get host from prefrences
+    	String host = preferences.getString("IP", getString(R.string.srv))+ ":" + preferences.getString("Portnum", getString(R.string.port));//get host from prefrences
+    	
     	char check = host.charAt(host.length()-1);//continue on succesfully whether 
     	Character tail = new Character ('/');//user inputs url with trailing slash or not
     	if (check == tail){
@@ -419,12 +417,24 @@ public class Openemrload extends Activity {
     	else{
     		host = host+"/";
     	}
+    	
+  
+    	
 		webview.getSettings().setJavaScriptEnabled(true);
-		
-		webview.loadUrl("javacript:top.restoreSession()");
+		/*
+		try {
+			Thread.currentThread();
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {//let cookie manager catch up
+			
+			e.printStackTrace();
+		}
+		*/
 	    //also place holder   
 	    //webview.setHttpAuthUsernamePassword (preferences.getString("IP", getString(R.string.srv))+"/openemr", null, preferences.getString("user", "username"), preferences.getString("pass", "password"));
-    	webview.loadUrl(host+path);
+		BakeCookie();
+		webview.loadUrl(host+path);
+    	
     	
     }
     
@@ -438,9 +448,12 @@ public class Openemrload extends Activity {
     		setTitle("Loading...");
     		setProgress(progress * 100);
 
-    		if(progress == 100)
+    		if(progress == 100){
     		setTitle(R.string.app_name);
-       }
+    		Popup("Current url: " + GetCurrentURL());
+    		PersistentConfig(GetCurrentURL());
+    		}
+    		}
     }
     
     public class wvclient extends WebViewClient {
@@ -448,6 +461,7 @@ public class Openemrload extends Activity {
     	@Override//catch urls to stay in the app do not launch browser
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
             webview.loadUrl(url);
+            
             return true;
         }
         @Override
@@ -458,13 +472,146 @@ public class Openemrload extends Activity {
     }
  
     
+   
+    
+ 
+    
+    public void PersistentConfig(String currenturl)
+    {
+    	//Log.i( "PageStarted", currenturl );
+    	String success_url = preferences.getString("IP", getString(R.string.srv)) + ":" + preferences.getString("Portnum", getString(R.string.port)) + "/openemr/interface/main/main_screen.php?auth=login&site=default";
+    	String failure_url = preferences.getString("IP", getString(R.string.srv)) + ":" + preferences.getString("Portnum", getString(R.string.port)) + "/openemr/interface/login/login_frame.php?site=default";
+    	int fail = currenturl.compareTo(failure_url);
+    	
+    	int success = currenturl.compareTo(success_url);
+    	preferences = PreferenceManager.getDefaultSharedPreferences(this);
+    	SharedPreferences.Editor settings_editor = preferences.edit();
+    	if(fail == 0)
+    	{
+    		Popup( "Please Login");
+    		//Popup(failure_url);
+    		//Popup(currenturl);
+    		//Popup(success_url);
+    		
+    		
+    	}
+    	if(success == 0)
+    	{
+    		//CookieManager mgr = CookieManager.getInstance();
+    		Popup("Login successful, copying cookie to prefs");
+    		String cookie_string = GetCurrentCookie();
+    		if(cookie_string.length() > 1)
+    		{
+    			settings_editor.putBoolean("got_session_cookie",true);
+    			settings_editor.putString("the_cookie",cookie_string);
+    			settings_editor.commit();
+    			Popup(PrefsCookieString() + " copied to prefs successfully");
+    		}
+    		
+    	}
+    	if((fail != 0)&&(success != 0))
+    	{
+    		//super.onPageStarted(view, url);
+    		Popup("Current page is not a login or success");
+    		//Popup(failure_url);
+    		//Popup(currenturl);
+    		//Popup(success_url);
+    		//BakeCookie();
+    	}
+    }
+
+    
+ 
+    
+    String GetCurrentCookie() {
+		
+    	String cookie = Cm.getCookie(preferences.getString("IP", getString(R.string.srv)) + ":" + preferences.getString("Portnum", getString(R.string.port)) + "/openemr/interface/main/main_screen.php?auth=login&site=default");
+		Popup("grabbed current cookie " + cookie);
+    	return cookie;
+	}
+    
+	public String PrefsCookieString() 
+		{
+    	
+    	return preferences.getString("the_cookie", "");
+		}
     
     
     
+    void BakeCookie()
+    	{
+    	
+    	String  sessionCookie = PrefsCookieString();
+    	//String cookiepiecename = CookieCutterName(sessionCookie);
+    	//String cookiepiecevalue = CookieCutterValue(sessionCookie);
+    	//CookieManager cookieMan = CookieManager.getInstance();
+    	if (sessionCookie != null) 
+    		{
+    		//Cm.removeSessionCookie();
+    		Cm.setCookie(GetDomain(), sessionCookie);
+    		
+    		CookieSyncManager.getInstance().sync();
+    		Popup("setting cookie from prefs " + sessionCookie);
+    		}
+    	}
     
+    void Popup(String say_me)
+    	{
+    	//int debugpopup = 1;
+    	if (debugpopup == 1) {
+    	
+    	
+    	Toast.makeText(this, say_me, Toast.LENGTH_LONG).show();
+    	}
+    	}
+    
+    
+  
+    
+    
+    
+    void ButtonClicked(int number)
+    	{
+    	final String[] buttonurl = getResources().getStringArray(R.array.buttonurls);	
+    		
+    	load(buttonurl[Populate(number)]);
+    	slidingDrawer.animateToggle(); 
+    	}
+    
+    
+    String GetCurrentURL()
+    	{
+    	WebView currentwebview = (WebView) findViewById(R.id.webview0);
+    	String currenturl = currentwebview.getUrl();
+    	//Popup(currenturl);
+    	return currenturl;
+    	}
+    
+    String CookieCutterValue(String mycookie)
+    	{
+    	//String mycookie = PrefsCookieString();  
+    	String cookieparts[] = mycookie.split("="); 
+    	return cookieparts[1];
+    	}
+    
+    String CookieCutterName(String mycookie)
+	{
+    	//String mycookie = PrefsCookieString();  
+    	String cookieparts[] = mycookie.split("="); 
+    	return cookieparts[0];
+	}
+    
+    String GetDomain()
+	{
+    	
+    	String httpdomain = preferences.getString("IP", getString(R.string.srv));	
+    	String domainparts[] = httpdomain.split("//"); 
+    	Popup("The domain is " + domainparts[1]);
+    	return domainparts[1];
+	}
 }
 	
-
+//Integer.parseInt(preferences.getString("button" + selection + "pref", Integer.toString(selection)));
 
 /** Process the click to find a patient by name, id, ssn or dob.
 function findPatient(findby) {
@@ -481,7 +628,7 @@ function findPatient(findby) {
 */
 
 
-
+//Toast.makeText(this, PrefsCookieString(), Toast.LENGTH_SHORT).show();
 
 
 

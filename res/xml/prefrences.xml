@@ -2,11 +2,16 @@
 <PreferenceScreen
   xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory android:title="Server Address">
-        <EditTextPreference android:defaultValue="@string/srv" android:title="IP" android:summary="Url of Openemr server" android:key="IP"></EditTextPreference>
+        <EditTextPreference android:defaultValue="@string/srv" android:title="IP or Domain" android:summary="Enter Location of Openemr server" android:key="IP"></EditTextPreference>
     </PreferenceCategory>
+    
+    <PreferenceCategory android:title="Port Number">
+        <EditTextPreference android:defaultValue="@string/port" android:title="Port Number" android:summary="Enter port of Openemr server" android:key="Portnum"></EditTextPreference>
+    </PreferenceCategory>
+    
     <PreferenceCategory android:title="Authentication">
-        <EditTextPreference android:key="user" android:title="User" android:defaultValue="username"></EditTextPreference>
-        <EditTextPreference android:key="pass" android:title="Pass" android:defaultValue="password"></EditTextPreference>
+        <EditTextPreference android:key="user" android:title="Username" android:defaultValue="username"></EditTextPreference>
+        <EditTextPreference android:key="pass" android:title="Password" android:defaultValue="password"></EditTextPreference>
     </PreferenceCategory>
     
     <PreferenceCategory android:title="Button Assignment">
@@ -174,5 +179,12 @@
             
         /> 
     
+    </PreferenceCategory>
+    
+    <PreferenceCategory>
+    <Preference android:key="the_cookie"></Preference>
+    <Preference android:key="got_session_cookie"></Preference>
+    			
+    			
     </PreferenceCategory>
 </PreferenceScreen>

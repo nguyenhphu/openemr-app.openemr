@@ -151,7 +151,7 @@
 <item name="6">openemr/interface/forms/newpatient/new.php</item>
 <item name="7">openemr/interface/new/new.php</item>
 <item name="8">openemr/interface/main/calendar/index.php</item>
-<item name="9">openemr/main/main_navigation.php</item>
+<item name="9">openemr/interface/main/main_navigation.php</item>
 <item name="10">openemr/interface/main/messages/messages.php</item>
 <item name="11">openemr/interface/main/messages/lab_results_messages.php</item>
 <item name="12">openemr/interface/main/authorizations/authorizations.php</item>
