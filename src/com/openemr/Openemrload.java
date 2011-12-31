@@ -2,6 +2,8 @@ package com.openemr;
 
 
 
+import java.util.StringTokenizer;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -31,7 +33,7 @@ import android.webkit.CookieSyncManager;
 public class Openemrload extends Activity {
 	
 	
-	int debugpopup = 0;
+	
     
 	/** Called when the activity is first created. */
 
@@ -40,7 +42,6 @@ public class Openemrload extends Activity {
 	SharedPreferences preferences;
 	SlidingDrawer slidingDrawer;
 	final Activity activity = this;
-	
 	CookieManager Cm = CookieManager.getInstance();
 	
 	
@@ -50,21 +51,26 @@ public class Openemrload extends Activity {
 	{
         super.onCreate(savedInstanceState);
         
+        //defining preferences
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        
         this.getWindow().requestFeature(Window.FEATURE_PROGRESS);
+        
         setContentView(R.layout.main);
+        
+        //draw sliding drawer
         slidingDrawer = (SlidingDrawer) findViewById(R.id.Drawer);
-        //////////////////////////////////////////////////////////// 
-    	CookieSyncManager.createInstance(this);
     	
+        CookieSyncManager.createInstance(this);
     	
-    	//////////////////////////////////////
+    	// Initial page load on app start
+    	load(getString(R.string.OpenemrMainPage));
+
         //set up array for urls and get all buttontexts
-        //final String[] buttonurl = getResources().getStringArray(R.array.buttonurls);
         SetButtonTexts();
         
+        //create onclick listeners for navigation grid
         
-        //on click litseners for navigation grid
         final Button button1 = (Button) findViewById(R.id.button1);
         button1.setOnClickListener(new SlidingDrawer.OnClickListener()
         {
@@ -235,7 +241,7 @@ public class Openemrload extends Activity {
     @Override
     protected void onStart() {
         super.onStart();
-        load(getString(R.string.OpenemrMainPage));
+        
         // The activity is about to become visible.
         Popup("debugging enabled");
     }
@@ -273,11 +279,44 @@ public class Openemrload extends Activity {
         
         // The activity is about to be destroyed.
     }
+    @Override//close on long press of back button
+    public boolean onKeyLongPress(int keyCode, KeyEvent event) {
+    	if ((keyCode == KeyEvent.KEYCODE_BACK))
+		{	//seems to only get called when a short press is followed directly by a long press	
+			webview.stopLoading();
+			//Ask the user if they want to quit
+	        new AlertDialog.Builder(this)
+	        .setIcon(android.R.drawable.ic_dialog_alert)
+	        .setTitle(R.string.quit)
+	        .setMessage(R.string.really_quit)
+	        .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() 
+	        {
+
+	            @Override
+	            public void onClick(DialogInterface dialog, int which) {
+	                //Stop the activity
+	            	
+	                activity.finish();    
+	            }
+
+	        })
+	        .setNegativeButton(R.string.no, null).show();
+
+	        return true;
+	    }
+    	else
+    	{
+    	return super.onKeyLongPress(keyCode, event);
+    	}
+    }	
+    
+    
     
     @Override //handle back button event
 	public boolean onKeyDown(int keyCode, KeyEvent event) 
 	{ 
-		if (slidingDrawer.isOpened());{
+		if (slidingDrawer.isOpened());
+		{
 			slidingDrawer.close();
 		}
 		
@@ -288,33 +327,9 @@ public class Openemrload extends Activity {
 			
 			return true;
 		}
-		if ((keyCode == KeyEvent.KEYCODE_BACK))
-		{
-			
-				
-			webview.stopLoading();
-			//Ask the user if they want to quit
-	        new AlertDialog.Builder(this)
-	        .setIcon(android.R.drawable.ic_dialog_alert)
-	        .setTitle(R.string.quit)
-	        .setMessage(R.string.really_quit)
-	        .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
-
-	            @Override
-	            public void onClick(DialogInterface dialog, int which) {
-
-	                //Stop the activity
-	            	
-	                activity.finish();    
-	            }
-
-	        })
-	        .setNegativeButton(R.string.no, null)
-	        .show();
-
-	        return false;
-	    }
-	    else {
+		
+	    else 
+	    {
 	        return super.onKeyDown(keyCode, event);
 	    }
 
@@ -373,7 +388,6 @@ public class Openemrload extends Activity {
     	Button temporarybtn7 = (Button) findViewById(R.id.button7);
     	temporarybtn7.setText(buttontitle[Populate(7)]);
     	
-
         Button temporarybtn8 = (Button) findViewById(R.id.button8);
     	temporarybtn8.setText(buttontitle[Populate(8)]);
 
@@ -406,7 +420,7 @@ public class Openemrload extends Activity {
         webview.setWebChromeClient(new wcclient());
 	    webview.setWebViewClient(new wvclient());
 	    webview.getSettings().setJavaScriptEnabled(true);
-    	String host = preferences.getString("IP", getString(R.string.srv))+ ":" + preferences.getString("Portnum", getString(R.string.port));//get host from prefrences
+    	String host = "http://" + GetDomain()+ ":" + preferences.getString("Portnum", getString(R.string.port));//get host from prefrences
     	
     	char check = host.charAt(host.length()-1);//continue on succesfully whether 
     	Character tail = new Character ('/');//user inputs url with trailing slash or not
@@ -421,18 +435,10 @@ public class Openemrload extends Activity {
   
     	
 		webview.getSettings().setJavaScriptEnabled(true);
-		/*
-		try {
-			Thread.currentThread();
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {//let cookie manager catch up
-			
-			e.printStackTrace();
-		}
-		*/
+		webview.getSettings().setBuiltInZoomControls(true);
 	    //also place holder   
 	    //webview.setHttpAuthUsernamePassword (preferences.getString("IP", getString(R.string.srv))+"/openemr", null, preferences.getString("user", "username"), preferences.getString("pass", "password"));
-		BakeCookie();
+		BakeCookie();//setting cookie anywhere but here produces timing issues
 		webview.loadUrl(host+path);
     	
     	
@@ -449,10 +455,10 @@ public class Openemrload extends Activity {
     		setProgress(progress * 100);
 
     		if(progress == 100){
-    		setTitle(R.string.app_name);
-    		Popup("Current url: " + GetCurrentURL());
-    		PersistentConfig(GetCurrentURL());
-    		}
+	    		setTitle(R.string.app_name);
+	    		Popup("Current url: " + GetCurrentURL());
+	    		PersistentConfig(GetCurrentURL());
+	    		}
     		}
     }
     
@@ -476,11 +482,11 @@ public class Openemrload extends Activity {
     
  
     
-    public void PersistentConfig(String currenturl)
+    public void PersistentConfig(String currenturl)//this can likely be done in a simpler manner going to map it out
     {
     	//Log.i( "PageStarted", currenturl );
-    	String success_url = preferences.getString("IP", getString(R.string.srv)) + ":" + preferences.getString("Portnum", getString(R.string.port)) + "/openemr/interface/main/main_screen.php?auth=login&site=default";
-    	String failure_url = preferences.getString("IP", getString(R.string.srv)) + ":" + preferences.getString("Portnum", getString(R.string.port)) + "/openemr/interface/login/login_frame.php?site=default";
+    	String success_url = "http://" + GetDomain() + ":" + preferences.getString("Portnum", getString(R.string.port)) + "/openemr/interface/main/main_screen.php?auth=login&site=default";
+    	String failure_url = "http://" + GetDomain() + ":" + preferences.getString("Portnum", getString(R.string.port)) + "/openemr/interface/login/login_frame.php?site=default";
     	int fail = currenturl.compareTo(failure_url);
     	
     	int success = currenturl.compareTo(success_url);
@@ -497,7 +503,7 @@ public class Openemrload extends Activity {
     	}
     	if(success == 0)
     	{
-    		//CookieManager mgr = CookieManager.getInstance();
+    		
     		Popup("Login successful, copying cookie to prefs");
     		String cookie_string = GetCurrentCookie();
     		if(cookie_string.length() > 1)
@@ -522,10 +528,10 @@ public class Openemrload extends Activity {
 
     
  
-    
+    //grab whole cookie string
     String GetCurrentCookie() {
 		
-    	String cookie = Cm.getCookie(preferences.getString("IP", getString(R.string.srv)) + ":" + preferences.getString("Portnum", getString(R.string.port)) + "/openemr/interface/main/main_screen.php?auth=login&site=default");
+    	String cookie = Cm.getCookie("http://" + GetDomain() + ":" + preferences.getString("Portnum", getString(R.string.port)) + "/openemr/interface/main/main_screen.php?auth=login&site=default");
 		Popup("grabbed current cookie " + cookie);
     	return cookie;
 	}
@@ -544,7 +550,7 @@ public class Openemrload extends Activity {
     	String  sessionCookie = PrefsCookieString();
     	//String cookiepiecename = CookieCutterName(sessionCookie);
     	//String cookiepiecevalue = CookieCutterValue(sessionCookie);
-    	//CookieManager cookieMan = CookieManager.getInstance();
+    	
     	if (sessionCookie != null) 
     		{
     		//Cm.removeSessionCookie();
@@ -555,15 +561,17 @@ public class Openemrload extends Activity {
     		}
     	}
     
-    void Popup(String say_me)
+    void Popup(String say_me)//hook for easy debug dialogs
     	{
-    	//int debugpopup = 1;
-    	if (debugpopup == 1) {
+    	boolean debugpopup = preferences.getBoolean("Debugging", false);
+    	if (debugpopup == true) {
     	
     	
     	Toast.makeText(this, say_me, Toast.LENGTH_LONG).show();
     	}
     	}
+    
+      
     
     
   
@@ -587,28 +595,46 @@ public class Openemrload extends Activity {
     	return currenturl;
     	}
     
-    String CookieCutterValue(String mycookie)
+    String CookieCutterValue(String mycookie)//not used
     	{
     	//String mycookie = PrefsCookieString();  
     	String cookieparts[] = mycookie.split("="); 
     	return cookieparts[1];
     	}
     
-    String CookieCutterName(String mycookie)
+    String CookieCutterName(String mycookie)//not used
 	{
     	//String mycookie = PrefsCookieString();  
     	String cookieparts[] = mycookie.split("="); 
     	return cookieparts[0];
 	}
     
-    String GetDomain()
+    String GetDomain()//grab domain only 
 	{
     	
-    	String httpdomain = preferences.getString("IP", getString(R.string.srv));	
-    	String domainparts[] = httpdomain.split("//"); 
-    	Popup("The domain is " + domainparts[1]);
-    	return domainparts[1];
+    	String server = preferences.getString("IP", getString(R.string.srv));	
+    	
+    
+    	StringTokenizer domainpart = new StringTokenizer(server, "//");
+	    String firsttoken = domainpart.nextToken();
+	    
+	    while (domainpart.hasMoreTokens()) {
+	    	String secondtoken = domainpart.nextToken();
+	    	if (secondtoken != null) {
+	    		Popup("The domain is " + secondtoken);
+	    		return secondtoken;
+	    	}
+	    	}
+	    Popup("The domain is " + firsttoken);
+	    return firsttoken;
+	    
 	}
+
+
+
+
+
+
 }
 	
 //Integer.parseInt(preferences.getString("button" + selection + "pref", Integer.toString(selection)));

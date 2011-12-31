@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <PreferenceCategory android:title="Server Address">
+    <PreferenceCategory android:title="Server Settings">
         <EditTextPreference android:defaultValue="@string/srv" android:title="IP or Domain" android:summary="Enter Location of Openemr server" android:key="IP"></EditTextPreference>
-    </PreferenceCategory>
-    
-    <PreferenceCategory android:title="Port Number">
         <EditTextPreference android:defaultValue="@string/port" android:title="Port Number" android:summary="Enter port of Openemr server" android:key="Portnum"></EditTextPreference>
     </PreferenceCategory>
+    
+    
+    
+    
     
     <PreferenceCategory android:title="Authentication">
         <EditTextPreference android:key="user" android:title="Username" android:defaultValue="username"></EditTextPreference>
         <EditTextPreference android:key="pass" android:title="Password" android:defaultValue="password"></EditTextPreference>
     </PreferenceCategory>
+    <PreferenceCategory android:title="Customization">
+    <PreferenceScreen android:key="button_selection" android:title="Button Selection" android:summary="Change Quickbuttons">
     
-    <PreferenceCategory android:title="Button Assignment">
+  
 	
         <ListPreference
             android:key="button1pref"
@@ -178,13 +181,22 @@
             android:entryValues="@array/buttonchoicevalues"
             
         /> 
+            </PreferenceScreen>
+        </PreferenceCategory>
     
+    
+    
+    
+        
+        
+
+    <PreferenceCategory android:title="Debug">
+    <CheckBoxPreference android:key="Debugging" android:summary="Enable or disable debug messages" android:title="Enable Debugging" android:defaultValue="false"/>
     </PreferenceCategory>
     
-    <PreferenceCategory>
+    
+    
     <Preference android:key="the_cookie"></Preference>
     <Preference android:key="got_session_cookie"></Preference>
-    			
-    			
-    </PreferenceCategory>
+    
 </PreferenceScreen>
