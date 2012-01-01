@@ -11,6 +11,10 @@ public final class R {
     public static final class array {
         public static final int buttonchoices=0x7f050000;
         public static final int buttonchoicevalues=0x7f050001;
+        /**  63  customurl1 
+ 64  customurl2 
+ 65  customurl3 
+         */
         public static final int buttonurls=0x7f050002;
     }
     public static final class attr {
@@ -126,6 +130,8 @@ public final class R {
         public static final int button13txt=0x7f060054;
         public static final int button14txt=0x7f060055;
         public static final int button15txt=0x7f060056;
+        /**  Buttontxts 
+         */
         public static final int button1txt=0x7f060048;
         public static final int button2txt=0x7f060049;
         public static final int button3txt=0x7f06004a;
@@ -135,6 +141,9 @@ public final class R {
         public static final int button7txt=0x7f06004e;
         public static final int button8txt=0x7f06004f;
         public static final int button9txt=0x7f060050;
+        public static final int custom1=0x7f060057;
+        public static final int custom2=0x7f060058;
+        public static final int custom3=0x7f060059;
         public static final int debugging=0x7f060003;
         /**  Quit dialog 
          */

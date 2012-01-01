@@ -17,8 +17,14 @@
     <PreferenceCategory android:title="Customization">
     <PreferenceScreen android:key="button_selection" android:title="Button Selection" android:summary="Change Quickbuttons">
     
-  
-	
+  <PreferenceCategory android:title="Custom Addresses">
+    <EditTextPreference android:key="customurl1" android:title="Custom Url 1" android:defaultValue="@string/custom1"></EditTextPreference>
+    <EditTextPreference android:key="customurl2" android:title="Custom Url 2" android:defaultValue="@string/custom2"></EditTextPreference>
+    <EditTextPreference android:key="customurl3" android:title="Custom Url 3" android:defaultValue="@string/custom3"></EditTextPreference>
+    <!-- include from text file at this point -->
+    
+    </PreferenceCategory>
+	<PreferenceCategory android:title="Choose your buttons">
         <ListPreference
             android:key="button1pref"
             android:title="Top Row - Left"
@@ -181,19 +187,16 @@
             android:entryValues="@array/buttonchoicevalues"
             
         /> 
+        </PreferenceCategory>
+        
+        
             </PreferenceScreen>
         </PreferenceCategory>
     
-    
-    
-    
-        
-        
 
     <PreferenceCategory android:title="Debug">
-    <CheckBoxPreference android:key="Debugging" android:summary="Enable or disable debug messages" android:title="Enable Debugging" android:defaultValue="false"/>
+    <CheckBoxPreference android:key="Debugging" android:summary="Warning: this slows down the app!" android:title="Enable Debugging" android:defaultValue="false"/>
     </PreferenceCategory>
-    
     
     
     <Preference android:key="the_cookie"></Preference>

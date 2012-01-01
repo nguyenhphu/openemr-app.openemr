@@ -581,8 +581,17 @@ public class Openemrload extends Activity {
     void ButtonClicked(int number)
     	{
     	final String[] buttonurl = getResources().getStringArray(R.array.buttonurls);	
-    		
-    	load(buttonurl[Populate(number)]);
+    	
+    	int choice = Populate(number);
+    	
+    	//63 64 or 65 go to customs 1 2 and 3
+    	if (choice == 63){webview.loadUrl(preferences.getString("customurl1", getString(R.string.custom1))); slidingDrawer.animateToggle();  return;}
+    	if (choice == 64){webview.loadUrl(preferences.getString("customurl2", getString(R.string.custom2))); slidingDrawer.animateToggle();  return;}
+    	if (choice == 65){webview.loadUrl(preferences.getString("customurl3", getString(R.string.custom3))); slidingDrawer.animateToggle();  return;}
+    	
+    	
+    	
+    	load(buttonurl[choice]);
     	slidingDrawer.animateToggle(); 
     	}
     
