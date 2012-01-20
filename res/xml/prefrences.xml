@@ -4,6 +4,7 @@
     <PreferenceCategory android:title="Server Settings">
         <EditTextPreference android:defaultValue="@string/srv" android:title="IP or Domain" android:summary="Enter Location of Openemr server" android:key="IP"></EditTextPreference>
         <EditTextPreference android:defaultValue="@string/port" android:title="Port Number" android:summary="Enter port of Openemr server" android:key="Portnum"></EditTextPreference>
+    	<CheckboxPreference android:defaultValue="false" android:title="Use SSL" android:summary="Check box if you use a secure server" android:key="Security"></CheckboxPreference>
     </PreferenceCategory>
     
     

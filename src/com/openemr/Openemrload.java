@@ -9,6 +9,9 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.net.http.SslError;
+
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.KeyEvent;
@@ -17,6 +20,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.webkit.HttpAuthHandler;
+import android.webkit.SslErrorHandler;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -255,9 +260,6 @@ public class Openemrload extends Activity {
         // The activity has become visible (it is now "resumed").
         //CookieSyncManager.getInstance().startSync();
         
-            
-        
-        
     }
 
 	@Override
@@ -418,11 +420,23 @@ public class Openemrload extends Activity {
     	
     	webview = (WebView) findViewById(R.id.webview0);
         webview.setWebChromeClient(new wcclient());
-	    webview.setWebViewClient(new wvclient());
+	    webview.setWebViewClient(new wvclient(){ 
+	    	public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error){ 
+	    		handler.proceed(); 
+	    		} 
+	    	});
 	    webview.getSettings().setJavaScriptEnabled(true);
-    	String host = "http://" + GetDomain()+ ":" + preferences.getString("Portnum", getString(R.string.port));//get host from prefrences
+	    String host;
+	    if (preferences.getBoolean("Security", false)== true)
+	    {
+    	host = "https://" + GetDomain()+ ":" + preferences.getString("Portnum", getString(R.string.port));//get host from prefrences
+	    }
+	    else
+	    {
+	    	host = "http://" + GetDomain()+ ":" + preferences.getString("Portnum", getString(R.string.port));//get host from prefrences
+	    }
     	
-    	char check = host.charAt(host.length()-1);//continue on succesfully whether 
+	    char check = host.charAt(host.length()-1);//continue on succesfully whether 
     	Character tail = new Character ('/');//user inputs url with trailing slash or not
     	if (check == tail){
     		//do nothing
@@ -432,8 +446,8 @@ public class Openemrload extends Activity {
     		host = host+"/";
     	}
     	
-  
-    	
+    	//webview.setHttpAuthUsernamePassword(host, "", preferences.getString("user", "username"), preferences.getString("pass", "password"));
+    	//webview.getSettings().setSavePassword(true);
 		webview.getSettings().setJavaScriptEnabled(true);
 		webview.getSettings().setBuiltInZoomControls(true);
 	    //also place holder   
@@ -475,8 +489,21 @@ public class Openemrload extends Activity {
         {
             // Handle http errors
         }
-    }
- 
+        
+        
+     /*   @Override
+        public void onReceivedHttpAuthRequest(WebView view,
+                HttpAuthHandler handler, String host, String realm) {
+
+            handler.proceed(preferences.getString("user", "username"), preferences.getString("pass", "password"));}
+        
+    */
+        
+        
+        }
+        
+    
+    
     
    
     
@@ -485,8 +512,20 @@ public class Openemrload extends Activity {
     public void PersistentConfig(String currenturl)//this can likely be done in a simpler manner going to map it out
     {
     	//Log.i( "PageStarted", currenturl );
-    	String success_url = "http://" + GetDomain() + ":" + preferences.getString("Portnum", getString(R.string.port)) + "/openemr/interface/main/main_screen.php?auth=login&site=default";
-    	String failure_url = "http://" + GetDomain() + ":" + preferences.getString("Portnum", getString(R.string.port)) + "/openemr/interface/login/login_frame.php?site=default";
+    	String success_url;
+    	String failure_url;
+    	
+    	
+    	if (preferences.getBoolean("Security", false)== true)
+    	{
+	    	success_url = "https://" + GetDomain() + ":" + preferences.getString("Portnum", getString(R.string.port)) + "/openemr/interface/main/main_screen.php?auth=login&site=default";
+	    	failure_url = "https://" + GetDomain() + ":" + preferences.getString("Portnum", getString(R.string.port)) + "/openemr/interface/login/login_frame.php?site=default";
+	    }
+    	else
+    	{
+	    	success_url = "http://" + GetDomain() + ":" + preferences.getString("Portnum", getString(R.string.port)) + "/openemr/interface/main/main_screen.php?auth=login&site=default";
+	    	failure_url = "http://" + GetDomain() + ":" + preferences.getString("Portnum", getString(R.string.port)) + "/openemr/interface/login/login_frame.php?site=default";
+	    }
     	int fail = currenturl.compareTo(failure_url);
     	
     	int success = currenturl.compareTo(success_url);
@@ -530,8 +569,14 @@ public class Openemrload extends Activity {
  
     //grab whole cookie string
     String GetCurrentCookie() {
-		
-    	String cookie = Cm.getCookie("http://" + GetDomain() + ":" + preferences.getString("Portnum", getString(R.string.port)) + "/openemr/interface/main/main_screen.php?auth=login&site=default");
+    	String cookie;
+    	if (preferences.getBoolean("Security", false)== true)
+    		{
+    			cookie = Cm.getCookie("https://" + GetDomain() + ":" + preferences.getString("Portnum", getString(R.string.port)) + "/openemr/interface/main/main_screen.php?auth=login&site=default");
+    		}else 
+    		{
+    			cookie = Cm.getCookie("http://" + GetDomain() + ":" + preferences.getString("Portnum", getString(R.string.port)) + "/openemr/interface/main/main_screen.php?auth=login&site=default");
+    		}
 		Popup("grabbed current cookie " + cookie);
     	return cookie;
 	}
