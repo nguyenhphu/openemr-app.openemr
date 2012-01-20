@@ -124,6 +124,7 @@ public final class R {
         public static final int Openemrproblem_encounter=0x7f060035;
         public static final int Openemrupload_dialog=0x7f060034;
         public static final int app_name=0x7f060000;
+        public static final int badcookie=0x7f06005a;
         public static final int button10txt=0x7f060051;
         public static final int button11txt=0x7f060052;
         public static final int button12txt=0x7f060053;

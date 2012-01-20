@@ -98,7 +98,7 @@
     <string name="custom3">helppage</string>
     
     
-    
+    <string name="badcookie">Site ID is missing from session data!</string>
     
 </resources>
 

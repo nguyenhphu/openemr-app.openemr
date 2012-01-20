@@ -427,13 +427,29 @@ public class Openemrload extends Activity {
 	    	});
 	    webview.getSettings().setJavaScriptEnabled(true);
 	    String host;
-	    if (preferences.getBoolean("Security", false)== true)
-	    {
-    	host = "https://" + GetDomain()+ ":" + preferences.getString("Portnum", getString(R.string.port));//get host from prefrences
-	    }
-	    else
-	    {
-	    	host = "http://" + GetDomain()+ ":" + preferences.getString("Portnum", getString(R.string.port));//get host from prefrences
+	    Boolean portpref = preferences.getBoolean("PortPref", false);
+	    String port = preferences.getString("Portnum", getString(R.string.port));
+    	if(portpref == false)
+    	{
+    	    if (preferences.getBoolean("Security", false)== true)
+    	    {
+    	    	host = "https://" + GetDomain();//get host from prefrences
+    	    }
+    	    else
+    	    {
+    	    	host = "http://" + GetDomain();//get host from prefrences
+    	    }
+    	}
+    	else
+    	{
+		    if (preferences.getBoolean("Security", false)== true)
+		    {
+		    	host = "https://" + GetDomain()+ ":" + port;//get host from prefrences
+		    }
+		    else
+		    {
+		    	host = "http://" + GetDomain()+ ":" + port;//get host from prefrences
+		    }
 	    }
     	
 	    char check = host.charAt(host.length()-1);//continue on succesfully whether 
@@ -514,18 +530,35 @@ public class Openemrload extends Activity {
     	//Log.i( "PageStarted", currenturl );
     	String success_url;
     	String failure_url;
-    	
-    	
-    	if (preferences.getBoolean("Security", false)== true)
+    	Boolean portpref = preferences.getBoolean("PortPref", false);
+    	String port = preferences.getString("Portnum", getString(R.string.port));
+    	if(portpref == false)
     	{
-	    	success_url = "https://" + GetDomain() + ":" + preferences.getString("Portnum", getString(R.string.port)) + "/openemr/interface/main/main_screen.php?auth=login&site=default";
-	    	failure_url = "https://" + GetDomain() + ":" + preferences.getString("Portnum", getString(R.string.port)) + "/openemr/interface/login/login_frame.php?site=default";
-	    }
+    		if (preferences.getBoolean("Security", false)== true)
+        	{
+    	    	success_url = "https://" + GetDomain() + "/openemr/interface/main/main_screen.php?auth=login&site=default";
+    	    	failure_url = "https://" + GetDomain() + "/openemr/interface/login/login_frame.php?site=default";
+    	    }
+        	else
+        	{
+    	    	success_url = "http://" + GetDomain() + "/openemr/interface/main/main_screen.php?auth=login&site=default";
+    	    	failure_url = "http://" + GetDomain() + "/openemr/interface/login/login_frame.php?site=default";
+    	    }
+    	}
     	else
     	{
-	    	success_url = "http://" + GetDomain() + ":" + preferences.getString("Portnum", getString(R.string.port)) + "/openemr/interface/main/main_screen.php?auth=login&site=default";
-	    	failure_url = "http://" + GetDomain() + ":" + preferences.getString("Portnum", getString(R.string.port)) + "/openemr/interface/login/login_frame.php?site=default";
-	    }
+    	
+	    	if (preferences.getBoolean("Security", false)== true)
+	    	{
+		    	success_url = "https://" + GetDomain() + ":" + port + "/openemr/interface/main/main_screen.php?auth=login&site=default";
+		    	failure_url = "https://" + GetDomain() + ":" + port + "/openemr/interface/login/login_frame.php?site=default";
+		    }
+	    	else
+	    	{
+		    	success_url = "http://" + GetDomain() + ":" + port + "/openemr/interface/main/main_screen.php?auth=login&site=default";
+		    	failure_url = "http://" + GetDomain() + ":" + port + "/openemr/interface/login/login_frame.php?site=default";
+		    }
+    	}
     	int fail = currenturl.compareTo(failure_url);
     	
     	int success = currenturl.compareTo(success_url);
@@ -570,13 +603,28 @@ public class Openemrload extends Activity {
     //grab whole cookie string
     String GetCurrentCookie() {
     	String cookie;
-    	if (preferences.getBoolean("Security", false)== true)
+    	Boolean portpref = preferences.getBoolean("PortPref", false);
+    	String port = preferences.getString("Portnum", getString(R.string.port));
+    	if(portpref == false)
+    	{
+    		if (preferences.getBoolean("Security", false)== true)
     		{
-    			cookie = Cm.getCookie("https://" + GetDomain() + ":" + preferences.getString("Portnum", getString(R.string.port)) + "/openemr/interface/main/main_screen.php?auth=login&site=default");
+    			cookie = Cm.getCookie("https://" + GetDomain() + "/openemr/interface/main/main_screen.php?auth=login&site=default");
     		}else 
     		{
-    			cookie = Cm.getCookie("http://" + GetDomain() + ":" + preferences.getString("Portnum", getString(R.string.port)) + "/openemr/interface/main/main_screen.php?auth=login&site=default");
+    			cookie = Cm.getCookie("http://" + GetDomain() + "/openemr/interface/main/main_screen.php?auth=login&site=default");
     		}
+    	}
+    	else
+    	{	
+    		if(preferences.getBoolean("Security", false)== true)
+    		{
+    			cookie = Cm.getCookie("https://" + GetDomain() + ":" + port + "/openemr/interface/main/main_screen.php?auth=login&site=default");
+    		}else 
+    		{
+    			cookie = Cm.getCookie("http://" + GetDomain() + ":" + port + "/openemr/interface/main/main_screen.php?auth=login&site=default");
+    		}
+    	}
 		Popup("grabbed current cookie " + cookie);
     	return cookie;
 	}
