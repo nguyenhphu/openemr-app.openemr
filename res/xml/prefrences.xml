@@ -3,7 +3,7 @@
   xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory android:title="Server Settings">
         <EditTextPreference android:defaultValue="@string/srv" android:title="IP or Domain" android:summary="Enter Location of Openemr server" android:key="IP"></EditTextPreference>
-        <CheckBoxPreference android:title="Specify Port" android:summary="Check box to specify port" android:key="PortPref"/>
+        <CheckBoxPreference android:defaultValue="true" android:title="Specify Port" android:summary="Check box to specify port" android:key="PortPref"/>
         <EditTextPreference android:dependency="PortPref" android:defaultValue="@string/port" android:title="Port Number" android:summary="Enter port of Openemr server" android:key="Portnum"></EditTextPreference>
     	<CheckBoxPreference android:title="Use SSL" android:summary="Check box if you use a secure server" android:key="Security"/>
     </PreferenceCategory>
@@ -27,9 +27,20 @@
     
     </PreferenceCategory>
 	<PreferenceCategory android:title="Choose your buttons">
+		
+		 <ListPreference
+            android:key="button0pref"
+            android:title="Top Row - Left"
+            android:summary="Choose function"
+            android:entries="@array/buttonchoices"
+            android:entryValues="@array/buttonchoicevalues"
+            
+        /> 
+	
+	
         <ListPreference
             android:key="button1pref"
-            android:title="Top Row - Left"
+           	android:title="Top Row - Middle"
             android:summary="Choose function"
             android:entries="@array/buttonchoices"
             android:entryValues="@array/buttonchoicevalues"
@@ -40,17 +51,6 @@
 
         <ListPreference
             android:key="button2pref"
-            android:title="Top Row - Middle"
-            android:summary="Choose function"
-            android:entries="@array/buttonchoices"
-            android:entryValues="@array/buttonchoicevalues"
-            
-        /> 
-
-
-
-        <ListPreference
-            android:key="button3pref"
             android:title="Top Row - Right"
             android:summary="Choose function"
             android:entries="@array/buttonchoices"
@@ -61,7 +61,7 @@
 
 
         <ListPreference
-            android:key="button4pref"
+            android:key="button3pref"
             android:title="2nd Row - Left"
             android:summary="Choose function"
             android:entries="@array/buttonchoices"
@@ -72,7 +72,7 @@
 
 
         <ListPreference
-            android:key="button5pref"
+            android:key="button4pref"
             android:title="2nd Row - Middle"
             android:summary="Choose function"
             android:entries="@array/buttonchoices"
@@ -83,7 +83,7 @@
 
 
         <ListPreference
-            android:key="button6pref"
+            android:key="button5pref"
             android:title="2nd Row - Right"
             android:summary="Choose function"
             android:entries="@array/buttonchoices"
@@ -94,7 +94,7 @@
 
 
         <ListPreference
-            android:key="button7pref"
+            android:key="button6pref"
             android:title="3rd Row - Left"
             android:summary="Choose function"
             android:entries="@array/buttonchoices"
@@ -105,7 +105,7 @@
 
 
         <ListPreference
-            android:key="button8pref"
+            android:key="button7pref"
             android:title="3rd Row - Middle"
             android:summary="Choose function"
             android:entries="@array/buttonchoices"
@@ -116,7 +116,7 @@
 
 
         <ListPreference
-            android:key="button9pref"
+            android:key="button8pref"
             android:title="3rd Row - Right"
             android:summary="Choose function"
             android:entries="@array/buttonchoices"
@@ -127,7 +127,7 @@
 
 
         <ListPreference
-            android:key="button10pref"
+            android:key="button9pref"
             android:title="4th Row - Left"
             android:summary="Choose function"
             android:entries="@array/buttonchoices"
@@ -138,7 +138,7 @@
 
 
         <ListPreference
-            android:key="button11pref"
+            android:key="button10pref"
             android:title="4th Row - Middle"
             android:summary="Choose function"
             android:entries="@array/buttonchoices"
@@ -149,8 +149,19 @@
 
 
         <ListPreference
-            android:key="button12pref"
+            android:key="button11pref"
             android:title="4th Row - Right"
+            android:summary="Choose function"
+            android:entries="@array/buttonchoices"
+            android:entryValues="@array/buttonchoicevalues"
+            
+        /> 
+
+
+
+        <ListPreference
+            android:key="button12pref"
+            android:title="Bottom Row - Left"
             android:summary="Choose function"
             android:entries="@array/buttonchoices"
             android:entryValues="@array/buttonchoicevalues"
@@ -160,7 +171,7 @@
 
         <ListPreference
             android:key="button13pref"
-            android:title="Bottom Row - Left"
+            android:title="Bottom Row - Middle"
             android:summary="Choose function"
             android:entries="@array/buttonchoices"
             android:entryValues="@array/buttonchoicevalues"
@@ -171,24 +182,17 @@
 
         <ListPreference
             android:key="button14pref"
-            android:title="Bottom Row - Middle"
-            android:summary="Choose function"
-            android:entries="@array/buttonchoices"
-            android:entryValues="@array/buttonchoicevalues"
-            
-        /> 
-
-    
-    
-
-        <ListPreference
-            android:key="button15pref"
             android:title="Bottom Row - Right"
             android:summary="Choose function"
             android:entries="@array/buttonchoices"
             android:entryValues="@array/buttonchoicevalues"
             
         /> 
+
+    
+    
+
+       
         </PreferenceCategory>
         
         

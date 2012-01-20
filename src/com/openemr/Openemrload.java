@@ -76,6 +76,16 @@ public class Openemrload extends Activity {
         
         //create onclick listeners for navigation grid
         
+        final Button button0 = (Button) findViewById(R.id.button0);
+        button0.setOnClickListener(new SlidingDrawer.OnClickListener()
+        {
+            public void onClick(View v) 
+            {
+            	ButtonClicked(0);
+            }
+        });
+        
+        
         final Button button1 = (Button) findViewById(R.id.button1);
         button1.setOnClickListener(new SlidingDrawer.OnClickListener()
         {
@@ -223,15 +233,6 @@ public class Openemrload extends Activity {
         });
 
 
-        final Button button15 = (Button) findViewById(R.id.button15);
-        button15.setOnClickListener(new SlidingDrawer.OnClickListener()
-        {
-            public void onClick(View v) 
-            {
-                	
-            	ButtonClicked(15);
-            }
-        });
 
 
 
@@ -369,6 +370,9 @@ public class Openemrload extends Activity {
     public void SetButtonTexts() {
         String[] buttontitle = getResources().getStringArray(R.array.buttonchoices);
         
+        Button temporarybtn0 = (Button) findViewById(R.id.button0);
+    	temporarybtn0.setText(buttontitle[Populate(0)]);
+        
         Button temporarybtn1 = (Button) findViewById(R.id.button1);
     	temporarybtn1.setText(buttontitle[Populate(1)]);
         
@@ -411,8 +415,6 @@ public class Openemrload extends Activity {
         Button temporarybtn14 = (Button) findViewById(R.id.button14);
     	temporarybtn14.setText(buttontitle[Populate(14)]);
 
-        Button temporarybtn15 = (Button) findViewById(R.id.button15);
-    	temporarybtn15.setText(buttontitle[Populate(15)]);
     }
     
     public void load(String path)
@@ -590,7 +592,7 @@ public class Openemrload extends Activity {
     	if((fail != 0)&&(success != 0))
     	{
     		//super.onPageStarted(view, url);
-    		Popup("Current page is not a login or success");
+    		Popup("Current page is not a login page or successful login");
     		//Popup(failure_url);
     		//Popup(currenturl);
     		//Popup(success_url);

@@ -77,6 +77,7 @@
 	<string name="OpenemrCodefinder3">openemr/interface/patient_file/encounter/search_code.php?type=CVX</string>
 
     <!-- Buttontxts -->
+    <string name="button0txt">0</string>
     <string name="button1txt">1</string>
     <string name="button2txt">2</string>
     <string name="button3txt">3</string>
@@ -91,7 +92,7 @@
     <string name="button12txt">12</string>
     <string name="button13txt">13</string>
     <string name="button14txt">14</string>
-    <string name="button15txt">15</string>
+    
     
     <string name="custom1">helppage</string>
     <string name="custom2">helppage</string>
