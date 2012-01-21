@@ -13,7 +13,7 @@
     <string name="sitedefault">default</string>
     <!-- URL's -->
     <string name="OpenemrStartPage">"file:///android_asset/Firstload.html"</string>
-	<string name="OpenemrLogin">openemr</string>
+	<string name="OpenemrLogin">openemr/interface/login/login_frame.php</string>
 	<string name="OpenemrMainPage">openemr/interface/main/main_screen.php</string>
 	<string name="OpenemrPatientSummary">openemr/interface/patient_file/summary/demographics.php</string>
 	<string name="OpenemrLeftNav">openemr/interface/main/left_nav.php</string>

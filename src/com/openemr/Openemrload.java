@@ -479,10 +479,11 @@ public class Openemrload extends Activity {
 		{
 			webview.loadUrl("file:///android_asset/Firstload.html");
 		}else{
-		webview.loadUrl(host+path);
+		webview.loadUrl(host+path+"?site="+preferences.getString("Site", "default"));
 		}
     	
     }
+    
     
 
     public class wcclient extends WebChromeClient {

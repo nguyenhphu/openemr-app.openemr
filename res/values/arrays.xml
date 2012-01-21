@@ -154,7 +154,7 @@
 </string-array>
 
 <string-array name="buttonurls">
-	<item name="0">openemr</item>
+	<item name="0">openemr/interface/login/login_frame.php</item>
 	<item name="1">openemr/interface/main/main_screen.php</item>
 	<item name="2">openemr/interface/main/left_nav.php</item>
 	<item name="3">openemr/interface/main/calendar/index.php</item>
