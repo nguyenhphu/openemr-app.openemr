@@ -690,10 +690,10 @@ public class Openemrload extends Activity {
     	int choice = Populate(number);
     	
     	//63 64 or 65 go to customs 1 2 and 3
-    	if (choice == 101){webview.loadUrl(preferences.getString("customurl1", getString(R.string.custom1))); slidingDrawer.animateToggle();  return;}
-    	if (choice == 102){webview.loadUrl(preferences.getString("customurl2", getString(R.string.custom2))); slidingDrawer.animateToggle();  return;}
-    	if (choice == 103){webview.loadUrl(preferences.getString("customurl3", getString(R.string.custom3))); slidingDrawer.animateToggle();  return;}
-    	if (choice == 14){webview.loadUrl("file:///android_asset/Firstload.html"); slidingDrawer.animateToggle();return;}
+    	if (choice == 63){webview.loadUrl(preferences.getString("customurl1", getString(R.string.custom1))); slidingDrawer.animateToggle();  return;}
+    	if (choice == 64){webview.loadUrl(preferences.getString("customurl2", getString(R.string.custom2))); slidingDrawer.animateToggle();  return;}
+    	if (choice == 65){webview.loadUrl(preferences.getString("customurl3", getString(R.string.custom3))); slidingDrawer.animateToggle();  return;}
+    	//if (choice == 14){webview.loadUrl("file:///android_asset/Firstload.html"); slidingDrawer.animateToggle();return;}
     	
     	
     	load(buttonurl[choice]);

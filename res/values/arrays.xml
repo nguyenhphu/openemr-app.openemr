@@ -24,7 +24,7 @@
 	<item name="OpenemrNewPatient">New Patient</item>
 	<item name="OpenemrSearch">Patient Search</item>
 	<item name="OpenemrAddressBook">Address Book</item>
-	<item name="OpenemrStartPage">About OpenEMR-App</item>
+	<item name="OpenemrLabExchangeSystem">Lab Exchange</item>
 	<item name="OpenemrOfficeNotes">Office Notes</item>
 	<item name="OpenemrOrdersResults">Orders Results</item>
 	<item name="OpenemrReportsIndex">Reports Index</item>
@@ -73,7 +73,7 @@
 	<item name="OpenemrLabResultsMessages">Lab Results Messages</item>
 	<item name="OpenemrAuthorizations">Authorizations</item>
 	<item name="OpenemrAuthorizationsFull">Authorizations (full)</item>
-	<item name="OpenemrLabExchangeSystem">Lab Exchange</item>
+	
 	<item name="Customurl1">Custom URL 1</item>
 	<item name="Customurl2">Custom URL 2</item>
 	<item name="Customurl3">Custom URL 3</item>
@@ -99,7 +99,7 @@
 	<item name="OpenemrNewPatient">11</item>
 	<item name="OpenemrSearch">12</item>
 	<item name="OpenemrAddressBook">13</item>
-	<item name="OpenemrStartPage">14</item>
+	<item name="OpenemrLabExchangeSystem">14</item>
 	<item name="OpenemrOfficeNotes">15</item>
 	<item name="OpenemrOrdersResults">16</item>
 	<item name="OpenemrReportsIndex">17</item>
@@ -148,10 +148,9 @@
 	<item name="OpenemrLabResultsMessages">60</item>
 	<item name="OpenemrAuthorizations">61</item>
 	<item name="OpenemrAuthorizationsFull">62</item>
-	<item name="OpenemrLabExchangeSystem">63</item>
-	<item name="Customurl1">101</item>
-	<item name="Customurl2">102</item>
-	<item name="Customurl3">103</item>
+	<item name="Customurl1">63</item>
+	<item name="Customurl2">64</item>
+	<item name="Customurl3">65</item>
 </string-array>
 
 <string-array name="buttonurls">
@@ -169,7 +168,7 @@
 	<item name="11">openemr/interface/new/new.php</item>
 	<item name="12">openemr/interface/main/finder/patient_finder.php</item>
 	<item name="13">openemr/interface/usergroup/addrbook_list.php</item>
-	<item name="14">file:///android_asset/Firstload.html</item>
+	<item name="14">openemr/interface/orders/lab_exchange.php</item>
 	<item name="15">openemr/interface/main/onotes/office_comments_full.php</item>
 	<item name="16">openemr/interface/orders/orders_results.php</item>
 	<item name="17">openemr/interface/reports/index.php</item>
@@ -218,10 +217,9 @@
 	<item name="60">openemr/interface/main/messages/lab_results_messages.php</item>
 	<item name="61">openemr/interface/main/authorizations/authorizations.php</item>
 	<item name="62">openemr/interface/main/authorizations/authorizations_full.php</item>
-	<item name="63">openemr/interface/orders/lab_exchange.php</item>
-	<!-- 101  customurl1 -->
-	<!-- 102  customurl2 -->
-	<!-- 103  customurl3 -->
+	<!-- 63  customurl1 -->
+	<!-- 64  customurl2 -->
+	<!-- 65  customurl3 -->
 </string-array>
  
 

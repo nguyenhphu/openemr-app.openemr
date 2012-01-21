@@ -17,9 +17,9 @@ public final class R {
          */
         public static final int buttonchoices=0x7f050000;
         public static final int buttonchoicevalues=0x7f050001;
-        /**  101  customurl1 
- 102  customurl2 
- 103  customurl3 
+        /**  63  customurl1 
+ 64  customurl2 
+ 65  customurl3 
          */
         public static final int buttonurls=0x7f050002;
     }

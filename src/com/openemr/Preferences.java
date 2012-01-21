@@ -18,8 +18,8 @@ public class Preferences extends PreferenceActivity implements OnSharedPreferenc
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
 	    addPreferencesFromResource(R.xml.preferences);
-	    //listpref0 = (ListPreference)getPreferenceScreen().findPreference(BUTTON0_TXT_PREF);
-	    		//mListPreference = (ListPreference)getPreferenceScreen().findPreference(KEY_LIST_PREFERENCE);
+	    this.initSummaries(this.getPreferenceScreen());
+	   
 	}
 	
 	
@@ -30,18 +30,18 @@ public class Preferences extends PreferenceActivity implements OnSharedPreferenc
 
         
         
-        //this.initSummaries(this.getPreferenceScreen());
+        this.initSummaries(this.getPreferenceScreen());
         // Set up a listener whenever a key changes            
-        //getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
+        getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
     }
 	
 	
 	@Override
     protected void onPause() {
         super.onPause();
-
+        
         // Unregister the listener whenever a key changes            
-       //getPreferenceScreen().getSharedPreferences().unregisterOnSharedPreferenceChangeListener(this);    
+       getPreferenceScreen().getSharedPreferences().unregisterOnSharedPreferenceChangeListener(this);    
     }
 	
 	
@@ -91,9 +91,9 @@ public class Preferences extends PreferenceActivity implements OnSharedPreferenc
 	    */
 	  @Override
 	  public void onSharedPreferenceChanged(SharedPreferences sp, String key) {
-		  /*
+		  
 	    Preference pref = findPreference(key);
 	    this.setSummary(pref);
-	  */
+	  
 	  }
 }
