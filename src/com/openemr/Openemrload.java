@@ -69,7 +69,7 @@ public class Openemrload extends Activity {
         CookieSyncManager.createInstance(this);
     	
     	// Initial page load on app start
-    	load(getString(R.string.OpenemrMainPage));
+    	load(getString(R.string.OpenemrLogin));
 
         //set up array for urls and get all buttontexts
         SetButtonTexts();
@@ -538,13 +538,13 @@ public class Openemrload extends Activity {
     	{
     		if (preferences.getBoolean("Security", false)== true)
         	{
-    	    	success_url = "https://" + GetDomain() + "/openemr/interface/main/main_screen.php?auth=login&site=default";
-    	    	failure_url = "https://" + GetDomain() + "/openemr/interface/login/login_frame.php?site=default";
+    	    	success_url = "https://" + GetDomain() + "/openemr/interface/main/main_screen.php?auth=login&site=" + preferences.getString("Site", "default");
+    	    	failure_url = "https://" + GetDomain() + "/openemr/interface/login/login_frame.php?site=" + preferences.getString("Site", "default");
     	    }
         	else
         	{
-    	    	success_url = "http://" + GetDomain() + "/openemr/interface/main/main_screen.php?auth=login&site=default";
-    	    	failure_url = "http://" + GetDomain() + "/openemr/interface/login/login_frame.php?site=default";
+    	    	success_url = "http://" + GetDomain() + "/openemr/interface/main/main_screen.php?auth=login&site=" + preferences.getString("Site", "default");
+    	    	failure_url = "http://" + GetDomain() + "/openemr/interface/login/login_frame.php?site=" + preferences.getString("Site", "default");
     	    }
     	}
     	else
@@ -552,13 +552,13 @@ public class Openemrload extends Activity {
     	
 	    	if (preferences.getBoolean("Security", false)== true)
 	    	{
-		    	success_url = "https://" + GetDomain() + ":" + port + "/openemr/interface/main/main_screen.php?auth=login&site=default";
-		    	failure_url = "https://" + GetDomain() + ":" + port + "/openemr/interface/login/login_frame.php?site=default";
+		    	success_url = "https://" + GetDomain() + ":" + port + "/openemr/interface/main/main_screen.php?auth=login&site=" + preferences.getString("Site", "default");
+		    	failure_url = "https://" + GetDomain() + ":" + port + "/openemr/interface/login/login_frame.php?site=" + preferences.getString("Site", "default");
 		    }
 	    	else
 	    	{
-		    	success_url = "http://" + GetDomain() + ":" + port + "/openemr/interface/main/main_screen.php?auth=login&site=default";
-		    	failure_url = "http://" + GetDomain() + ":" + port + "/openemr/interface/login/login_frame.php?site=default";
+		    	success_url = "http://" + GetDomain() + ":" + port + "/openemr/interface/main/main_screen.php?auth=login&site=" + preferences.getString("Site", "default");
+		    	failure_url = "http://" + GetDomain() + ":" + port + "/openemr/interface/login/login_frame.php?site=" + preferences.getString("Site", "default");
 		    }
     	}
     	int fail = currenturl.compareTo(failure_url);
@@ -611,20 +611,20 @@ public class Openemrload extends Activity {
     	{
     		if (preferences.getBoolean("Security", false)== true)
     		{
-    			cookie = Cm.getCookie("https://" + GetDomain() + "/openemr/interface/main/main_screen.php?auth=login&site=default");
+    			cookie = Cm.getCookie("https://" + GetDomain() + "/openemr/interface/main/main_screen.php?auth=login&site=" + preferences.getString("Site", "default"));
     		}else 
     		{
-    			cookie = Cm.getCookie("http://" + GetDomain() + "/openemr/interface/main/main_screen.php?auth=login&site=default");
+    			cookie = Cm.getCookie("http://" + GetDomain() + "/openemr/interface/main/main_screen.php?auth=login&site=" + preferences.getString("Site", "default"));
     		}
     	}
     	else
     	{	
     		if(preferences.getBoolean("Security", false)== true)
     		{
-    			cookie = Cm.getCookie("https://" + GetDomain() + ":" + port + "/openemr/interface/main/main_screen.php?auth=login&site=default");
+    			cookie = Cm.getCookie("https://" + GetDomain() + ":" + port + "/openemr/interface/main/main_screen.php?auth=login&site=" + preferences.getString("Site", "default"));
     		}else 
     		{
-    			cookie = Cm.getCookie("http://" + GetDomain() + ":" + port + "/openemr/interface/main/main_screen.php?auth=login&site=default");
+    			cookie = Cm.getCookie("http://" + GetDomain() + ":" + port + "/openemr/interface/main/main_screen.php?auth=login&site=" + preferences.getString("Site", "default"));
     		}
     	}
 		Popup("grabbed current cookie " + cookie);
