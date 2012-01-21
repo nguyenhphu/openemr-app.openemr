@@ -564,6 +564,8 @@ public class Openemrload extends Activity {
     	int fail = currenturl.compareTo(failure_url);
     	
     	int success = currenturl.compareTo(success_url);
+    	//Popup("success" + success_url);
+    	//Popup("fail" + failure_url);
     	preferences = PreferenceManager.getDefaultSharedPreferences(this);
     	SharedPreferences.Editor settings_editor = preferences.edit();
     	if(fail == 0)
