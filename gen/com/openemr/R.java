@@ -62,7 +62,6 @@ public final class R {
         public static final int OpenemrAddressBook=0x7f060019;
         public static final int OpenemrAuthorizations=0x7f060015;
         public static final int OpenemrAuthorizationsFull=0x7f060016;
-        public static final int OpenemrCalendarOnly=0x7f060017;
         public static final int OpenemrCalendarSchedule=0x7f060011;
         public static final int OpenemrCodefinder=0x7f060045;
         public static final int OpenemrCodefinder2=0x7f060046;
@@ -91,6 +90,7 @@ public final class R {
         public static final int OpenemrOrderTypesAndResults=0x7f06001f;
         public static final int OpenemrOrdersResults=0x7f06001a;
         public static final int OpenemrPatientEncounterForm=0x7f060027;
+        public static final int OpenemrPatientIssues=0x7f060017;
         public static final int OpenemrPatientSummary=0x7f06000b;
         public static final int OpenemrPendingFollowup=0x7f06001c;
         public static final int OpenemrPendingOrders=0x7f06001d;

@@ -21,7 +21,7 @@
 	<item name="OpenemrLabResultsMessages">Lab Results Messages</item>
 	<item name="OpenemrAuthorizations">Authorizations</item>
 	<item name="OpenemrAuthorizationsFull">Authorizations (full)</item>
-	<item name="OpenemrCalendarOnly">Calendar Only</item>
+	<item name="OpenemrPatientIssues">Patient Issues</item>
 	<item name="OpenemrOfficeNotes">Office Notes</item>
 	<item name="OpenemrAddressBook">Address Book</item>
 	<item name="OpenemrOrdersResults">Orders Results</item>
@@ -92,7 +92,7 @@
 	<item name="OpenemrLabResultsMessages">11</item>
 	<item name="OpenemrAuthorizations">12</item>
 	<item name="OpenemrAuthorizationsFull">13</item>
-	<item name="OpenemrCalendarOnly">14</item>
+	<item name="OpenemrPatientIssues">14</item>
 	<item name="OpenemrOfficeNotes">15</item>
 	<item name="OpenemrAddressBook">16</item>
 	<item name="OpenemrOrdersResults">17</item>
@@ -161,7 +161,7 @@
 	<item name="11">openemr/interface/main/messages/lab_results_messages.php</item>
 	<item name="12">openemr/interface/main/authorizations/authorizations.php</item>
 	<item name="13">openemr/interface/main/authorizations/authorizations_full.php</item>
-	<item name="14">openemr/interface/main/calendar/index.php</item>
+	<item name="14">openemr/interface/patient_file/summary/stats_full.php?active=all</item>
 	<item name="15">openemr/interface/main/onotes/office_comments_full.php</item>
 	<item name="16">openemr/interface/usergroup/addrbook_list.php</item>
 	<item name="17">openemr/interface/orders/orders_results.php</item>

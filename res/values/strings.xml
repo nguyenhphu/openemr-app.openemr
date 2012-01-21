@@ -26,7 +26,7 @@
 	<string name="OpenemrLabResultsMessages">openemr/interface/main/messages/lab_results_messages.php</string>
 	<string name="OpenemrAuthorizations">openemr/interface/main/authorizations/authorizations.php</string>
 	<string name="OpenemrAuthorizationsFull">openemr/interface/main/authorizations/authorizations_full.php</string>
-	<string name="OpenemrCalendarOnly">interface/main/calendar/index.php</string>
+	<string name="OpenemrPatientIssues">openemr/interface/patient_file/summary/stats_full.php?active=all</string>
 	<string name="OpenemrOfficeNotes">openemr/interface/main/onotes/office_comments_full.php</string>
 	<string name="OpenemrAddressBook">openemr/interface/usergroup/addrbook_list.php</string>
 	<string name="OpenemrOrdersResults">openemr/interface/orders/orders_results.php</string>
