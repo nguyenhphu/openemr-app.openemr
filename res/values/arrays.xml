@@ -3,34 +3,35 @@
  
 
 <resources>
-
- 
+<!--  "Login", "Main Page", "Left Navigation Bar", "Calendar", "Add/Edit Calendar", "Messages", "Patient Summary",
+ "Patient Report", "Patient Issues"(interface/patient_file/summary/stats_full.php?active=all), "Encounters", "New Encounter",
+  "New Patient", "Patient Search", "Address Book"
+4. Would not include following as default button choices: "Navigation", "Lab Results Messages", "Authorizations", "Authorizations(Full)" (added 4 in above list to replace these).
+ -->
 
 <string-array name="buttonchoices">
 	<item name="OpenemrLogin">Login</item>
 	<item name="OpenemrMainPage">Main Page</item>
-	<item name="OpenemrPatientSummary">Patient Summary</item>
 	<item name="OpenemrLeftNav">Left Navigation Bar</item>
+	<item name="OpenemrCalendarSchedule">Calendar Schedule</item>
+	<item name="Openemraddedit_event">Add/Edit Calendar</item>
+	<item name="OpenemrMessages">Messages</item>
+	<item name="OpenemrPatientSummary">Patient Summary</item>
+	<item name="Openemrpatientreport">Patient Report</item>
+	<item name="OpenemrPatientIssues">Patient Issues</item>
 	<item name="OpenemrEncounters">Encounters</item>
-	<item name="OpenemrSearch">Patient Search</item>
 	<item name="OpenemrNewEncounter">New Encounter</item>
 	<item name="OpenemrNewPatient">New Patient</item>
-	<item name="OpenemrCalendarSchedule">Calendar Schedule</item>
-	<item name="OpenemrHtmNavigation">Navigation</item>
-	<item name="OpenemrMessages">Messages</item>
-	<item name="OpenemrLabResultsMessages">Lab Results Messages</item>
-	<item name="OpenemrAuthorizations">Authorizations</item>
-	<item name="OpenemrAuthorizationsFull">Authorizations (full)</item>
-	<item name="OpenemrPatientIssues">Patient Issues</item>
-	<item name="OpenemrOfficeNotes">Office Notes</item>
+	<item name="OpenemrSearch">Patient Search</item>
 	<item name="OpenemrAddressBook">Address Book</item>
+	<item name="OpenemrStartPage">About OpenEMR-App</item>
+	<item name="OpenemrOfficeNotes">Office Notes</item>
 	<item name="OpenemrOrdersResults">Orders Results</item>
 	<item name="OpenemrReportsIndex">Reports Index</item>
 	<item name="OpenemrPendingFollowup">Pending Followup</item>
 	<item name="OpenemrPendingOrders">Pending Orders</item>
 	<item name="OpenemrProcedureStatistics">Procedure Stats</item>
 	<item name="OpenemrOrderTypesAndResults">Types and Results</item>
-	<item name="OpenemrLabExchangeSystem">Lab Exchange</item>
 	<item name="OpenemrAddOrEditDrug">Add or Edit Drug</item>
 	<item name="OpenemrEditDrugLot">Edit Drug Lot</item>
 	<item name="OpenemrDestroyDrugLot">Destroy Drug Lot</item>
@@ -52,12 +53,10 @@
 	<item name="Openemrpatienthistory">Patient History</item>
 	<item name="Openemruploaddialog">Patient Pic Upload</item>
 	<item name="Openemrproblem_encounter">Problem Encounter</item>
-	<item name="Openemraddedit_event">Add/Edit Calendar</item>
 	<item name="Openemrfindappt">Find Appointment</item>
 	<item name="Openemrbackup">System Backup</item>
 	<item name="Openemrbatchcom">Batch Communications</item>
 	<item name="Openemraddrbookedit">Add to Address Book</item>
-	<item name="Openemrpatientreport">Patient Report</item>
 	<item name="Openemrfullreport.php">Patient Report (full)</item>
 	<item name="Openemrhistoryfull">Full Patient History</item>
 	<item name="Openemrpnotes">Patient Notes</item>
@@ -70,149 +69,159 @@
 	<item name="OpenemrCodefinder">Code Finder</item>
 	<item name="OpenemrCodefinder2">Code Finder 2</item>
 	<item name="OpenemrCodefinder3">Code Finder 3</item>
+	<item name="OpenemrHtmNavigation">Navigation</item>
+	<item name="OpenemrLabResultsMessages">Lab Results Messages</item>
+	<item name="OpenemrAuthorizations">Authorizations</item>
+	<item name="OpenemrAuthorizationsFull">Authorizations (full)</item>
+	<item name="OpenemrLabExchangeSystem">Lab Exchange</item>
 	<item name="Customurl1">Custom URL 1</item>
 	<item name="Customurl2">Custom URL 2</item>
 	<item name="Customurl3">Custom URL 3</item>
 </string-array>
 
      
+     
+     
+     
 
 <string-array name="buttonchoicevalues">
 	<item name="OpenemrLogin">0</item>
 	<item name="OpenemrMainPage">1</item>
-	<item name="OpenemrPatientSummary">2</item>
-	<item name="OpenemrLeftNav">3</item>
-	<item name="OpenemrEncounters">4</item>
-	<item name="OpenemrSearch">5</item>
-	<item name="OpenemrNewEncounter">6</item>
-	<item name="OpenemrNewPatient">7</item>
-	<item name="OpenemrCalendarSchedule">8</item>
-	<item name="OpenemrHtmNavigation">9</item>
-	<item name="OpenemrMessages">10</item>
-	<item name="OpenemrLabResultsMessages">11</item>
-	<item name="OpenemrAuthorizations">12</item>
-	<item name="OpenemrAuthorizationsFull">13</item>
-	<item name="OpenemrPatientIssues">14</item>
+	<item name="OpenemrLeftNav">2</item>
+	<item name="OpenemrCalendarSchedule">3</item>
+	<item name="Openemraddedit_event">4</item>
+	<item name="OpenemrMessages">5</item>
+	<item name="OpenemrPatientSummary">6</item>
+	<item name="Openemrpatientreport">7</item>
+	<item name="OpenemrPatientIssues">8</item>
+	<item name="OpenemrEncounters">9</item>
+	<item name="OpenemrNewEncounter">10</item>
+	<item name="OpenemrNewPatient">11</item>
+	<item name="OpenemrSearch">12</item>
+	<item name="OpenemrAddressBook">13</item>
+	<item name="OpenemrStartPage">14</item>
 	<item name="OpenemrOfficeNotes">15</item>
-	<item name="OpenemrAddressBook">16</item>
-	<item name="OpenemrOrdersResults">17</item>
-	<item name="OpenemrReportsIndex">18</item>
-	<item name="OpenemrPendingFollowup">19</item>
-	<item name="OpenemrPendingOrders">20</item>
-	<item name="OpenemrProcedureStatistics">21</item>
-	<item name="OpenemrOrderTypesAndResults">22</item>
-	<item name="OpenemrLabExchangeSystem">23</item>
-	<item name="OpenemrAddOrEditDrug">24</item>
-	<item name="OpenemrEditDrugLot">25</item>
-	<item name="OpenemrDestroyDrugLot">26</item>
-	<item name="OpenemrDispenseDrug">27</item>
-	<item name="OpenemrDrugInventory">28</item>
-	<item name="OpenemrPrintNotes">29</item>
-	<item name="OpenemrPatientEncounterForm">30</item>
-	<item name="OpenemrCreateWorkSchoolNotes">31</item>
-	<item name="OpenemrViewPrintWorkSchoolNote">32</item>
-	<item name="OpenemrNewDictation">33</item>
-	<item name="OpenemrViewDictation">34</item>
-	<item name="OpenemrOrderProcedure">35</item>
-	<item name="OpenemrViewChangeProcedure">36</item>
-	<item name="OpenemrReviewBodySystemsROS">37</item>
-	<item name="OpenemrReviewOfBodySystemsChecked">38</item>
-	<item name="OpenemrReviewPatientVitalStats">39</item>
-	<item name="OpenemrCreatePatientVitalStatsInstance">40</item>
-	<item name="Openemraddedit_issue">41</item>
-	<item name="Openemrpatienthistory">42</item>
-	<item name="Openemruploaddialog">43</item>
-	<item name="Openemrproblem_encounter">44</item>
-	<item name="Openemraddedit_event">45</item>
-	<item name="Openemrfindappt">46</item>
-	<item name="Openemrbackup">47</item>
-	<item name="Openemrbatchcom">48</item>
-	<item name="Openemraddrbookedit">49</item>
-	<item name="Openemrpatientreport">50</item>
-	<item name="Openemrfullreport.php">51</item>
-	<item name="Openemrhistoryfull">52</item>
-	<item name="Openemrpnotes">53</item>
-	<item name="Openemrimmunizations">54</item>
-	<item name="Openemrfitnessstatus">55</item>
-	<item name="Openemrbrowse">56</item>
-	<item name="Openemraddtransaction">57</item>
-	<item name="Openemrposcheckout">58</item>
-	<item name="Openemrnewcomprehensive">59</item>
-	<item name="OpenemrCodefinder">60</item>
-	<item name="OpenemrCodefinder2">61</item>
-	<item name="OpenemrCodefinder3">62</item>
-	<item name="Customurl1">63</item>
-	<item name="Customurl2">64</item>
-	<item name="Customurl3">65</item>
+	<item name="OpenemrOrdersResults">16</item>
+	<item name="OpenemrReportsIndex">17</item>
+	<item name="OpenemrPendingFollowup">18</item>
+	<item name="OpenemrPendingOrders">19</item>
+	<item name="OpenemrProcedureStatistics">20</item>
+	<item name="OpenemrOrderTypesAndResults">21</item>
+	<item name="OpenemrAddOrEditDrug">22</item>
+	<item name="OpenemrEditDrugLot">23</item>
+	<item name="OpenemrDestroyDrugLot">24</item>
+	<item name="OpenemrDispenseDrug">25</item>
+	<item name="OpenemrDrugInventory">26</item>
+	<item name="OpenemrPrintNotes">27</item>
+	<item name="OpenemrPatientEncounterForm">28</item>
+	<item name="OpenemrCreateWorkSchoolNotes">29</item>
+	<item name="OpenemrViewPrintWorkSchoolNote">30</item>
+	<item name="OpenemrNewDictation">31</item>
+	<item name="OpenemrViewDictation">32</item>
+	<item name="OpenemrOrderProcedure">33</item>
+	<item name="OpenemrViewChangeProcedure">34</item>
+	<item name="OpenemrReviewBodySystemsROS">35</item>
+	<item name="OpenemrReviewOfBodySystemsChecked">36</item>
+	<item name="OpenemrReviewPatientVitalStats">37</item>
+	<item name="OpenemrCreatePatientVitalStatsInstance">38</item>
+	<item name="Openemraddedit_issue">39</item>
+	<item name="Openemrpatienthistory">40</item>
+	<item name="Openemruploaddialog">41</item>
+	<item name="Openemrproblem_encounter">42</item>
+	<item name="Openemrfindappt">43</item>
+	<item name="Openemrbackup">44</item>
+	<item name="Openemrbatchcom">45</item>
+	<item name="Openemraddrbookedit">46</item>
+	<item name="Openemrfullreport.php">47</item>
+	<item name="Openemrhistoryfull">48</item>
+	<item name="Openemrpnotes">49</item>
+	<item name="Openemrimmunizations">50</item>
+	<item name="Openemrfitnessstatus">51</item>
+	<item name="Openemrbrowse">52</item>
+	<item name="Openemraddtransaction">53</item>
+	<item name="Openemrposcheckout">54</item>
+	<item name="Openemrnewcomprehensive">55</item>
+	<item name="OpenemrCodefinder">56</item>
+	<item name="OpenemrCodefinder2">57</item>
+	<item name="OpenemrCodefinder3">58</item>
+	<item name="OpenemrHtmNavigation">59</item>
+	<item name="OpenemrLabResultsMessages">60</item>
+	<item name="OpenemrAuthorizations">61</item>
+	<item name="OpenemrAuthorizationsFull">62</item>
+	<item name="OpenemrLabExchangeSystem">63</item>
+	<item name="Customurl1">101</item>
+	<item name="Customurl2">102</item>
+	<item name="Customurl3">103</item>
 </string-array>
 
 <string-array name="buttonurls">
 	<item name="0">openemr</item>
 	<item name="1">openemr/interface/main/main_screen.php</item>
-	<item name="2">openemr/interface/patient_file/summary/demographics.php</item>
-	<item name="3">openemr/interface/main/left_nav.php</item>
-	<item name="4">openemr/interface/patient_file/history/encounters.php</item>
-	<item name="5">openemr/interface/main/finder/patient_finder.php</item>
-	<item name="6">openemr/interface/forms/newpatient/new.php</item>
-	<item name="7">openemr/interface/new/new.php</item>
-	<item name="8">openemr/interface/main/calendar/index.php</item>
-	<item name="9">openemr/interface/main/main_navigation.php</item>
-	<item name="10">openemr/interface/main/messages/messages.php</item>
-	<item name="11">openemr/interface/main/messages/lab_results_messages.php</item>
-	<item name="12">openemr/interface/main/authorizations/authorizations.php</item>
-	<item name="13">openemr/interface/main/authorizations/authorizations_full.php</item>
-	<item name="14">openemr/interface/patient_file/summary/stats_full.php?active=all</item>
+	<item name="2">openemr/interface/main/left_nav.php</item>
+	<item name="3">openemr/interface/main/calendar/index.php</item>
+	<item name="4">openemr/interface/main/calendar/add_edit_event.php</item>
+	<item name="5">openemr/interface/main/messages/messages.php</item>
+	<item name="6">openemr/interface/patient_file/summary/demographics.php</item>
+	<item name="7">openemr/interface/patient_file/report/patient_report.php</item>
+	<item name="8">openemr/interface/patient_file/summary/stats_full.php?active=all</item>
+	<item name="9">openemr/interface/patient_file/history/encounters.php</item>
+	<item name="10">openemr/interface/forms/newpatient/new.php</item>
+	<item name="11">openemr/interface/new/new.php</item>
+	<item name="12">openemr/interface/main/finder/patient_finder.php</item>
+	<item name="13">openemr/interface/usergroup/addrbook_list.php</item>
+	<item name="14">file:///android_asset/Firstload.html</item>
 	<item name="15">openemr/interface/main/onotes/office_comments_full.php</item>
-	<item name="16">openemr/interface/usergroup/addrbook_list.php</item>
-	<item name="17">openemr/interface/orders/orders_results.php</item>
-	<item name="18">openemr/interface/reports/index.php</item>
-	<item name="19">openemr/interface/orders/pending_followup.php</item>
-	<item name="20">openemr/interface/orders/pending_orders.php</item>
-	<item name="21">openemr/interface/orders/procedure_stats.php</item>
-	<item name="22">openemr/interface/orders/types.php</item>
-	<item name="23">openemr/interface/orders/lab_exchange.php</item>
-	<item name="24">openemr/interface/drugs/add_edit_drug.php</item>
-	<item name="25">openemr/interface/drugs/add_edit_lot.php</item>
-	<item name="26">openemr/interface/drugs/destroy_lot.php</item>
-	<item name="27">openemr/interface/drugs/dispense_drug.php</item>
-	<item name="28">openemr/interface/drugs/drug_inventory.php</item>
-	<item name="29">openemr/interface/forms/CAMOS/notegen.php</item>
-	<item name="30">openemr/interface/forms/newpatient/view.php</item>
-	<item name="31">openemr/interface/forms/note/new.php</item>
-	<item name="32">openemr/interface/forms/note/view.php</item>
-	<item name="33">openemr/interface/forms/dictation/new.php</item>
-	<item name="34">openemr/interface/forms/dictation/view.php</item>
-	<item name="35">openemr/interface/forms/procedure_order/new.php</item>
-	<item name="36">openemr/interface/forms/procedure_order/view.php</item>
-	<item name="37">openemr/interface/forms/ros/view.php</item>
-	<item name="38">openemr/interface/forms/reviewofs/new.php</item>
-	<item name="39">openemr/interface/forms/vitals/view.php</item>
-	<item name="40">openemr/interface/forms/vitals/new.php</item>
-	<item name="41">openemr/interface/patient_file/summary/add_edit_issue.php</item>
-	<item name="42">openemr/interface/patient_file/history/patient_history.php</item>
-	<item name="43">openemr/interface/patient_file/upload_dialog.php</item>
-	<item name="44">openemr/interface/patient_file/problem_encounter.php</item>
-	<item name="45">openemr/interface/main/calendar/add_edit_event.php</item>
-	<item name="46">openemr/interface/main/calendar/find_appt_popup.php</item>
-	<item name="47">openemr/interface/main/backup.php</item>
-	<item name="48">openemr/interface/batchcom/batchcom.php</item>
-	<item name="49">openemr/interface/usergroup/addrbook_edit.php</item>
-	<item name="50">openemr/interface/patient_file/report/patient_report.php</item>
-	<item name="51">openemr/interface/patient_file/report/full_report.php</item>
-	<item name="52">openemr/interface/patient_file/history/history_full.php</item>
-	<item name="53">openemr/interface/patient_file/summary/pnotes.php</item>
-	<item name="54">openemr/interface/patient_file/summary/immunizations.php</item>
-	<item name="55">openemr/interface/patient_file/summary/fitness_status.php</item>
-	<item name="56">openemr/interface/patient_file/summary/browse.php</item>
-	<item name="57">openemr/interface/patient_file/transaction/add_transaction.php</item>
-	<item name="58">openemr/interface/patient_file/pos_checkout.php</item>
-	<item name="59">openemr/interface/new/new_comprehensive.php</item>
-	<item name="60">openemr/interface/patient_file/encounter/find_code_popup.php</item>
-	<item name="61">openemr/interface/patient_file/encounter/coding_popup.php</item>
-	<item name="62">openemr/interface/patient_file/encounter/search_code.php?type=CVX</item>
-	<!-- 63  customurl1 -->
-	<!-- 64  customurl2 -->
-	<!-- 65  customurl3 -->
+	<item name="16">openemr/interface/orders/orders_results.php</item>
+	<item name="17">openemr/interface/reports/index.php</item>
+	<item name="18">openemr/interface/orders/pending_followup.php</item>
+	<item name="19">openemr/interface/orders/pending_orders.php</item>
+	<item name="20">openemr/interface/orders/procedure_stats.php</item>
+	<item name="21">openemr/interface/orders/types.php</item>
+	<item name="22">openemr/interface/drugs/add_edit_drug.php</item>
+	<item name="23">openemr/interface/drugs/add_edit_lot.php</item>
+	<item name="24">openemr/interface/drugs/destroy_lot.php</item>
+	<item name="25">openemr/interface/drugs/dispense_drug.php</item>
+	<item name="26">openemr/interface/drugs/drug_inventory.php</item>
+	<item name="27">openemr/interface/forms/CAMOS/notegen.php</item>
+	<item name="28">openemr/interface/forms/newpatient/view.php</item>
+	<item name="29">openemr/interface/forms/note/new.php</item>
+	<item name="30">openemr/interface/forms/note/view.php</item>
+	<item name="31">openemr/interface/forms/dictation/new.php</item>
+	<item name="32">openemr/interface/forms/dictation/view.php</item>
+	<item name="33">openemr/interface/forms/procedure_order/new.php</item>
+	<item name="34">openemr/interface/forms/procedure_order/view.php</item>
+	<item name="35">openemr/interface/forms/ros/view.php</item>
+	<item name="36">openemr/interface/forms/reviewofs/new.php</item>
+	<item name="37">openemr/interface/forms/vitals/view.php</item>
+	<item name="38">openemr/interface/forms/vitals/new.php</item>
+	<item name="39">openemr/interface/patient_file/summary/add_edit_issue.php</item>
+	<item name="40">openemr/interface/patient_file/history/patient_history.php</item>
+	<item name="41">openemr/interface/patient_file/upload_dialog.php</item>
+	<item name="42">openemr/interface/patient_file/problem_encounter.php</item>
+	<item name="43">openemr/interface/main/calendar/find_appt_popup.php</item>
+	<item name="44">openemr/interface/main/backup.php</item>
+	<item name="45">openemr/interface/batchcom/batchcom.php</item>
+	<item name="46">openemr/interface/usergroup/addrbook_edit.php</item>
+	<item name="47">openemr/interface/patient_file/report/full_report.php</item>
+	<item name="48">openemr/interface/patient_file/history/history_full.php</item>
+	<item name="49">openemr/interface/patient_file/summary/pnotes.php</item>
+	<item name="50">openemr/interface/patient_file/summary/immunizations.php</item>
+	<item name="51">openemr/interface/patient_file/summary/fitness_status.php</item>
+	<item name="52">openemr/interface/patient_file/summary/browse.php</item>
+	<item name="53">openemr/interface/patient_file/transaction/add_transaction.php</item>
+	<item name="54">openemr/interface/patient_file/pos_checkout.php</item>
+	<item name="55">openemr/interface/new/new_comprehensive.php</item>
+	<item name="56">openemr/interface/patient_file/encounter/find_code_popup.php</item>
+	<item name="57">openemr/interface/patient_file/encounter/coding_popup.php</item>
+	<item name="58">openemr/interface/patient_file/encounter/search_code.php?type=CVX</item>
+	<item name="59">openemr/interface/main/main_navigation.php</item>
+	<item name="60">openemr/interface/main/messages/lab_results_messages.php</item>
+	<item name="61">openemr/interface/main/authorizations/authorizations.php</item>
+	<item name="62">openemr/interface/main/authorizations/authorizations_full.php</item>
+	<item name="63">openemr/interface/orders/lab_exchange.php</item>
+	<!-- 101  customurl1 -->
+	<!-- 102  customurl2 -->
+	<!-- 103  customurl3 -->
 </string-array>
  
 

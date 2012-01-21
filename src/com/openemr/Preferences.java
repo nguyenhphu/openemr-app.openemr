@@ -13,7 +13,7 @@ public class Preferences extends PreferenceActivity implements OnSharedPreferenc
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
-	    addPreferencesFromResource(R.xml.prefrences);
+	    addPreferencesFromResource(R.xml.preferences);
 	
 	}
 	@Override

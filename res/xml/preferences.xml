@@ -6,7 +6,7 @@
         <CheckBoxPreference android:defaultValue="true" android:title="Specify Port" android:summary="Check box to specify port" android:key="PortPref"/>
         <EditTextPreference android:dependency="PortPref" android:defaultValue="@string/port" android:title="Port Number" android:summary="Enter port of Openemr server" android:key="Portnum"></EditTextPreference>
     	<CheckBoxPreference android:title="Use SSL" android:summary="Check box if you use a secure server" android:key="Security"/>
-		<EditTextPreference android:title="Site name" android:summary="Enter site name of your OpenEMR server" android:key="Site"></EditTextPreference>    
+		<EditTextPreference android:title="Site name" android:summary="Enter site name of your OpenEMR server" android:defaultValue="@string/sitedefault" android:key="Site"></EditTextPreference>    
     </PreferenceCategory>
     
     

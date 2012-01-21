@@ -6,6 +6,7 @@ import java.util.StringTokenizer;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -58,6 +59,8 @@ public class Openemrload extends Activity {
         
         //defining preferences
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        //set defaults from xml only if this is the first time this method has been called
+        PreferenceManager.setDefaultValues(this, R.xml.preferences, false);//<---thats this false flag
         
         this.getWindow().requestFeature(Window.FEATURE_PROGRESS);
         
@@ -67,9 +70,8 @@ public class Openemrload extends Activity {
         slidingDrawer = (SlidingDrawer) findViewById(R.id.Drawer);
     	
         CookieSyncManager.createInstance(this);
+       
     	
-    	// Initial page load on app start
-    	load(getString(R.string.OpenemrLogin));
 
         //set up array for urls and get all buttontexts
         SetButtonTexts();
@@ -233,9 +235,11 @@ public class Openemrload extends Activity {
         });
 
 
-
-
-
+        load("startpage");
+        //webview = (WebView) findViewById(R.id.webview0);
+    	// Initial page load on app start
+        //webview.loadUrl("startpage");
+        
 
 
 
@@ -471,8 +475,12 @@ public class Openemrload extends Activity {
 	    //also place holder   
 	    //webview.setHttpAuthUsernamePassword (preferences.getString("IP", getString(R.string.srv))+"/openemr", null, preferences.getString("user", "username"), preferences.getString("pass", "password"));
 		BakeCookie();//setting cookie anywhere but here produces timing issues
+		if(path == "startpage")
+		{
+			webview.loadUrl("file:///android_asset/Firstload.html");
+		}else{
 		webview.loadUrl(host+path);
-    	
+		}
     	
     }
     
@@ -682,10 +690,10 @@ public class Openemrload extends Activity {
     	int choice = Populate(number);
     	
     	//63 64 or 65 go to customs 1 2 and 3
-    	if (choice == 63){webview.loadUrl(preferences.getString("customurl1", getString(R.string.custom1))); slidingDrawer.animateToggle();  return;}
-    	if (choice == 64){webview.loadUrl(preferences.getString("customurl2", getString(R.string.custom2))); slidingDrawer.animateToggle();  return;}
-    	if (choice == 65){webview.loadUrl(preferences.getString("customurl3", getString(R.string.custom3))); slidingDrawer.animateToggle();  return;}
-    	
+    	if (choice == 101){webview.loadUrl(preferences.getString("customurl1", getString(R.string.custom1))); slidingDrawer.animateToggle();  return;}
+    	if (choice == 102){webview.loadUrl(preferences.getString("customurl2", getString(R.string.custom2))); slidingDrawer.animateToggle();  return;}
+    	if (choice == 103){webview.loadUrl(preferences.getString("customurl3", getString(R.string.custom3))); slidingDrawer.animateToggle();  return;}
+    	if (choice == 14){webview.loadUrl("file:///android_asset/Firstload.html"); slidingDrawer.animateToggle();return;}
     	
     	
     	load(buttonurl[choice]);
