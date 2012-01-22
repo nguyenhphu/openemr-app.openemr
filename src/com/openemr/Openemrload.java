@@ -286,6 +286,18 @@ public class Openemrload extends Activity {
         
         // The activity is about to be destroyed.
     }
+    
+    //the manifest has a line for which configuration changes will ignore their default behavior.
+    @Override
+    public void onConfigurationChanged(Configuration newConfig){        
+        super.onConfigurationChanged(newConfig);
+        //do-nothing
+    }
+
+    
+    
+    
+    
     @Override//close on long press of back button
     public boolean onKeyLongPress(int keyCode, KeyEvent event) {
     	if ((keyCode == KeyEvent.KEYCODE_BACK))
