@@ -22,6 +22,8 @@ public final class R {
  65  customurl3 
          */
         public static final int buttonurls=0x7f050002;
+        public static final int startupChoices=0x7f050003;
+        public static final int startupValues=0x7f050004;
     }
     public static final class attr {
     }

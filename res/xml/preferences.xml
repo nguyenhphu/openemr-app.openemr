@@ -17,6 +17,19 @@
         <EditTextPreference android:key="user" android:title="Username" android:defaultValue="username"></EditTextPreference>
         <EditTextPreference android:key="pass" android:title="Password" android:defaultValue="password"></EditTextPreference>
     </PreferenceCategory>
+    
+    <PreferenceCategory android:title="Startup Screen">
+	    <ListPreference 
+	    	android:key="startingpage"
+	    	android:summary="Choose page that loads when starting app"
+	    	android:title="Start Page"
+	    	android:entries="@array/startupChoices"
+            android:entryValues="@array/startupValues"
+	    />
+	    
+    
+    </PreferenceCategory>
+    
     <PreferenceCategory android:title="Customization">
     <PreferenceScreen android:key="button_selection" android:title="Button Selection" android:summary="Change Quickbuttons">
     

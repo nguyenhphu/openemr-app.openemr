@@ -223,4 +223,20 @@
 </string-array>
  
 
+<string-array name="startupChoices">
+	<item name="AboutOpenEMRApp">About OpenEMR-App</item>
+	<item name="Login">Login Page</item>
+	<item name="Main Page">Main Page</item>
+	<item name="Messages">Messages</item>
+</string-array>
+
+<string-array name="startupValues">
+	<item name="AboutOpenEMRApp">1</item>
+	<item name="Login">2</item>
+	<item name="Main Page">3</item>
+	<item name="Messages">4</item>
+</string-array>
+
+
+
 </resources>

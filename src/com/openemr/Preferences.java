@@ -27,12 +27,12 @@ public class Preferences extends PreferenceActivity implements OnSharedPreferenc
 	@Override
     protected void onResume() {
         super.onResume();
-
+     // Set up a listener whenever a key changes            
+        getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
         
         
         this.initSummaries(this.getPreferenceScreen());
-        // Set up a listener whenever a key changes            
-        getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
+        
     }
 	
 	
@@ -45,30 +45,18 @@ public class Preferences extends PreferenceActivity implements OnSharedPreferenc
     }
 	
 	
-	//this does work
-	/*
-	@Override
-	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-		// TODO Auto-generated method stub
-		// Let's do something a preference value changes
-		Preference pref = findPreference(key);
 
-	    if (pref instanceof ListPreference) {
-	        ListPreference listPref = (ListPreference) pref;
-	        pref.setSummary(listPref.getEntry());
-	    }
 	
-	}
-	*/
 	
 	/**
 	    * Set the summaries of all preferences
 	    */
 	  private void initSummaries(PreferenceGroup pg) {
-	    for (int i = 0; i < pg.getPreferenceCount(); ++i) {
-	    Preference p = pg.getPreference(i);
-	    if (p instanceof PreferenceGroup)
-	      this.initSummaries((PreferenceGroup) p); // recursion
+	    for (int i = 0; i < pg.getPreferenceCount(); ++i) 
+	    {
+	    	Preference p = pg.getPreference(i);
+	    	if (p instanceof PreferenceGroup)
+	    		this.initSummaries((PreferenceGroup) p); // recursion
 	    else
 	      this.setSummary(p);
 	    }

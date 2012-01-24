@@ -15,6 +15,7 @@ import android.net.http.SslError;
 
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -234,17 +235,15 @@ public class Openemrload extends Activity {
             }
         });
 
-
-        load("startpage");
-        //webview = (WebView) findViewById(R.id.webview0);
+        //this should be conditional
+        int startpref = Integer.parseInt(preferences.getString("startingpage", "1"));
+        if(startpref == 1){load("startpage");}
+        else if(startpref == 2){load(getString(R.string.OpenemrLogin));}
+        else if(startpref == 3){load(getString(R.string.OpenemrMainPage));}
+        else if(startpref == 4){load(getString(R.string.OpenemrMessages));}
+        //else {load("startpage");}
     	// Initial page load on app start
-        //webview.loadUrl("startpage");
-        
 
-
-
-
-  
         
 	}
 	//hooks for Activity life cycle
@@ -263,7 +262,7 @@ public class Openemrload extends Activity {
         //Popup("cookie stored in prefs is" +  PrefsCookieString());
         SetButtonTexts();
         // The activity has become visible (it is now "resumed").
-        //CookieSyncManager.getInstance().startSync();
+        CookieSyncManager.getInstance().startSync();
         
     }
 
@@ -271,7 +270,7 @@ public class Openemrload extends Activity {
     protected void onPause() {
         super.onPause();
         // Another activity is taking focus (this activity is about to be "paused").
-        //CookieSyncManager.getInstance().stopSync();
+        CookieSyncManager.getInstance().stopSync();
     }
     @Override
     protected void onStop() {
@@ -287,7 +286,7 @@ public class Openemrload extends Activity {
         // The activity is about to be destroyed.
     }
     
-    //the manifest has a line for which configuration changes will ignore their default behavior.
+    //the manifest has a line to specify which configuration changes will ignore their default behavior.
     @Override
     public void onConfigurationChanged(Configuration newConfig){        
         super.onConfigurationChanged(newConfig);
@@ -378,12 +377,14 @@ public class Openemrload extends Activity {
         }
     }
     public int Populate(int selection){
-    	final int currentselection = Integer.parseInt(preferences.getString("button" + selection + "pref", Integer.toString(selection)));	
-    	return currentselection;
+    	final int currentpref = Integer.parseInt(preferences.getString("button" + selection + "pref", Integer.toString(selection)));	
+    	return currentpref;
     }
   
 
     public void SetButtonTexts() {
+    	
+    	//might be able to loop this out to clean it up
         String[] buttontitle = getResources().getStringArray(R.array.buttonchoices);
         
         Button temporarybtn0 = (Button) findViewById(R.id.button0);
@@ -438,7 +439,9 @@ public class Openemrload extends Activity {
     	
     	webview = (WebView) findViewById(R.id.webview0);
         webview.setWebChromeClient(new wcclient());
-	    webview.setWebViewClient(new wvclient(){ 
+	    webview.setWebViewClient(new wvclient(){
+	    	//allow ssl certificates for connecting over https
+	    	//will maybe have to handle and store encrypted certificates ourselves
 	    	public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error){ 
 	    		handler.proceed(); 
 	    		} 
@@ -451,22 +454,22 @@ public class Openemrload extends Activity {
     	{
     	    if (preferences.getBoolean("Security", false)== true)
     	    {
-    	    	host = "https://" + GetDomain();//get host from prefrences
+    	    	host = "https://"+GetDomain();//get host from prefrences
     	    }
     	    else
     	    {
-    	    	host = "http://" + GetDomain();//get host from prefrences
+    	    	host = "http://"+GetDomain();//get host from prefrences
     	    }
     	}
     	else
     	{
 		    if (preferences.getBoolean("Security", false)== true)
 		    {
-		    	host = "https://" + GetDomain()+ ":" + port;//get host from prefrences
+		    	host = "https://"+GetDomain()+":"+port;//get host from prefrences
 		    }
 		    else
 		    {
-		    	host = "http://" + GetDomain()+ ":" + port;//get host from prefrences
+		    	host = "http://"+GetDomain()+":"+port;//get host from prefrences
 		    }
 	    }
     	
@@ -500,7 +503,7 @@ public class Openemrload extends Activity {
 
     public class wcclient extends WebChromeClient {
     	
-    	//browswer ui components
+    	//browswer UI components
     	
     	public void onProgressChanged(WebView view, int progress) //handler for progress dialog
     	{
@@ -530,16 +533,16 @@ public class Openemrload extends Activity {
         }
         
         
-     /*   @Override
-        public void onReceivedHttpAuthRequest(WebView view,
-                HttpAuthHandler handler, String host, String realm) {
-
-            handler.proceed(preferences.getString("user", "username"), preferences.getString("pass", "password"));}
+        @Override
+        public void onReceivedHttpAuthRequest(WebView view, HttpAuthHandler handler, String host, String realm) {
+        	Log.d(this.getClass().getName(), "onReceivedHttpAuthRequest:" + host);
+            handler.proceed(preferences.getString("user", "admin"), preferences.getString("pass", "pass"));
+            }
         
-    */
+    
         
         
-        }
+    }
         
     
     
@@ -548,7 +551,7 @@ public class Openemrload extends Activity {
     
  
     
-    public void PersistentConfig(String currenturl)//this can likely be done in a simpler manner going to map it out
+    private void PersistentConfig(String currenturl)//this can likely be done in a simpler manner going to map it out
     {
     	//Log.i( "PageStarted", currenturl );
     	String success_url;
@@ -587,7 +590,7 @@ public class Openemrload extends Activity {
     	int success = currenturl.compareTo(success_url);
     	//Popup("success" + success_url);
     	//Popup("fail" + failure_url);
-    	preferences = PreferenceManager.getDefaultSharedPreferences(this);
+    	//preferences = PreferenceManager.getDefaultSharedPreferences(this);
     	SharedPreferences.Editor settings_editor = preferences.edit();
     	if(fail == 0)
     	{
@@ -626,7 +629,7 @@ public class Openemrload extends Activity {
     
  
     //grab whole cookie string
-    String GetCurrentCookie() {
+    private String GetCurrentCookie() {
     	String cookie;
     	Boolean portpref = preferences.getBoolean("PortPref", false);
     	String port = preferences.getString("Portnum", getString(R.string.port));
@@ -654,7 +657,7 @@ public class Openemrload extends Activity {
     	return cookie;
 	}
     
-	public String PrefsCookieString() 
+    private String PrefsCookieString() 
 		{
     	
     	return preferences.getString("the_cookie", "");
@@ -662,7 +665,7 @@ public class Openemrload extends Activity {
     
     
     
-    void BakeCookie()
+	private void BakeCookie()
     	{
     	
     	String  sessionCookie = PrefsCookieString();
@@ -679,14 +682,12 @@ public class Openemrload extends Activity {
     		}
     	}
     
-    void Popup(String say_me)//hook for easy debug dialogs
+    private void Popup(String say_me)//hook for easy debug dialogs
     	{
     	boolean debugpopup = preferences.getBoolean("Debugging", false);
     	if (debugpopup == true) {
-    	
-    	
-    	Toast.makeText(this, say_me, Toast.LENGTH_LONG).show();
-    	}
+    		Toast.makeText(this, say_me, Toast.LENGTH_LONG).show();
+    		}
     	}
     
       
@@ -696,7 +697,7 @@ public class Openemrload extends Activity {
     
     
     
-    void ButtonClicked(int number)
+    private void ButtonClicked(int number)
     	{
     	final String[] buttonurl = getResources().getStringArray(R.array.buttonurls);	
     	
@@ -714,7 +715,7 @@ public class Openemrload extends Activity {
     	}
     
     
-    String GetCurrentURL()
+    private String GetCurrentURL()
     	{
     	WebView currentwebview = (WebView) findViewById(R.id.webview0);
     	String currenturl = currentwebview.getUrl();
@@ -722,21 +723,21 @@ public class Openemrload extends Activity {
     	return currenturl;
     	}
     
-    String CookieCutterValue(String mycookie)//not used
+    private String CookieCutterValue(String mycookie)//not used
     	{
     	//String mycookie = PrefsCookieString();  
     	String cookieparts[] = mycookie.split("="); 
     	return cookieparts[1];
     	}
     
-    String CookieCutterName(String mycookie)//not used
+    private String CookieCutterName(String mycookie)//not used
 	{
     	//String mycookie = PrefsCookieString();  
     	String cookieparts[] = mycookie.split("="); 
     	return cookieparts[0];
 	}
     
-    String GetDomain()//grab domain only 
+    private String GetDomain()//grab domain only 
 	{
     	
     	String server = preferences.getString("IP", getString(R.string.srv));	
