@@ -10,9 +10,10 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
+import android.net.Uri;
 import android.net.http.SslError;
-
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -22,6 +23,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.webkit.DownloadListener;
 import android.webkit.HttpAuthHandler;
 import android.webkit.SslErrorHandler;
 import android.webkit.WebChromeClient;
@@ -71,6 +73,34 @@ public class Openemrload extends Activity {
         slidingDrawer = (SlidingDrawer) findViewById(R.id.Drawer);
     	
         CookieSyncManager.createInstance(this);
+        webview = (WebView) findViewById(R.id.webview0);
+    	
+        webview.setWebChromeClient(new wcclient());
+	    webview.setWebViewClient(new wvclient(){
+	    	//allow ssl certificates for connecting over https
+	    	//will maybe have to handle and store encrypted certificates ourselves
+	    	public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error){ 
+	    		handler.proceed(); 
+	    		} 
+	    	});
+	    webview.getSettings().setJavaScriptEnabled(true);
+        
+        
+        webview.setDownloadListener(new DownloadListener() 
+    	{
+    		@Override
+            public void onDownloadStart(String url, String userAgent, String contentDisposition, String mimetype,long contentLength) 
+            {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setType(MIME_TYPE_PDF);
+                intent.setData(Uri.parse(url));
+                if (canDisplayPdf(activity) == true){
+                startActivity(intent);
+                }
+                else{Popup("you need a pdf viewer");}
+
+            }
+        });
        
     	
 
@@ -241,7 +271,7 @@ public class Openemrload extends Activity {
         else if(startpref == 2){load(getString(R.string.OpenemrLogin));}
         else if(startpref == 3){load(getString(R.string.OpenemrMainPage));}
         else if(startpref == 4){load(getString(R.string.OpenemrMessages));}
-        //else {load("startpage");}
+        else {load("startpage");}
     	// Initial page load on app start
 
         
@@ -436,17 +466,9 @@ public class Openemrload extends Activity {
     
     public void load(String path)
     {
+    	//moved webview innit and settings to oncreate I think they were only sitting down here while I was
+    	//playing with this method
     	
-    	webview = (WebView) findViewById(R.id.webview0);
-        webview.setWebChromeClient(new wcclient());
-	    webview.setWebViewClient(new wvclient(){
-	    	//allow ssl certificates for connecting over https
-	    	//will maybe have to handle and store encrypted certificates ourselves
-	    	public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error){ 
-	    		handler.proceed(); 
-	    		} 
-	    	});
-	    webview.getSettings().setJavaScriptEnabled(true);
 	    String host;
 	    Boolean portpref = preferences.getBoolean("PortPref", false);
 	    String port = preferences.getString("Portnum", getString(R.string.port));
@@ -761,13 +783,32 @@ public class Openemrload extends Activity {
 
 
     
-    
+    public static final String MIME_TYPE_PDF = "application/pdf";
+
+    /**
+     * Check if the supplied context can render PDF files via some installed application that reacts to a intent
+     * with the pdf mime type and viewing action.
+     *
+     * @param context
+     * @return
+     */
+    public static boolean canDisplayPdf(Context context) {
+        PackageManager packageManager = context.getPackageManager();
+        Intent testIntent = new Intent(Intent.ACTION_VIEW);
+        testIntent.setType(MIME_TYPE_PDF);
+        if (packageManager.queryIntentActivities(testIntent, PackageManager.MATCH_DEFAULT_ONLY).size() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 
 
 
 }
 	
-//Integer.parseInt(preferences.getString("button" + selection + "pref", Integer.toString(selection)));
+//preferences.getString("button" + selection + "pref", Integer.toString(selection)));
 
 /** Process the click to find a patient by name, id, ssn or dob.
 function findPatient(findby) {

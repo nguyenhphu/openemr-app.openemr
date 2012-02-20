@@ -19,6 +19,6 @@
         <activity android:name="Preferences" android:label="Preferences">
             <intent-filter></intent-filter>
         </activity>
-        
+       
     </application>
 </manifest>

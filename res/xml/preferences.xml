@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen
   xmlns:android="http://schemas.android.com/apk/res/android">
+   <PreferenceScreen android:key="ServerSettings" android:title="Server Settings">
     <PreferenceCategory android:title="Server Settings">
         <EditTextPreference android:defaultValue="@string/srv" android:title="IP or Domain" android:summary="Enter Location of Openemr server" android:key="IP"></EditTextPreference>
         <CheckBoxPreference android:defaultValue="true" android:title="Specify Port" android:summary="Check box to specify port" android:key="PortPref"/>
@@ -9,14 +10,15 @@
 		<EditTextPreference android:title="Site name" android:summary="Enter site name of your OpenEMR server" android:defaultValue="@string/sitedefault" android:key="Site"></EditTextPreference>    
     </PreferenceCategory>
     
-    
-    
-    
-    
-    <PreferenceCategory android:title="Authentication">
+    <PreferenceCategory android:title="Authentication" android:summary="Currently not functional">
         <EditTextPreference android:key="user" android:title="Username" android:defaultValue="username"></EditTextPreference>
         <EditTextPreference android:key="pass" android:title="Password" android:defaultValue="password"></EditTextPreference>
     </PreferenceCategory>
+    </PreferenceScreen>
+    
+    
+    
+    
     
     <PreferenceCategory android:title="Startup Screen">
 	    <ListPreference 
@@ -209,17 +211,17 @@
        
         </PreferenceCategory>
         
-        
-            </PreferenceScreen>
-        </PreferenceCategory>
-    
-
-    <PreferenceCategory android:title="Debug">
-    <CheckBoxPreference android:key="Debugging" android:summary="Warning: this slows down the app!" android:title="Enable Debugging" android:defaultValue="false"/>
-    </PreferenceCategory>
+         
     
     
     <Preference android:key="the_cookie"></Preference>
     <Preference android:key="got_session_cookie"></Preference>
+            </PreferenceScreen>
+        </PreferenceCategory>
+    
+<PreferenceCategory android:title="Debug">
+    <CheckBoxPreference android:key="Debugging" android:summary="Warning: this slows down the app!" android:title="Enable Debugging" android:defaultValue="false"/>
+    </PreferenceCategory>
+   
     
 </PreferenceScreen>

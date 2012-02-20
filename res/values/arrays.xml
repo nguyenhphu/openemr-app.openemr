@@ -8,7 +8,7 @@
   "New Patient", "Patient Search", "Address Book"
 4. Would not include following as default button choices: "Navigation", "Lab Results Messages", "Authorizations", "Authorizations(Full)" (added 4 in above list to replace these).
  -->
-
+<!-- This array is for showing the choices in button selection -->
 <string-array name="buttonchoices">
 	<item name="OpenemrLogin">Login</item>
 	<item name="OpenemrMainPage">Main Page</item>
@@ -83,7 +83,7 @@
      
      
      
-
+<!-- This array gives an integer value in response to user selection -->
 <string-array name="buttonchoicevalues">
 	<item name="OpenemrLogin">0</item>
 	<item name="OpenemrMainPage">1</item>
@@ -153,6 +153,8 @@
 	<item name="Customurl3">65</item>
 </string-array>
 
+
+<!-- this array takes button selection integer and returns the correct address, might be replaceable with strings.xml stuff -->
 <string-array name="buttonurls">
 	<item name="0">openemr/interface/login/login_frame.php</item>
 	<item name="1">openemr/interface/main/main_screen.php</item>
@@ -222,7 +224,9 @@
 	<!-- 65  customurl3 -->
 </string-array>
  
-
+ 
+ 
+<!-- this array gives choices for startup page selection -->
 <string-array name="startupChoices">
 	<item name="AboutOpenEMRApp">About OpenEMR-App</item>
 	<item name="Login">Login Page</item>
@@ -230,6 +234,7 @@
 	<item name="Messages">Messages</item>
 </string-array>
 
+<!-- this array gives integer values in response to startupChoices array, actual URLs are set in code -->
 <string-array name="startupValues">
 	<item name="AboutOpenEMRApp">1</item>
 	<item name="Login">2</item>
