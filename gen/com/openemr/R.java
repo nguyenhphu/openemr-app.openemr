@@ -14,15 +14,23 @@ public final class R {
   "New Patient", "Patient Search", "Address Book"
 4. Would not include following as default button choices: "Navigation", "Lab Results Messages", "Authorizations", "Authorizations(Full)" (added 4 in above list to replace these).
  
+ This array is for showing the choices in button selection 
          */
         public static final int buttonchoices=0x7f050000;
+        /**  This array gives an integer value in response to user selection 
+         */
         public static final int buttonchoicevalues=0x7f050001;
-        /**  63  customurl1 
+        /**  this array takes button selection integer and returns the correct address, might be replaceable with strings.xml stuff 
+ 63  customurl1 
  64  customurl2 
  65  customurl3 
          */
         public static final int buttonurls=0x7f050002;
+        /**  this array gives choices for startup page selection 
+         */
         public static final int startupChoices=0x7f050003;
+        /**  this array gives integer values in response to startupChoices array, actual URLs are set in code 
+         */
         public static final int startupValues=0x7f050004;
     }
     public static final class attr {
