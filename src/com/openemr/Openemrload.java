@@ -45,8 +45,8 @@ public class Openemrload extends Activity {
 	
     
 	/** Called when the activity is first created. */
-
-	
+	int[] buttonid = new int[15];
+	Button[] button = new Button[15];
 	WebView webview;
 	SharedPreferences preferences;
 	SlidingDrawer slidingDrawer;
@@ -85,9 +85,11 @@ public class Openemrload extends Activity {
 	    	});
 	    webview.getSettings().setJavaScriptEnabled(true);
         
-        
+	    /*
         webview.setDownloadListener(new DownloadListener() 
     	{
+
+		
     		@Override
             public void onDownloadStart(String url, String userAgent, String contentDisposition, String mimetype,long contentLength) 
             {
@@ -101,170 +103,39 @@ public class Openemrload extends Activity {
 
             }
         });
-       
-    	
+       */
+    	webview.setHapticFeedbackEnabled(true);
 
         //set up array for urls and get all buttontexts
         SetButtonTexts();
         
         //create onclick listeners for navigation grid
+       
         
-        final Button button0 = (Button) findViewById(R.id.button0);
-        button0.setOnClickListener(new SlidingDrawer.OnClickListener()
+        buttonid[0] = R.id.button0;
+        buttonid[1] = R.id.button1;
+        buttonid[2] = R.id.button2;
+        buttonid[3] = R.id.button3;
+        buttonid[4] = R.id.button4;
+        buttonid[5] = R.id.button5;
+        buttonid[6] = R.id.button6;
+        buttonid[7] = R.id.button7;
+        buttonid[8] = R.id.button8;
+        buttonid[9] = R.id.button9;
+        buttonid[10] = R.id.button10;
+        buttonid[11] = R.id.button11;
+        buttonid[12] = R.id.button12;
+        buttonid[13] = R.id.button13;
+        buttonid[14] = R.id.button14;
+        //initialize onclick listeners for all 15 buttons
+        for(int iteration = 0;iteration<15;iteration++)
         {
-            public void onClick(View v) 
-            {
-            	ButtonClicked(0);
-            }
-        });
+        	button[iteration] = (Button) findViewById(buttonid[iteration]);
+	        button[iteration].setOnClickListener(new MyListener(iteration));
+	    }
         
-        
-        final Button button1 = (Button) findViewById(R.id.button1);
-        button1.setOnClickListener(new SlidingDrawer.OnClickListener()
-        {
-            public void onClick(View v) 
-            {
-            	ButtonClicked(1);
-            }
-        });
-
-
-        final Button button2 = (Button) findViewById(R.id.button2);
-        button2.setOnClickListener(new SlidingDrawer.OnClickListener()
-        {
-            public void onClick(View v) 
-            {
-            	ButtonClicked(2);
-            }
-        });
-
-
-        final Button button3 = (Button) findViewById(R.id.button3);
-        button3.setOnClickListener(new SlidingDrawer.OnClickListener()
-        {
-            public void onClick(View v) 
-            {
-            	ButtonClicked(3);
-            }
-        });
-
-
-        final Button button4 = (Button) findViewById(R.id.button4);
-        button4.setOnClickListener(new SlidingDrawer.OnClickListener()
-        {
-            public void onClick(View v) 
-            {
-            	ButtonClicked(4);
-            }
-        });
-
-
-        final Button button5 = (Button) findViewById(R.id.button5);
-        button5.setOnClickListener(new SlidingDrawer.OnClickListener()
-        {
-            public void onClick(View v) 
-            {
-            	ButtonClicked(5);
-            }
-        });
-
-
-        final Button button6 = (Button) findViewById(R.id.button6);
-        button6.setOnClickListener(new SlidingDrawer.OnClickListener()
-        {
-            public void onClick(View v) 
-            {
-            	ButtonClicked(6);
-            }
-        });
-
-
-        final Button button7 = (Button) findViewById(R.id.button7);
-        button7.setOnClickListener(new SlidingDrawer.OnClickListener()
-        {
-            public void onClick(View v) 
-            {
-            	ButtonClicked(7);
-            }
-        });
-
-
-        final Button button8 = (Button) findViewById(R.id.button8);
-        button8.setOnClickListener(new SlidingDrawer.OnClickListener()
-        {
-            public void onClick(View v) 
-            {
-                	
-            	ButtonClicked(8);
-            }
-        });
-
-
-        final Button button9 = (Button) findViewById(R.id.button9);
-        button9.setOnClickListener(new SlidingDrawer.OnClickListener()
-        {
-            public void onClick(View v) 
-            {
-                	
-            	ButtonClicked(9);
-            }
-        });
-
-
-        final Button button10 = (Button) findViewById(R.id.button10);
-        button10.setOnClickListener(new SlidingDrawer.OnClickListener()
-        {
-            public void onClick(View v) 
-            {
-                	
-            	ButtonClicked(10);
-            }
-        });
-
-
-        final Button button11 = (Button) findViewById(R.id.button11);
-        button11.setOnClickListener(new SlidingDrawer.OnClickListener()
-        {
-            public void onClick(View v) 
-            {
-                	
-            	ButtonClicked(11);
-            }
-        });
-
-
-        final Button button12 = (Button) findViewById(R.id.button12);
-        button12.setOnClickListener(new SlidingDrawer.OnClickListener()
-        {
-            public void onClick(View v) 
-            {
-                	
-            	ButtonClicked(12);
-            }
-        });
-
-
-        final Button button13 = (Button) findViewById(R.id.button13);
-        button13.setOnClickListener(new SlidingDrawer.OnClickListener()
-        {
-            public void onClick(View v) 
-            {
-                	
-            	ButtonClicked(13);
-            }
-        });
-
-
-        final Button button14 = (Button) findViewById(R.id.button14);
-        button14.setOnClickListener(new SlidingDrawer.OnClickListener()
-        {
-            public void onClick(View v) 
-            {
-                	
-            	ButtonClicked(14);
-            }
-        });
-
+       
+	        
         //this should be conditional
         int startpref = Integer.parseInt(preferences.getString("startingpage", "1"));
         if(startpref == 1){load("startpage");}
@@ -276,6 +147,29 @@ public class Openemrload extends Activity {
 
         
 	}
+    
+    
+    
+   
+    //class for setting onclick listeners
+    private class MyListener implements SlidingDrawer.OnClickListener {
+        int pos;
+        public MyListener (int position) {
+            pos = position;
+        }
+        @Override
+        public void onClick(View v) {
+        	ButtonClicked(pos);
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
 	//hooks for Activity life cycle
     @Override
     protected void onStart() {
