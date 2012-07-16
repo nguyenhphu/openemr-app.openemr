@@ -45,7 +45,7 @@ public class Openemrload extends Activity {
 	
     
 	/** Called when the activity is first created. */
-	int[] buttonid = new int[15];
+	int[] buttonID = new int[15];
 	Button[] button = new Button[15];
 	WebView webview;
 	SharedPreferences preferences;
@@ -112,25 +112,25 @@ public class Openemrload extends Activity {
         //create onclick listeners for navigation grid
        
         
-        buttonid[0] = R.id.button0;
-        buttonid[1] = R.id.button1;
-        buttonid[2] = R.id.button2;
-        buttonid[3] = R.id.button3;
-        buttonid[4] = R.id.button4;
-        buttonid[5] = R.id.button5;
-        buttonid[6] = R.id.button6;
-        buttonid[7] = R.id.button7;
-        buttonid[8] = R.id.button8;
-        buttonid[9] = R.id.button9;
-        buttonid[10] = R.id.button10;
-        buttonid[11] = R.id.button11;
-        buttonid[12] = R.id.button12;
-        buttonid[13] = R.id.button13;
-        buttonid[14] = R.id.button14;
+        buttonID[0] = R.id.button0;
+        buttonID[1] = R.id.button1;
+        buttonID[2] = R.id.button2;
+        buttonID[3] = R.id.button3;
+        buttonID[4] = R.id.button4;
+        buttonID[5] = R.id.button5;
+        buttonID[6] = R.id.button6;
+        buttonID[7] = R.id.button7;
+        buttonID[8] = R.id.button8;
+        buttonID[9] = R.id.button9;
+        buttonID[10] = R.id.button10;
+        buttonID[11] = R.id.button11;
+        buttonID[12] = R.id.button12;
+        buttonID[13] = R.id.button13;
+        buttonID[14] = R.id.button14;
         //initialize onclick listeners for all 15 buttons
         for(int iteration = 0;iteration<15;iteration++)
         {
-        	button[iteration] = (Button) findViewById(buttonid[iteration]);
+        	button[iteration] = (Button) findViewById(buttonID[iteration]);
 	        button[iteration].setOnClickListener(new MyListener(iteration));
 	    }
         
