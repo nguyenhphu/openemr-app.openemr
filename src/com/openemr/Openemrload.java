@@ -15,6 +15,8 @@ import android.content.res.Configuration;
 import android.net.Uri;
 import android.net.http.SslError;
 import android.os.Bundle;
+import com.openemr.Debug;
+//import android.os.Debug;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -138,7 +140,7 @@ public class Openemrload extends Activity {
         
        
 	        
-        //this should be conditional
+        //Load user's selection of start page, or default
         int startpref = Integer.parseInt(preferences.getString("startingpage", "1"));
         if(startpref == 1){load("startpage");}
         else if(startpref == 2){load(getString(R.string.OpenemrLogin));}
@@ -328,31 +330,41 @@ public class Openemrload extends Activity {
     	//playing with this method
     	
 	    String host;
-	    Boolean portpref = preferences.getBoolean("PortPref", false);
-	    String port = preferences.getString("Portnum", getString(R.string.port));
-    	if(portpref == false)
-    	{
-    	    if (preferences.getBoolean("Security", false)== true)
-    	    {
-    	    	host = "https://"+GetDomain();//get host from prefrences
-    	    }
-    	    else
-    	    {
-    	    	host = "http://"+GetDomain();//get host from prefrences
-    	    }
-    	}
-    	else
-    	{
-		    if (preferences.getBoolean("Security", false)== true)
-		    {
-		    	host = "https://"+GetDomain()+":"+port;//get host from prefrences
+	    
+	    if(preferences.getBoolean("CustomHostString",false) == false )
+	    {
+		    Boolean portpref = preferences.getBoolean("PortPref", false);
+		    String port = preferences.getString("Portnum", getString(R.string.port));
+	    	if(portpref == false)
+	    	{
+	    	    if (preferences.getBoolean("Security", false)== true)
+	    	    {
+	    	    	host = "https://"+GetDomain();//get host from prefrences
+	    	    }
+	    	    else
+	    	    {
+	    	    	host = "http://"+GetDomain();//get host from prefrences
+	    	    }
+	    	}
+	    	else
+	    	{
+			    if (preferences.getBoolean("Security", false)== true)
+			    {
+			    	host = "https://"+GetDomain()+":"+port;//get host from prefrences
+			    }
+			    else
+			    {
+			    	host = "http://"+GetDomain()+":"+port;//get host from prefrences
+			    }
 		    }
-		    else
-		    {
-		    	host = "http://"+GetDomain()+":"+port;//get host from prefrences
-		    }
+	    	Popup("domain set as "+GetDomain());
 	    }
-    	
+	    else
+	    {
+	    	host = preferences.getString("CustomAddress", "http://whatismyip.com");
+	    	Popup("Host = "+host);
+	 
+	    }
 	    char check = host.charAt(host.length()-1);//continue on succesfully whether 
     	Character tail = new Character ('/');//user inputs url with trailing slash or not
     	if (check == tail){
@@ -362,19 +374,24 @@ public class Openemrload extends Activity {
     	else{
     		host = host+"/";
     	}
-    	
+  
     	//webview.setHttpAuthUsernamePassword(host, "", preferences.getString("user", "username"), preferences.getString("pass", "password"));
     	//webview.getSettings().setSavePassword(true);
 		webview.getSettings().setJavaScriptEnabled(true);
 		webview.getSettings().setBuiltInZoomControls(true);
 	    //also place holder   
-	    //webview.setHttpAuthUsernamePassword (preferences.getString("IP", getString(R.string.srv))+"/openemr", null, preferences.getString("user", "username"), preferences.getString("pass", "password"));
+	    //webview.setHttpAuthUsernamePassword (preferences.getString("IP", getString(R.string.srv))+MainFolder()+"", null, preferences.getString("user", "username"), preferences.getString("pass", "password"));
 		BakeCookie();//setting cookie anywhere but here produces timing issues
 		if(path == "startpage")
 		{
 			webview.loadUrl("file:///android_asset/Firstload.html");
 		}else{
-		webview.loadUrl(host+path+"?site="+preferences.getString("Site", "default"));
+			String fulladdress = host+MainFolder()+path+"?site="+preferences.getString("Site", "default");
+			Popup("Trying to load "+fulladdress);
+		  	Popup("Host = "+host);
+	    	Popup("Path = "+path);
+	    	Popup("MainFolder = "+MainFolder());
+		webview.loadUrl(fulladdress);
 		}
     	
     }
@@ -442,13 +459,13 @@ public class Openemrload extends Activity {
     	{
     		if (preferences.getBoolean("Security", false)== true)
         	{
-    	    	success_url = "https://" + GetDomain() + "/openemr/interface/main/main_screen.php?auth=login&site=" + preferences.getString("Site", "default");
-    	    	failure_url = "https://" + GetDomain() + "/openemr/interface/login/login_frame.php?site=" + preferences.getString("Site", "default");
+    	    	success_url = "https://" + GetDomain() + MainFolder()+"/interface/main/main_screen.php?auth=login&site=" + preferences.getString("Site", "default");
+    	    	failure_url = "https://" + GetDomain() + MainFolder()+"/interface/login/login_frame.php?site=" + preferences.getString("Site", "default");
     	    }
         	else
         	{
-    	    	success_url = "http://" + GetDomain() + "/openemr/interface/main/main_screen.php?auth=login&site=" + preferences.getString("Site", "default");
-    	    	failure_url = "http://" + GetDomain() + "/openemr/interface/login/login_frame.php?site=" + preferences.getString("Site", "default");
+    	    	success_url = "http://" + GetDomain() + MainFolder()+"/interface/main/main_screen.php?auth=login&site=" + preferences.getString("Site", "default");
+    	    	failure_url = "http://" + GetDomain() + MainFolder()+"/interface/login/login_frame.php?site=" + preferences.getString("Site", "default");
     	    }
     	}
     	else
@@ -456,13 +473,13 @@ public class Openemrload extends Activity {
     	
 	    	if (preferences.getBoolean("Security", false)== true)
 	    	{
-		    	success_url = "https://" + GetDomain() + ":" + port + "/openemr/interface/main/main_screen.php?auth=login&site=" + preferences.getString("Site", "default");
-		    	failure_url = "https://" + GetDomain() + ":" + port + "/openemr/interface/login/login_frame.php?site=" + preferences.getString("Site", "default");
+		    	success_url = "https://" + GetDomain() + ":" + port + MainFolder()+"/interface/main/main_screen.php?auth=login&site=" + preferences.getString("Site", "default");
+		    	failure_url = "https://" + GetDomain() + ":" + port + MainFolder()+"/interface/login/login_frame.php?site=" + preferences.getString("Site", "default");
 		    }
 	    	else
 	    	{
-		    	success_url = "http://" + GetDomain() + ":" + port + "/openemr/interface/main/main_screen.php?auth=login&site=" + preferences.getString("Site", "default");
-		    	failure_url = "http://" + GetDomain() + ":" + port + "/openemr/interface/login/login_frame.php?site=" + preferences.getString("Site", "default");
+		    	success_url = "http://" + GetDomain() + ":" + port + MainFolder()+"/interface/main/main_screen.php?auth=login&site=" + preferences.getString("Site", "default");
+		    	failure_url = "http://" + GetDomain() + ":" + port + MainFolder()+"/interface/login/login_frame.php?site=" + preferences.getString("Site", "default");
 		    }
     	}
     	int fail = currenturl.compareTo(failure_url);
@@ -508,7 +525,21 @@ public class Openemrload extends Activity {
 
     
  
-    //grab whole cookie string
+    private String MainFolder() 
+    {
+    	String folder;
+    	if(preferences.getBoolean("CustomFolderString", false)== true)
+    	{
+    		folder = preferences.getString("CustomFolder", "openemr");
+    	}
+    	else
+    	{
+    		folder = "openemr";
+    	}
+    	Popup("folder is set to "+folder);
+    	return folder+"/";
+	}
+	//grab whole cookie string
     private String GetCurrentCookie() {
     	String cookie;
     	Boolean portpref = preferences.getBoolean("PortPref", false);
@@ -517,20 +548,20 @@ public class Openemrload extends Activity {
     	{
     		if (preferences.getBoolean("Security", false)== true)
     		{
-    			cookie = Cm.getCookie("https://" + GetDomain() + "/openemr/interface/main/main_screen.php?auth=login&site=" + preferences.getString("Site", "default"));
+    			cookie = Cm.getCookie("https://" + GetDomain() + MainFolder()+"/interface/main/main_screen.php?auth=login&site=" + preferences.getString("Site", "default"));
     		}else 
     		{
-    			cookie = Cm.getCookie("http://" + GetDomain() + "/openemr/interface/main/main_screen.php?auth=login&site=" + preferences.getString("Site", "default"));
+    			cookie = Cm.getCookie("http://" + GetDomain() + MainFolder()+"/interface/main/main_screen.php?auth=login&site=" + preferences.getString("Site", "default"));
     		}
     	}
     	else
     	{	
     		if(preferences.getBoolean("Security", false)== true)
     		{
-    			cookie = Cm.getCookie("https://" + GetDomain() + ":" + port + "/openemr/interface/main/main_screen.php?auth=login&site=" + preferences.getString("Site", "default"));
+    			cookie = Cm.getCookie("https://" + GetDomain() + ":" + port + MainFolder()+"/interface/main/main_screen.php?auth=login&site=" + preferences.getString("Site", "default"));
     		}else 
     		{
-    			cookie = Cm.getCookie("http://" + GetDomain() + ":" + port + "/openemr/interface/main/main_screen.php?auth=login&site=" + preferences.getString("Site", "default"));
+    			cookie = Cm.getCookie("http://" + GetDomain() + ":" + port + MainFolder()+"/interface/main/main_screen.php?auth=login&site=" + preferences.getString("Site", "default"));
     		}
     	}
 		Popup("grabbed current cookie " + cookie);
@@ -562,14 +593,21 @@ public class Openemrload extends Activity {
     		}
     	}
     
-    private void Popup(String say_me)//hook for easy debug dialogs
-    	{
-    	boolean debugpopup = preferences.getBoolean("Debugging", false);
-    	if (debugpopup == true) {
-    		Toast.makeText(this, say_me, Toast.LENGTH_LONG).show();
-    		}
-    	}
-    
+	private void Popup(String say_me)//hook for easy debug dialogs
+	{
+	boolean debugpopup = preferences.getBoolean("Debugging", false);
+	if (debugpopup == true) {
+		Toast.makeText(this, say_me, Toast.LENGTH_LONG).show();
+		}
+	
+	boolean debuglogcat = preferences.getBoolean("Debugging2", false);
+    if(debuglogcat == true)
+    {
+		Debug.d(say_me);
+		}
+	
+	
+	}
       
     
     

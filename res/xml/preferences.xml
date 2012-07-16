@@ -7,7 +7,13 @@
         <CheckBoxPreference android:defaultValue="true" android:title="Specify Port" android:summary="Check box to specify port" android:key="PortPref"/>
         <EditTextPreference android:dependency="PortPref" android:defaultValue="@string/port" android:title="Port Number" android:summary="Enter port of Openemr server" android:key="Portnum"></EditTextPreference>
     	<CheckBoxPreference android:title="Use SSL" android:summary="Check box if you use a secure server" android:key="Security"/>
-		<EditTextPreference android:title="Site name" android:summary="Enter site name of your OpenEMR server" android:defaultValue="@string/sitedefault" android:key="Site"></EditTextPreference>    
+		<EditTextPreference android:title="Site name" android:summary="Enter site name of your OpenEMR server" android:defaultValue="@string/sitedefault" android:key="Site"></EditTextPreference>
+		<CheckBoxPreference android:title="Custom Address" android:defaultValue="false" android:summary="Check box to enter a custom server address below" android:key="CustomHostString"/>
+		<EditTextPreference android:key="CustomAddress" android:dependency="CustomHostString"/>
+		<CheckBoxPreference android:title="Custom Folder" android:defaultValue="false" android:summary="Check box to enter a custom server folder below" android:key="CustomFolderString"/>
+		<EditTextPreference android:defaultValue="openemr" android:summary="custom base folder" android:key="CustomFolder" android:dependency="CustomFolderString"/>
+		
+		
     </PreferenceCategory>
     
     <PreferenceCategory android:title="Authentication" android:summary="Currently not functional">
@@ -220,7 +226,8 @@
         </PreferenceCategory>
     
 <PreferenceCategory android:title="Debug">
-    <CheckBoxPreference android:key="Debugging" android:summary="Warning: this slows down the app!" android:title="Enable Debugging" android:defaultValue="false"/>
+    <CheckBoxPreference android:key="Debugging" android:summary="Warning: this slows down the app!" android:title="Enable Popup Debugging" android:defaultValue="false"/>
+     <CheckBoxPreference android:key="Debugging2" android:summary="Use a viewer like aLogcat" android:title="Enable Locat Debugging" android:defaultValue="false"/>
     </PreferenceCategory>
    
     
