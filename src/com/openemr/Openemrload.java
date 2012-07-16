@@ -107,7 +107,7 @@ public class Openemrload extends Activity {
     	webview.setHapticFeedbackEnabled(true);
 
         //set up array for urls and get all buttontexts
-        SetButtonTexts();
+       
         
         //create onclick listeners for navigation grid
        
@@ -127,6 +127,8 @@ public class Openemrload extends Activity {
         buttonID[12] = R.id.button12;
         buttonID[13] = R.id.button13;
         buttonID[14] = R.id.button14;
+        
+        SetButtonTexts();
         //initialize onclick listeners for all 15 buttons
         for(int iteration = 0;iteration<15;iteration++)
         {
@@ -311,51 +313,13 @@ public class Openemrload extends Activity {
     	//might be able to loop this out to clean it up
         String[] buttontitle = getResources().getStringArray(R.array.buttonchoices);
         
-        Button temporarybtn0 = (Button) findViewById(R.id.button0);
-    	temporarybtn0.setText(buttontitle[Populate(0)]);
+        Button[] temporarybtn = new Button[15];
+        for(int iteration = 0; iteration <15; iteration++)
+        {
+        	temporarybtn[iteration] = (Button) findViewById(buttonID[iteration]);
+        	temporarybtn[iteration].setText(buttontitle[Populate(iteration)]);
+        }
         
-        Button temporarybtn1 = (Button) findViewById(R.id.button1);
-    	temporarybtn1.setText(buttontitle[Populate(1)]);
-        
-    	Button temporarybtn2 = (Button) findViewById(R.id.button2);
-    	temporarybtn2.setText(buttontitle[Populate(2)]);
-        
-    	Button temporarybtn3 = (Button) findViewById(R.id.button3);
-    	temporarybtn3.setText(buttontitle[Populate(3)]);
-        
-    	Button temporarybtn4 = (Button) findViewById(R.id.button4);
-    	temporarybtn4.setText(buttontitle[Populate(4)]);
-        
-    	Button temporarybtn5 = (Button) findViewById(R.id.button5);
-    	temporarybtn5.setText(buttontitle[Populate(5)]);
-        
-    	Button temporarybtn6 = (Button) findViewById(R.id.button6);
-    	temporarybtn6.setText(buttontitle[Populate(6)]);
-
-    	Button temporarybtn7 = (Button) findViewById(R.id.button7);
-    	temporarybtn7.setText(buttontitle[Populate(7)]);
-    	
-        Button temporarybtn8 = (Button) findViewById(R.id.button8);
-    	temporarybtn8.setText(buttontitle[Populate(8)]);
-
-        Button temporarybtn9 = (Button) findViewById(R.id.button9);
-    	temporarybtn9.setText(buttontitle[Populate(9)]);
-
-        Button temporarybtn10 = (Button) findViewById(R.id.button10);
-    	temporarybtn10.setText(buttontitle[Populate(10)]);
-
-        Button temporarybtn11 = (Button) findViewById(R.id.button11);
-    	temporarybtn11.setText(buttontitle[Populate(11)]);
-
-        Button temporarybtn12 = (Button) findViewById(R.id.button12);
-    	temporarybtn12.setText(buttontitle[Populate(12)]);
-
-        Button temporarybtn13 = (Button) findViewById(R.id.button13);
-    	temporarybtn13.setText(buttontitle[Populate(13)]);
-
-        Button temporarybtn14 = (Button) findViewById(R.id.button14);
-    	temporarybtn14.setText(buttontitle[Populate(14)]);
-
     }
     
     public void load(String path)
