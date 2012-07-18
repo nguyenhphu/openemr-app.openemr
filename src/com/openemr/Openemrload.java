@@ -15,7 +15,8 @@ import android.content.res.Configuration;
 import android.net.Uri;
 import android.net.http.SslError;
 import android.os.Bundle;
-import com.openemr.Debug;
+
+
 //import android.os.Debug;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -82,7 +83,7 @@ public class Openemrload extends Activity {
 	    	//allow ssl certificates for connecting over https
 	    	//will maybe have to handle and store encrypted certificates ourselves
 	    	public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error){ 
-	    		handler.proceed(); 
+	    		handler.proceed(); //because this is bad and was only here for easy prototyping
 	    		} 
 	    	});
 	    webview.getSettings().setJavaScriptEnabled(true);
@@ -366,7 +367,7 @@ public class Openemrload extends Activity {
 	 
 	    }
 	    char check = host.charAt(host.length()-1);//continue on succesfully whether 
-    	Character tail = new Character ('/');//user inputs url with trailing slash or not
+    	Character tail = Character.valueOf('/');//user inputs url with trailing slash or not
     	if (check == tail){
     		//do nothing
     		
@@ -377,7 +378,7 @@ public class Openemrload extends Activity {
   
     	//webview.setHttpAuthUsernamePassword(host, "", preferences.getString("user", "username"), preferences.getString("pass", "password"));
     	//webview.getSettings().setSavePassword(true);
-		webview.getSettings().setJavaScriptEnabled(true);
+	
 		webview.getSettings().setBuiltInZoomControls(true);
 	    //also place holder   
 	    //webview.setHttpAuthUsernamePassword (preferences.getString("IP", getString(R.string.srv))+MainFolder()+"", null, preferences.getString("user", "username"), preferences.getString("pass", "password"));
