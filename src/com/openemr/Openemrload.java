@@ -328,7 +328,31 @@ public class Openemrload extends Activity {
     {
     	//moved webview innit and settings to oncreate I think they were only sitting down here while I was
     	//playing with this method
+    	String host = Host();
+    	//webview.setHttpAuthUsernamePassword(host, "", preferences.getString("user", "username"), preferences.getString("pass", "password"));
+    	//webview.getSettings().setSavePassword(true);
+		webview.getSettings().setJavaScriptEnabled(true);
+		webview.getSettings().setBuiltInZoomControls(true);
+	    //also place holder   
+	    //webview.setHttpAuthUsernamePassword (preferences.getString("IP", getString(R.string.srv))+MainFolder()+"", null, preferences.getString("user", "username"), preferences.getString("pass", "password"));
+		BakeCookie();//setting cookie anywhere but here produces timing issues
+		if(path == "startpage")
+		{
+			webview.loadUrl("file:///android_asset/Firstload.html");
+		}else{
+			String fulladdress = host+MainFolder()+path+"?site="+preferences.getString("Site", "default");
+			Popup("Trying to load "+fulladdress);
+		  	Popup("Host = "+host);
+	    	Popup("Path = "+path);
+	    	Popup("MainFolder = "+MainFolder());
+		webview.loadUrl(fulladdress);
+		}
     	
+    }
+    
+    String Host()
+    {
+
 	    String host;
 	    
 	    if(preferences.getBoolean("CustomHostString",false) == false )
@@ -362,7 +386,7 @@ public class Openemrload extends Activity {
 	    else
 	    {
 	    	host = preferences.getString("CustomAddress", "http://whatismyip.com");
-	    	Popup("Host = "+host);
+	    
 	 
 	    }
 	    char check = host.charAt(host.length()-1);//continue on succesfully whether 
@@ -374,29 +398,9 @@ public class Openemrload extends Activity {
     	else{
     		host = host+"/";
     	}
-  
-    	//webview.setHttpAuthUsernamePassword(host, "", preferences.getString("user", "username"), preferences.getString("pass", "password"));
-    	//webview.getSettings().setSavePassword(true);
-		webview.getSettings().setJavaScriptEnabled(true);
-		webview.getSettings().setBuiltInZoomControls(true);
-	    //also place holder   
-	    //webview.setHttpAuthUsernamePassword (preferences.getString("IP", getString(R.string.srv))+MainFolder()+"", null, preferences.getString("user", "username"), preferences.getString("pass", "password"));
-		BakeCookie();//setting cookie anywhere but here produces timing issues
-		if(path == "startpage")
-		{
-			webview.loadUrl("file:///android_asset/Firstload.html");
-		}else{
-			String fulladdress = host+MainFolder()+path+"?site="+preferences.getString("Site", "default");
-			Popup("Trying to load "+fulladdress);
-		  	Popup("Host = "+host);
-	    	Popup("Path = "+path);
-	    	Popup("MainFolder = "+MainFolder());
-		webview.loadUrl(fulladdress);
-		}
-    	
+    	Popup("Host = "+host);
+    	return host;
     }
-    
-    
 
     public class wcclient extends WebChromeClient {
     	
@@ -451,39 +455,10 @@ public class Openemrload extends Activity {
     private void PersistentConfig(String currenturl)//this can likely be done in a simpler manner going to map it out
     {
     	//Log.i( "PageStarted", currenturl );
-    	String success_url;
-    	String failure_url;
-    	Boolean portpref = preferences.getBoolean("PortPref", false);
-    	String port = preferences.getString("Portnum", getString(R.string.port));
-    	if(portpref == false)
-    	{
-    		if (preferences.getBoolean("Security", false)== true)
-        	{
-    	    	success_url = "https://" + GetDomain() + MainFolder()+"/interface/main/main_screen.php?auth=login&site=" + preferences.getString("Site", "default");
-    	    	failure_url = "https://" + GetDomain() + MainFolder()+"/interface/login/login_frame.php?site=" + preferences.getString("Site", "default");
-    	    }
-        	else
-        	{
-    	    	success_url = "http://" + GetDomain() + MainFolder()+"/interface/main/main_screen.php?auth=login&site=" + preferences.getString("Site", "default");
-    	    	failure_url = "http://" + GetDomain() + MainFolder()+"/interface/login/login_frame.php?site=" + preferences.getString("Site", "default");
-    	    }
-    	}
-    	else
-    	{
+    	String success_url = Host() + MainFolder()+"/interface/main/main_screen.php?auth=login&site=" + preferences.getString("Site", "default");
+    	String failure_url = Host() + MainFolder()+"/interface/login/login_frame.php?site=" + preferences.getString("Site", "default");
     	
-	    	if (preferences.getBoolean("Security", false)== true)
-	    	{
-		    	success_url = "https://" + GetDomain() + ":" + port + MainFolder()+"/interface/main/main_screen.php?auth=login&site=" + preferences.getString("Site", "default");
-		    	failure_url = "https://" + GetDomain() + ":" + port + MainFolder()+"/interface/login/login_frame.php?site=" + preferences.getString("Site", "default");
-		    }
-	    	else
-	    	{
-		    	success_url = "http://" + GetDomain() + ":" + port + MainFolder()+"/interface/main/main_screen.php?auth=login&site=" + preferences.getString("Site", "default");
-		    	failure_url = "http://" + GetDomain() + ":" + port + MainFolder()+"/interface/login/login_frame.php?site=" + preferences.getString("Site", "default");
-		    }
-    	}
     	int fail = currenturl.compareTo(failure_url);
-    	
     	int success = currenturl.compareTo(success_url);
     	//Popup("success" + success_url);
     	//Popup("fail" + failure_url);
