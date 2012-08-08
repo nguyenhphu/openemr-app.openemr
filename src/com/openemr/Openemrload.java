@@ -15,7 +15,8 @@ import android.content.res.Configuration;
 import android.net.Uri;
 import android.net.http.SslError;
 import android.os.Bundle;
-import com.openemr.Debug;
+
+
 //import android.os.Debug;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -82,7 +83,7 @@ public class Openemrload extends Activity {
 	    	//allow ssl certificates for connecting over https
 	    	//will maybe have to handle and store encrypted certificates ourselves
 	    	public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error){ 
-	    		handler.proceed(); 
+	    		handler.proceed(); //because this is bad and was only here for easy prototyping
 	    		} 
 	    	});
 	    webview.getSettings().setJavaScriptEnabled(true);
@@ -390,17 +391,21 @@ public class Openemrload extends Activity {
 	 
 	    }
 	    char check = host.charAt(host.length()-1);//continue on succesfully whether 
-    	Character tail = new Character ('/');//user inputs url with trailing slash or not
-    	if (check == tail){
+    	Character tail = Character.valueOf('/');//user inputs url with trailing slash or not
+    	if (check == tail)
+    	{
     		//do nothing
-    		
     	}
-    	else{
+    	else
+    	{
     		host = host+"/";
     	}
+
     	Popup("Host = "+host);
     	return host;
-    }
+	}
+ 
+    
 
     public class wcclient extends WebChromeClient {
     	
@@ -457,6 +462,7 @@ public class Openemrload extends Activity {
     	//Log.i( "PageStarted", currenturl );
     	String success_url = Host() + MainFolder()+"/interface/main/main_screen.php?auth=login&site=" + preferences.getString("Site", "default");
     	String failure_url = Host() + MainFolder()+"/interface/login/login_frame.php?site=" + preferences.getString("Site", "default");
+    	if(currenturl == null){return;}
     	
     	int fail = currenturl.compareTo(failure_url);
     	int success = currenturl.compareTo(success_url);
