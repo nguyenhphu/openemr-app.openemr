@@ -364,17 +364,19 @@ public class Openemrload extends Activity {
     
     
     
-    public void OurDownloadManager(String url)
+    public void OurDownloadManager(String url, Context context)
     {
+    	DownloadManager mgr = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
     	
-    	DownloadManager dm = (DownloadManager) this.getSystemService(Context.DOWNLOAD_SERVICE);
     	Request request = new Request(Uri.parse(url)); 
     	request.addRequestHeader("Cookie", PrefsCookieString());
-    	dm.enqueue(request);
+    	mgr.enqueue(request);
     	
     	Intent i = new Intent();
     	i.setAction(DownloadManager.ACTION_VIEW_DOWNLOADS);
     	startActivity(i);
+    	
+    	//controller.php?document&retrieve&patient_id=1&document_id=3&
     }
     
     
@@ -575,6 +577,8 @@ public class Openemrload extends Activity {
     	Popup("folder is set to "+folder);
     	return folder+"/";
 	}
+    
+    
 	//grab whole cookie string
     private String GetCurrentCookie() {
     	String cookie;
