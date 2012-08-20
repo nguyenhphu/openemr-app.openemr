@@ -6,6 +6,8 @@ import java.util.StringTokenizer;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.DownloadManager;
+import android.app.DownloadManager.Request;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -360,6 +362,20 @@ public class Openemrload extends Activity {
     
     
     
+    
+    
+    public void OurDownloadManager(String url)
+    {
+    	
+    	DownloadManager dm = (DownloadManager) this.getSystemService(Context.DOWNLOAD_SERVICE);
+    	Request request = new Request(Uri.parse(url)); 
+    	request.addRequestHeader("Cookie", PrefsCookieString());
+    	dm.enqueue(request);
+    	
+    	Intent i = new Intent();
+    	i.setAction(DownloadManager.ACTION_VIEW_DOWNLOADS);
+    	startActivity(i);
+    }
     
     
     
