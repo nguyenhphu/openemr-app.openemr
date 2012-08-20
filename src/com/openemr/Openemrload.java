@@ -314,16 +314,54 @@ public class Openemrload extends Activity {
     public void SetButtonTexts() {
     	
     	//might be able to loop this out to clean it up
+    	
+    	
+    	
+    	
         String[] buttontitle = getResources().getStringArray(R.array.buttonchoices);
         
         Button[] temporarybtn = new Button[15];
         for(int iteration = 0; iteration <15; iteration++)
         {
+        	
         	temporarybtn[iteration] = (Button) findViewById(buttonID[iteration]);
+        	temporarybtn[iteration].setTextAppearance(this, GetFont());
         	temporarybtn[iteration].setText(buttontitle[Populate(iteration)]);
+        	
         }
         
     }
+    
+    
+    public int GetFont()
+    {
+    	int font =  Integer.parseInt(preferences.getString("fontsize", "12"));
+    	int style = R.style.ButtonFont12;
+    	if(font<8){font = 8;}
+    	if(font>20){font = 20;}
+    	
+    	if(font == 8){style = R.style.ButtonFont8;}
+    	else if(font == 9){style = R.style.ButtonFont9;}
+    	else if(font == 10){style = R.style.ButtonFont10;}
+    	else if(font == 11){style = R.style.ButtonFont11;}
+    	else if(font == 12){style = R.style.ButtonFont12;}
+    	else if(font == 13){style = R.style.ButtonFont13;}
+    	else if(font == 14){style = R.style.ButtonFont14;}
+    	else if(font == 15){style = R.style.ButtonFont15;}
+    	else if(font == 16){style = R.style.ButtonFont16;}
+    	else if(font == 17){style = R.style.ButtonFont17;}
+    	else if(font == 18){style = R.style.ButtonFont18;}
+    	else if(font == 19){style = R.style.ButtonFont19;}
+    	else if(font == 20){style = R.style.ButtonFont20;}
+    	
+    	Debug.d("Style is "+ style+ " font = "+font);
+    	return style;
+    }
+    
+    
+    
+    
+    
     
     public void load(String path)
     {

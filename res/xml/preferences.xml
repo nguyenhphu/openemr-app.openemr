@@ -39,8 +39,12 @@
     </PreferenceCategory>
     
     <PreferenceCategory android:title="Customization">
-    <PreferenceScreen android:key="button_selection" android:title="Button Selection" android:summary="Change Quickbuttons">
-    
+    <PreferenceScreen android:key="button_selection" android:title="Button Customisation" android:summary="Change Quickbuttons">
+    <PreferenceCategory android:title="Font Size">
+        <EditTextPreference android:key="fontsize" android:summary="Enter a number between 8 and 20" android:title="Choose font size" android:defaultValue="12"/>
+        
+    </PreferenceCategory>
+        
   <PreferenceCategory android:title="Custom Addresses">
     <EditTextPreference android:key="customurl1" android:title="Custom Url 1" android:defaultValue="@string/custom1"></EditTextPreference>
     <EditTextPreference android:key="customurl2" android:title="Custom Url 2" android:defaultValue="@string/custom2"></EditTextPreference>
@@ -48,7 +52,7 @@
     <!-- include from text file at this point -->
     
     </PreferenceCategory>
-	<PreferenceCategory android:title="Choose your buttons">
+	<PreferenceCategory android:title="Customize your buttons">
 		
 		 <ListPreference
             android:key="button0pref"

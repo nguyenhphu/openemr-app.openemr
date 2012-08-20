@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>   
+    <style name="ButtonFont8">
+            <item name="android:textSize">8sp</item>
+    </style>
+     <style name="ButtonFont9">
+            <item name="android:textSize">9sp</item>
+    </style>
+    <style name="ButtonFont10">
+            <item name="android:textSize">10sp</item>
+    </style>
+    <style name="ButtonFont11">
+            <item name="android:textSize">11sp</item>
+    </style>
+    <style name="ButtonFont12">
+            <item name="android:textSize">12sp</item>
+    </style>
+    <style name="ButtonFont13">
+            <item name="android:textSize">13sp</item>
+    </style>
+    <style name="ButtonFont14">
+            <item name="android:textSize">14sp</item>
+    </style>
+    <style name="ButtonFont15">
+            <item name="android:textSize">15sp</item>
+    </style>       
+    <style name="ButtonFont16">
+            <item name="android:textSize">16sp</item>
+    </style>
+    <style name="ButtonFont17">
+            <item name="android:textSize">17sp</item>
+    </style>
+    <style name="ButtonFont18">
+            <item name="android:textSize">18sp</item>
+    </style>
+    <style name="ButtonFont19">
+            <item name="android:textSize">19sp</item>
+    </style>
+    <style name="ButtonFont20">
+            <item name="android:textSize">20sp</item>        
+            
+            
+    </style>
+</resources>
