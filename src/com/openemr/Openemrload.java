@@ -386,6 +386,7 @@ public class Openemrload extends Activity {
     	//moved webview innit and settings to oncreate I think they were only sitting down here while I was
     	//playing with this method
     	String host = Host();
+    	String fulladdress;
     	//webview.setHttpAuthUsernamePassword(host, "", preferences.getString("user", "username"), preferences.getString("pass", "password"));
     	//webview.getSettings().setSavePassword(true);
 		webview.getSettings().setJavaScriptEnabled(true);
@@ -397,7 +398,16 @@ public class Openemrload extends Activity {
 		{
 			webview.loadUrl("file:///android_asset/Firstload.html");
 		}else{
-			String fulladdress = host+MainFolder()+path+"?site="+preferences.getString("Site", "default");
+			if(MainFolder() == "none")
+			{
+				fulladdress = host+path+"?site="+preferences.getString("Site", "default");
+			}
+			else
+			{
+				fulladdress = host+MainFolder()+path+"?site="+preferences.getString("Site", "default");	
+			}
+		
+			
 			Popup("Trying to load "+fulladdress);
 		  	Popup("Host = "+host);
 	    	Popup("Path = "+path);
@@ -500,10 +510,6 @@ public class Openemrload extends Activity {
         	Log.d(this.getClass().getName(), "onReceivedHttpAuthRequest:" + host);
             handler.proceed(preferences.getString("user", "admin"), preferences.getString("pass", "pass"));
             }
-        
-    
-        
-        
     }
         
     
@@ -516,8 +522,22 @@ public class Openemrload extends Activity {
     private void PersistentConfig(String currenturl)//this can likely be done in a simpler manner going to map it out
     {
     	//Log.i( "PageStarted", currenturl );
-    	String success_url = Host() + MainFolder()+"/interface/main/main_screen.php?auth=login&site=" + preferences.getString("Site", "default");
-    	String failure_url = Host() + MainFolder()+"/interface/login/login_frame.php?site=" + preferences.getString("Site", "default");
+    	
+    	String success_url;
+    	String failure_url;
+    	
+    	if(MainFolder() == "none")
+    	{
+    		success_url = Host() +"/interface/main/main_screen.php?auth=login&site=" + preferences.getString("Site", "default");
+        	failure_url = Host() +"/interface/login/login_frame.php?site=" + preferences.getString("Site", "default");
+        	
+    	}
+    	else
+    	{
+    		success_url = Host() + MainFolder()+"/interface/main/main_screen.php?auth=login&site=" + preferences.getString("Site", "default");
+        	failure_url = Host() + MainFolder()+"/interface/login/login_frame.php?site=" + preferences.getString("Site", "default");
+        		
+    	}
     	if(currenturl == null){return;}
     	
     	int fail = currenturl.compareTo(failure_url);
@@ -574,6 +594,12 @@ public class Openemrload extends Activity {
     	{
     		folder = "openemr";
     	}
+    	
+    	if((folder == "none")||(folder == ""))
+    	{
+    		Popup("folder is set to blank");
+    		return "none";
+    	}
     	Popup("folder is set to "+folder);
     	return folder+"/";
 	}
@@ -588,20 +614,50 @@ public class Openemrload extends Activity {
     	{
     		if (preferences.getBoolean("Security", false)== true)
     		{
-    			cookie = Cm.getCookie("https://" + GetDomain() + MainFolder()+"/interface/main/main_screen.php?auth=login&site=" + preferences.getString("Site", "default"));
-    		}else 
+    			if(MainFolder() == "none")
+    			{
+    				cookie = Cm.getCookie("https://" + GetDomain() + "/interface/main/main_screen.php?auth=login&site=" + preferences.getString("Site", "default"));	
+    			}
+    			else
+    			{
+    				cookie = Cm.getCookie("https://" + GetDomain() + MainFolder()+"/interface/main/main_screen.php?auth=login&site=" + preferences.getString("Site", "default"));
+    			}
+    		}
+    		else 
     		{
-    			cookie = Cm.getCookie("http://" + GetDomain() + MainFolder()+"/interface/main/main_screen.php?auth=login&site=" + preferences.getString("Site", "default"));
+    			if(MainFolder() == "none")
+        		{
+    				cookie = Cm.getCookie("http://" + GetDomain() + "/interface/main/main_screen.php?auth=login&site=" + preferences.getString("Site", "default"));
+    			}
+    			else
+    			{
+    				cookie = Cm.getCookie("http://" + GetDomain() + MainFolder()+"/interface/main/main_screen.php?auth=login&site=" + preferences.getString("Site", "default"));
+    			}
     		}
     	}
     	else
     	{	
     		if(preferences.getBoolean("Security", false)== true)
     		{
-    			cookie = Cm.getCookie("https://" + GetDomain() + ":" + port + MainFolder()+"/interface/main/main_screen.php?auth=login&site=" + preferences.getString("Site", "default"));
+    			if(MainFolder() == "none")
+    			{
+    				cookie = Cm.getCookie("https://" + GetDomain() + ":" + port + "/interface/main/main_screen.php?auth=login&site=" + preferences.getString("Site", "default"));
+    			}
+    			else
+    			{
+    				cookie = Cm.getCookie("https://" + GetDomain() + ":" + port + MainFolder()+"/interface/main/main_screen.php?auth=login&site=" + preferences.getString("Site", "default"));
+    			}
     		}else 
     		{
-    			cookie = Cm.getCookie("http://" + GetDomain() + ":" + port + MainFolder()+"/interface/main/main_screen.php?auth=login&site=" + preferences.getString("Site", "default"));
+    			if(MainFolder() == "none")
+    			{
+    				cookie = Cm.getCookie("http://" + GetDomain() + ":" + port + "/interface/main/main_screen.php?auth=login&site=" + preferences.getString("Site", "default"));
+    			}
+    			else
+    			{
+    				cookie = Cm.getCookie("http://" + GetDomain() + ":" + port + MainFolder()+"/interface/main/main_screen.php?auth=login&site=" + preferences.getString("Site", "default"));
+    			}
+    			
     		}
     	}
 		Popup("grabbed current cookie " + cookie);
@@ -623,7 +679,7 @@ public class Openemrload extends Activity {
     	//String cookiepiecename = CookieCutterName(sessionCookie);
     	//String cookiepiecevalue = CookieCutterValue(sessionCookie);
     	
-    	if (sessionCookie != null) 
+    	if(sessionCookie != null) 
     		{
     		//Cm.removeSessionCookie();
     		Cm.setCookie(GetDomain(), sessionCookie);
