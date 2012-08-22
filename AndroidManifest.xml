@@ -20,7 +20,7 @@
             <intent-filter></intent-filter>
         </activity>
        <activity
-            android:name=".MainActivity"
+            android:name=".Downloader"
             android:label="@string/downloader" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

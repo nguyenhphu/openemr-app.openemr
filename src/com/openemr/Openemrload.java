@@ -301,6 +301,11 @@ public class Openemrload extends Activity {
         	Intent i = new Intent(this, Preferences.class);
         	startActivity(i);
             return true;
+        case R.id.downloader:
+        	Intent d = new Intent(this, Downloader.class);
+        	startActivity(d);
+            return true;
+            
         default:
             return super.onOptionsItemSelected(item);
         }
