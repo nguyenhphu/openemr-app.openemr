@@ -222,8 +222,8 @@
         </PreferenceCategory>
         
          
-    
-    
+    <Preference android:key="downloadthis"></Preference>
+    <Preference android:key="PREF_DOWNLOAD_ID"></Preference>
     <Preference android:key="the_cookie"></Preference>
     <Preference android:key="got_session_cookie"></Preference>
             </PreferenceScreen>

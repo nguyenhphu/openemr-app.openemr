@@ -2,19 +2,31 @@ package com.openemr;
 
 
 
+import java.io.File;
+import java.io.FileDescriptor;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.StringTokenizer;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.DownloadManager;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.net.http.SslError;
 import android.os.Bundle;
+import android.os.ParcelFileDescriptor;
 
 
 //import android.os.Debug;
@@ -55,8 +67,8 @@ public class Openemrload extends Activity {
 	SlidingDrawer slidingDrawer;
 	final Activity activity = this;
 	CookieManager Cm = CookieManager.getInstance();
-	
-	
+	DownloadManager Dm;
+	final String strPref_Download_ID = "PREF_DOWNLOAD_ID";
 	//public String sessionCookie;
     @Override
     public void onCreate(Bundle savedInstanceState) 
@@ -67,7 +79,7 @@ public class Openemrload extends Activity {
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
         //set defaults from xml only if this is the first time this method has been called
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);//<---thats this false flag
-        
+        Dm = (DownloadManager)getSystemService(DOWNLOAD_SERVICE);
         this.getWindow().requestFeature(Window.FEATURE_PROGRESS);
         
         setContentView(R.layout.main);
@@ -153,8 +165,23 @@ public class Openemrload extends Activity {
         
 	}
     
+    void DownloadRequest(String url){
+    	
+    	Uri downloadUri = Uri.parse(url);
+    DownloadManager.Request request = new DownloadManager.Request(downloadUri);
+    String cookie =  preferences.getString("the_cookie", "");
+    request.addRequestHeader("Cookie", cookie);
+    request.setVisibleInDownloadsUi(true);
+    request.setDescription("OpenEMR is sending your file");
+    request.setShowRunningNotification(true);
     
+    long id = Dm.enqueue(request);
     
+    //Save the request id so we can pick it up with the viewer or file manager
+    Editor PrefEdit = preferences.edit();
+    PrefEdit.putLong(strPref_Download_ID, id);
+    PrefEdit.commit();
+    }
    
     //class for setting onclick listeners
     private class MyListener implements SlidingDrawer.OnClickListener {
@@ -169,8 +196,75 @@ public class Openemrload extends Activity {
     }
     
     
+
+    @Override
+    protected void onResume() {
+     // TODO Auto-generated method stub
+     super.onResume();
+     //webview.loadUrl("javascript:alert(document.cookie)");
+     
+     //Popup("cookie stored in prefs is" +  PrefsCookieString());
+     SetButtonTexts();
+     // The activity has become visible (it is now "resumed").
+     CookieSyncManager.getInstance().startSync();
+     IntentFilter intentFilter
+      = new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE);
+    registerReceiver(downloadReceiver, intentFilter);
+    }
+
+    @Override
+    protected void onPause() {
+     // TODO Auto-generated method stub
+        super.onPause();
+        // Another activity is taking focus (this activity is about to be "paused").
+        CookieSyncManager.getInstance().stopSync();
+    unregisterReceiver(downloadReceiver);
+    }
+     
     
     
+    
+//how to do something with the downloaded file... this is due to change a lot  TODO
+    private BroadcastReceiver downloadReceiver = new BroadcastReceiver() {
+    	
+     @Override
+     public void onReceive(Context arg0, Intent arg1) {
+      // TODO Auto-generated method stub
+      DownloadManager.Query query = new DownloadManager.Query();
+      query.setFilterById(preferences.getLong(strPref_Download_ID, 0));
+      Cursor cursor = Dm.query(query);
+      if(cursor.moveToFirst()){
+       int columnIndex = cursor.getColumnIndex(DownloadManager.COLUMN_STATUS);
+       int status = cursor.getInt(columnIndex);
+       if(status == DownloadManager.STATUS_SUCCESSFUL){
+        
+        //Retrieve the saved request id
+        long downloadID = preferences.getLong(strPref_Download_ID, 0);
+        ParcelFileDescriptor file;
+        
+        
+        try {
+        	file = Dm.openDownloadedFile(downloadID);
+        	 
+           FileInputStream fileIS = new ParcelFileDescriptor.AutoCloseInputStream(file);
+           //TODO check out fileIS options
+         
+        } catch (FileNotFoundException e) {
+         // TODO Auto-generated catch block
+         e.printStackTrace();
+        }
+        
+       }
+      }
+     } 
+    };
+
+    protected void openFile(String fileName) {
+        Intent install = new Intent(Intent.ACTION_VIEW);
+        install.setDataAndType(Uri.fromFile(new File(fileName)),
+                "MIME-TYPE");
+        startActivity(install);
+    }
     
     
     
@@ -183,24 +277,8 @@ public class Openemrload extends Activity {
         // The activity is about to become visible.
         Popup("debugging enabled");
     }
-    @Override
-    protected void onResume() {
-        super.onResume();
-        //webview.loadUrl("javascript:alert(document.cookie)");
-       
-        //Popup("cookie stored in prefs is" +  PrefsCookieString());
-        SetButtonTexts();
-        // The activity has become visible (it is now "resumed").
-        CookieSyncManager.getInstance().startSync();
-        
-    }
+  
 
-	@Override
-    protected void onPause() {
-        super.onPause();
-        // Another activity is taking focus (this activity is about to be "paused").
-        CookieSyncManager.getInstance().stopSync();
-    }
     @Override
     protected void onStop() {
         super.onStop();
@@ -300,10 +378,6 @@ public class Openemrload extends Activity {
         case R.id.settings:
         	Intent i = new Intent(this, Preferences.class);
         	startActivity(i);
-            return true;
-        case R.id.downloader:
-        	Intent d = new Intent(this, Downloader.class);
-        	startActivity(d);
             return true;
             
         default:
@@ -458,7 +532,7 @@ public class Openemrload extends Activity {
     	{
     		setTitle("Loading...");
     		setProgress(progress * 100);
-
+    		
     		if(progress == 100){
 	    		setTitle(R.string.app_name);
 	    		Popup("Current url: " + GetCurrentURL());
@@ -471,6 +545,7 @@ public class Openemrload extends Activity {
     	//http handling
     	@Override//catch urls to stay in the app do not launch browser
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
+    		
             webview.loadUrl(url);
             
             return true;
@@ -488,14 +563,43 @@ public class Openemrload extends Activity {
             handler.proceed(preferences.getString("user", "admin"), preferences.getString("pass", "pass"));
             }
         
-    
+        
+        
+        @Override
+        public void onLoadResource(WebView view, String url)
+        {
+        	CheckForDownload(url);
+            	
+        }
+        
         
         
     }
         
-    
-    
-    
+    void CheckForDownload(String currenturl){
+    String download_url_beginning = Host() + MainFolder()+"controller.php?document&retrieve&patient_id=";
+	SharedPreferences.Editor settings_editor = preferences.edit();
+	
+		if(currenturl!= null)
+		{
+			if(currenturl.startsWith(download_url_beginning))
+			{	
+				
+				Popup("SUCCESS! saving download url "+ currenturl + " to prefs");
+				DownloadRequest(currenturl);
+				settings_editor.putString("downloadthis", currenturl);
+				settings_editor.commit();
+				return;
+		
+			}
+			else
+			{
+				Popup("compared with "+download_url_beginning);
+				Popup(currenturl + " is not a download");	
+			}
+			
+		}
+    }
    
     
  
@@ -505,14 +609,24 @@ public class Openemrload extends Activity {
     	//Log.i( "PageStarted", currenturl );
     	String success_url = Host() + MainFolder()+"/interface/main/main_screen.php?auth=login&site=" + preferences.getString("Site", "default");
     	String failure_url = Host() + MainFolder()+"/interface/login/login_frame.php?site=" + preferences.getString("Site", "default");
+    	String download_url_beginning = Host() + MainFolder()+"/controller.php?document&retrieve&patient_id=";
+    	SharedPreferences.Editor settings_editor = preferences.edit();
+    	
+    	if(currenturl.startsWith(download_url_beginning))
+    	{
+    		settings_editor.putString("downloadthis", currenturl);
+    		settings_editor.commit();
+    		return;
+    
+    	}
     	if(currenturl == null){return;}
+    	
     	
     	int fail = currenturl.compareTo(failure_url);
     	int success = currenturl.compareTo(success_url);
     	//Popup("success" + success_url);
     	//Popup("fail" + failure_url);
     	//preferences = PreferenceManager.getDefaultSharedPreferences(this);
-    	SharedPreferences.Editor settings_editor = preferences.edit();
     	if(fail == 0)
     	{
     		Popup( "Please Login");
@@ -662,6 +776,7 @@ public class Openemrload extends Activity {
     	{
     	WebView currentwebview = (WebView) findViewById(R.id.webview0);
     	String currenturl = currentwebview.getUrl();
+    	
     	//Popup(currenturl);
     	return currenturl;
     	}
